@@ -161,6 +161,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj.d"
   "CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj"
   "CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj.d"
+  "CMakeFiles/p3d.dir/p3d/psppng.cpp.obj"
+  "CMakeFiles/p3d.dir/p3d/psppng.cpp.obj.d"
   "CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj"
   "CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj.d"
   "CMakeFiles/p3d.dir/p3d/refcounted.cpp.obj"

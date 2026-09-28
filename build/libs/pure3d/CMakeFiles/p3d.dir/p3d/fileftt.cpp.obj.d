@@ -73,6 +73,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/fileftt.cpp.obj: \
  /work/hitr-psp/libs/radcontent/inc/radload/utility/stream.hpp \
  /work/hitr-psp/libs/radcore/inc/radfile.hpp \
  /work/hitr-psp/libs/radcore/inc/radthread.hpp \
+ /usr/local/pspdev/psp/include/c++/15.2.0/cstdio \
  /work/hitr-psp/libs/radcore/inc/radtime.hpp \
  /work/hitr-psp/libs/pure3d/./p3d/loadmanager.hpp \
  /work/hitr-psp/libs/pure3d/./p3d/entity.hpp \

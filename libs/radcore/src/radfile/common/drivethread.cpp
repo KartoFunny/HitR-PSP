@@ -10,21 +10,7 @@
 #include "pch.hpp"
 
 
-// hitr_trace_helper_dt
-#ifdef RAD_PSP
-#include <pspiofilemgr.h>
-#include <pspkernel.h>
-static void PspTrDT(const char* tag) {
-    static int cnt = 0; if (cnt > 500) return; cnt++;
-    SceUID fd = sceIoOpen("ms0:/hitr_trace.log", PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
-    if (fd < 0) return;
-    int n=0; while(tag[n]) n++;
-    sceIoWrite(fd, tag, n); sceIoWrite(fd, "\n", 1); sceIoClose(fd);
-}
-#else
-#define PspTrDT(x) ((void)0)
-#endif
-#include "drivethread.hpp"
+// hitr_trace_helper_dt#include "drivethread.hpp"
 #include "requests.hpp"
 
 //=============================================================================
@@ -278,7 +264,6 @@ void radDriveThread::QueueRequest
     bool                 toHead
 )     
 {
-    PspTrDT("[DT] QueueRequest enter");
     Lock( );
     
     //
@@ -330,7 +315,6 @@ void radDriveThread::QueueRequest
 //=============================================================================
 void radDriveThread::ProcessRequestsInline( void )
 {
-    PspTrDT("[DT] ProcessRequestsInline enter");
     static bool s_busy = false;
     if ( s_busy )
     {

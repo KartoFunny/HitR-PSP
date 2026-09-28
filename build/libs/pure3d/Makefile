@@ -2088,6 +2088,30 @@ p3d/primgroup.cpp.s:
 	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/pure3d/CMakeFiles/p3d.dir/build.make libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.s
 .PHONY : p3d/primgroup.cpp.s
 
+p3d/psppng.obj: p3d/psppng.cpp.obj
+.PHONY : p3d/psppng.obj
+
+# target to build an object file
+p3d/psppng.cpp.obj:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/pure3d/CMakeFiles/p3d.dir/build.make libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.obj
+.PHONY : p3d/psppng.cpp.obj
+
+p3d/psppng.i: p3d/psppng.cpp.i
+.PHONY : p3d/psppng.i
+
+# target to preprocess a source file
+p3d/psppng.cpp.i:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/pure3d/CMakeFiles/p3d.dir/build.make libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.i
+.PHONY : p3d/psppng.cpp.i
+
+p3d/psppng.s: p3d/psppng.cpp.s
+.PHONY : p3d/psppng.s
+
+# target to generate assembly for a file
+p3d/psppng.cpp.s:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/pure3d/CMakeFiles/p3d.dir/build.make libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.s
+.PHONY : p3d/psppng.cpp.s
+
 p3d/rawimage.obj: p3d/rawimage.cpp.obj
 .PHONY : p3d/rawimage.obj
 
@@ -3085,6 +3109,9 @@ help:
 	@echo "... p3d/primgroup.obj"
 	@echo "... p3d/primgroup.i"
 	@echo "... p3d/primgroup.s"
+	@echo "... p3d/psppng.obj"
+	@echo "... p3d/psppng.i"
+	@echo "... p3d/psppng.s"
 	@echo "... p3d/rawimage.obj"
 	@echo "... p3d/rawimage.i"
 	@echo "... p3d/rawimage.s"

@@ -89,6 +89,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/work/hitr-psp/libs/pure3d/p3d/pointcamera.cpp" "libs/pure3d/CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj.d"
   "/work/hitr-psp/libs/pure3d/p3d/pointlight.cpp" "libs/pure3d/CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj.d"
   "/work/hitr-psp/libs/pure3d/p3d/primgroup.cpp" "libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj.d"
+  "/work/hitr-psp/libs/pure3d/p3d/psppng.cpp" "libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.obj.d"
   "/work/hitr-psp/libs/pure3d/p3d/rawimage.cpp" "libs/pure3d/CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj.d"
   "/work/hitr-psp/libs/pure3d/p3d/refcounted.cpp" "libs/pure3d/CMakeFiles/p3d.dir/p3d/refcounted.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/p3d.dir/p3d/refcounted.cpp.obj.d"
   "/work/hitr-psp/libs/pure3d/p3d/scenegraph/nodeanimation.cpp" "libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.obj.d"

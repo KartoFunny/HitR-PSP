@@ -38,7 +38,6 @@ static void PDLog(const char* fmt, ...) {
 //=============================================================================
 void radPspDriveFactory( radDrive** ppDrive, const char* pDriveName, radMemoryAllocator alloc )
 {
-    PDLog("[PSPDRIVE] Factory called: name=%s", pDriveName ? pDriveName : "(null)");
     *ppDrive = new( alloc ) radPspDrive( pDriveName, alloc );
     rAssert( *ppDrive != NULL );
 }
@@ -59,7 +58,6 @@ radPspDrive::radPspDrive( const char* pdrivespec, radMemoryAllocator alloc )
         char kMs0[8];
         kMs0[0]='M'; kMs0[1]='S'; kMs0[2]='0'; kMs0[3]=':'; kMs0[4]='\0';
         pdrivespec = kMs0;
-        PDLog("[PSPDRIVE] ctor using forced name '%s'", pdrivespec);
     }
 #endif
     m_DriveName[0] = '\0';
@@ -72,9 +70,6 @@ radPspDrive::radPspDrive( const char* pdrivespec, radMemoryAllocator alloc )
     // Создать фоновый поток для драйва
     m_pDriveThread = new( alloc ) radDriveThread( m_pMutex, alloc );
     rAssert( m_pDriveThread != NULL );
-
-    PDLog("[PSPDRIVE] ctor pdrivespec='%s'", pdrivespec ? pdrivespec : "(null)");
-
     // Скопировать имя драйва
     strncpy( m_DriveName, pdrivespec, radFileDrivenameMax );
     m_DriveName[radFileDrivenameMax] = '\0';
@@ -161,14 +156,11 @@ radDrive::CompletionStatus radPspDrive::OpenFile
             dump[n++] = ' ';
         }
         dump[n] = 0;
-        PDLog("[PSPDRIVE] PROBE prefix_hex: %s", dump);
-        PDLog("[PSPDRIVE] PROBE fullName: %s", fullName);
     }
 
     // Also try alternate paths to locate the real mount point
     {
         SceUID t1 = sceIoOpen(fullName, 1, 0777);
-        PDLog("[PSPDRIVE] PROBE A (as given) rc=%d", (int)t1);
         if (t1 >= 0) sceIoClose(t1);
 
         char alt[520];
@@ -181,7 +173,6 @@ radDrive::CompletionStatus radPspDrive::OpenFile
         }
         alt[k] = 0;
         SceUID t2 = sceIoOpen(alt, 1, 0777);
-        PDLog("[PSPDRIVE] PROBE B (ms0:/PSP/...) rc=%d", (int)t2);
         if (t2 >= 0) sceIoClose(t2);
     }
 
@@ -195,7 +186,6 @@ radDrive::CompletionStatus radPspDrive::OpenFile
 
     SceUID uid = sceIoOpen( fullName, createFlags, 0777 );
     if ( uid < 0 ) {
-        PDLog("[PSPDRIVE] sceIoOpen FAILED rc=%d", (int)uid);
         *pHandle = (radFileHandle)0;
         m_LastError = FileNotFound;
         return Error;
@@ -204,7 +194,6 @@ radDrive::CompletionStatus radPspDrive::OpenFile
     *pHandle = (radFileHandle)(intptr_t)uid;
     m_OpenFiles++;
     *pSize = sceIoLseek( uid, 0, PSP_SEEK_END );
-    PDLog("[PSPDRIVE] OpenFile OK size=%u", *pSize);
     m_LastError = Success;
     return Complete;
 }
@@ -245,8 +234,6 @@ radDrive::CompletionStatus radPspDrive::ReadFile
         m_LastError = FileNotFound;
         return Error;
     }
-
-    PDLog("[PSPDRIVE] ReadFile: pos=%u, bytes=%u", position, bytesToRead);
     int rd = sceIoRead( uid, pData, bytesToRead );
     if ( rd < 0 )
     {
@@ -310,7 +297,6 @@ radDrive::CompletionStatus radPspDrive::WriteFile
 //=============================================================================
 void radPspDrive::SetMediaInfo( void )
 {
-    PDLog("[PSPDRIVE] SetMediaInfo");
     strncpy( m_MediaInfo.m_VolumeName, m_DriveName, sizeof( m_MediaInfo.m_VolumeName ) - 1 );
     m_MediaInfo.m_VolumeName[ sizeof( m_MediaInfo.m_VolumeName ) - 1 ] = '\0';
     m_MediaInfo.m_SectorSize  = PSP_DEFAULT_SECTOR_SIZE;

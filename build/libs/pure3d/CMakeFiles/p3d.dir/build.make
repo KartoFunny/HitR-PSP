@@ -1136,10 +1136,24 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/png.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/p3d.dir/p3d/png.cpp.s"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /work/hitr-psp/libs/pure3d/p3d/png.cpp -o CMakeFiles/p3d.dir/p3d/png.cpp.s
 
+libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
+libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/psppng.cpp
+libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.obj"
+	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.obj -MF CMakeFiles/p3d.dir/p3d/psppng.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/psppng.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/psppng.cpp
+
+libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/p3d.dir/p3d/psppng.cpp.i"
+	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /work/hitr-psp/libs/pure3d/p3d/psppng.cpp > CMakeFiles/p3d.dir/p3d/psppng.cpp.i
+
+libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/p3d.dir/p3d/psppng.cpp.s"
+	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /work/hitr-psp/libs/pure3d/p3d/psppng.cpp -o CMakeFiles/p3d.dir/p3d/psppng.cpp.s
+
 libs/pure3d/CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/pointcamera.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj -MF CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/pointcamera.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/pointcamera.cpp.i: cmake_force
@@ -1153,7 +1167,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/pointcamera.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/pointlight.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj -MF CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/pointlight.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/pointlight.cpp.i: cmake_force
@@ -1167,7 +1181,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/pointlight.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/primgroup.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj -MF CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/primgroup.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.i: cmake_force
@@ -1181,7 +1195,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/rawimage.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj -MF CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/rawimage.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/rawimage.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/rawimage.cpp.i: cmake_force
@@ -1195,7 +1209,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/rawimage.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/refcounted.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/refcounted.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/refcounted.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/refcounted.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/refcounted.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/refcounted.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/refcounted.cpp.obj -MF CMakeFiles/p3d.dir/p3d/refcounted.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/refcounted.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/refcounted.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/refcounted.cpp.i: cmake_force
@@ -1209,7 +1223,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/refcounted.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/scenegraph/nodeanimation.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.obj -MF CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/scenegraph/nodeanimation.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.i: cmake_force
@@ -1223,7 +1237,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/nodeanimation.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/scenegraph.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/scenegraph.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/scenegraph/scenegraph.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/scenegraph.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/scenegraph.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/scenegraph.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/scenegraph.cpp.obj -MF CMakeFiles/p3d.dir/p3d/scenegraph/scenegraph.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/scenegraph/scenegraph.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/scenegraph/scenegraph.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/scenegraph.cpp.i: cmake_force
@@ -1237,7 +1251,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/scenegraph/scenegraph.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shader.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shader.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/shader.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shader.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/shader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/shader.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/shader.cpp.obj -MF CMakeFiles/p3d.dir/p3d/shader.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/shader.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/shader.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shader.cpp.i: cmake_force
@@ -1251,7 +1265,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/shader.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_common.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_common.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/shadow/shadow_common.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_common.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_common.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_common.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_common.cpp.obj -MF CMakeFiles/p3d.dir/p3d/shadow/shadow_common.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/shadow/shadow_common.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/shadow/shadow_common.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_common.cpp.i: cmake_force
@@ -1265,7 +1279,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_common.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_gc.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_gc.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/shadow/shadow_gc.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_gc.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_gc.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_gc.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_gc.cpp.obj -MF CMakeFiles/p3d.dir/p3d/shadow/shadow_gc.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/shadow/shadow_gc.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/shadow/shadow_gc.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_gc.cpp.i: cmake_force
@@ -1279,7 +1293,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_gc.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_generic.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_generic.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/shadow/shadow_generic.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_generic.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_generic.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_generic.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_generic.cpp.obj -MF CMakeFiles/p3d.dir/p3d/shadow/shadow_generic.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/shadow/shadow_generic.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/shadow/shadow_generic.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_generic.cpp.i: cmake_force
@@ -1293,7 +1307,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_generic.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_ps2.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_ps2.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/shadow/shadow_ps2.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_ps2.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_ps2.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_ps2.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_ps2.cpp.obj -MF CMakeFiles/p3d.dir/p3d/shadow/shadow_ps2.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/shadow/shadow_ps2.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/shadow/shadow_ps2.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_ps2.cpp.i: cmake_force
@@ -1307,7 +1321,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/shadow/shadow_ps2.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/spotlight.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/spotlight.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/spotlight.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/spotlight.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/spotlight.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/spotlight.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/spotlight.cpp.obj -MF CMakeFiles/p3d.dir/p3d/spotlight.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/spotlight.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/spotlight.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/spotlight.cpp.i: cmake_force
@@ -1321,7 +1335,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/spotlight.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/sprite.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/sprite.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/sprite.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/sprite.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/sprite.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/sprite.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/sprite.cpp.obj -MF CMakeFiles/p3d.dir/p3d/sprite.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/sprite.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/sprite.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/sprite.cpp.i: cmake_force
@@ -1335,7 +1349,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/sprite.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/table.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/table.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/table.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/table.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/table.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/table.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/table.cpp.obj -MF CMakeFiles/p3d.dir/p3d/table.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/table.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/table.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/table.cpp.i: cmake_force
@@ -1349,7 +1363,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/table.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/targa.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/targa.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/targa.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/targa.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/targa.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/targa.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/targa.cpp.obj -MF CMakeFiles/p3d.dir/p3d/targa.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/targa.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/targa.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/targa.cpp.i: cmake_force
@@ -1363,7 +1377,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/targa.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/textdataparser.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/textdataparser.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/textdataparser.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/textdataparser.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/textdataparser.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/textdataparser.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/textdataparser.cpp.obj -MF CMakeFiles/p3d.dir/p3d/textdataparser.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/textdataparser.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/textdataparser.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/textdataparser.cpp.i: cmake_force
@@ -1377,7 +1391,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/textdataparser.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/textstring.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/textstring.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/textstring.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/textstring.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/textstring.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/textstring.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/textstring.cpp.obj -MF CMakeFiles/p3d.dir/p3d/textstring.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/textstring.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/textstring.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/textstring.cpp.i: cmake_force
@@ -1391,7 +1405,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/textstring.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/texture.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/texture.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/texture.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/texture.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/texture.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/texture.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/texture.cpp.obj -MF CMakeFiles/p3d.dir/p3d/texture.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/texture.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/texture.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/texture.cpp.i: cmake_force
@@ -1405,7 +1419,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/texture.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/texturefont.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/texturefont.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/texturefont.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/texturefont.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/texturefont.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/texturefont.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/texturefont.cpp.obj -MF CMakeFiles/p3d.dir/p3d/texturefont.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/texturefont.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/texturefont.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/texturefont.cpp.i: cmake_force
@@ -1419,7 +1433,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/texturefont.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/unicode.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/unicode.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/unicode.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/unicode.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/unicode.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/unicode.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/unicode.cpp.obj -MF CMakeFiles/p3d.dir/p3d/unicode.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/unicode.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/unicode.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/unicode.cpp.i: cmake_force
@@ -1433,7 +1447,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/unicode.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/utility.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/utility.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/utility.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/utility.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/utility.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/utility.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/utility.cpp.obj -MF CMakeFiles/p3d.dir/p3d/utility.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/utility.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/utility.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/utility.cpp.i: cmake_force
@@ -1447,7 +1461,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/utility.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/vectorcamera.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/vectorcamera.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/vectorcamera.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/vectorcamera.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/vectorcamera.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/vectorcamera.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/vectorcamera.cpp.obj -MF CMakeFiles/p3d.dir/p3d/vectorcamera.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/vectorcamera.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/vectorcamera.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/vectorcamera.cpp.i: cmake_force
@@ -1461,7 +1475,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/vectorcamera.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/vertexlist.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/vertexlist.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/vertexlist.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/vertexlist.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/vertexlist.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/vertexlist.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/vertexlist.cpp.obj -MF CMakeFiles/p3d.dir/p3d/vertexlist.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/vertexlist.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/vertexlist.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/vertexlist.cpp.i: cmake_force
@@ -1475,7 +1489,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/vertexlist.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/view.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/view.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/view.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/view.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/view.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/view.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/view.cpp.obj -MF CMakeFiles/p3d.dir/p3d/view.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/view.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/view.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/view.cpp.i: cmake_force
@@ -1489,7 +1503,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/view.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/platform.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/platform.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/platform/psp/platform.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/platform.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/platform.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/platform.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/platform.cpp.obj -MF CMakeFiles/p3d.dir/p3d/platform/psp/platform.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/platform/psp/platform.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/platform/psp/platform.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/platform.cpp.i: cmake_force
@@ -1503,7 +1517,7 @@ libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/platform.cpp.s: cmake_force
 libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/plat_filemap.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/flags.make
 libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/plat_filemap.cpp.obj: /work/hitr-psp/libs/pure3d/p3d/platform/psp/plat_filemap.cpp
 libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/plat_filemap.cpp.obj: libs/pure3d/CMakeFiles/p3d.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/plat_filemap.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/plat_filemap.cpp.obj"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/plat_filemap.cpp.obj -MF CMakeFiles/p3d.dir/p3d/platform/psp/plat_filemap.cpp.obj.d -o CMakeFiles/p3d.dir/p3d/platform/psp/plat_filemap.cpp.obj -c /work/hitr-psp/libs/pure3d/p3d/platform/psp/plat_filemap.cpp
 
 libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/plat_filemap.cpp.i: cmake_force
@@ -1592,6 +1606,7 @@ p3d_OBJECTS = \
 "CMakeFiles/p3d.dir/p3d/memory.cpp.obj" \
 "CMakeFiles/p3d.dir/p3d/memorysection.cpp.obj" \
 "CMakeFiles/p3d.dir/p3d/png.cpp.obj" \
+"CMakeFiles/p3d.dir/p3d/psppng.cpp.obj" \
 "CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj" \
 "CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj" \
 "CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj" \
@@ -1699,6 +1714,7 @@ libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/p3d/memheap.cpp.obj
 libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/p3d/memory.cpp.obj
 libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/p3d/memorysection.cpp.obj
 libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/p3d/png.cpp.obj
+libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/p3d/psppng.cpp.obj
 libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/p3d/pointcamera.cpp.obj
 libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/p3d/pointlight.cpp.obj
 libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/p3d/primgroup.cpp.obj
@@ -1728,7 +1744,7 @@ libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/platform.c
 libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/p3d/platform/psp/plat_filemap.cpp.obj
 libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/build.make
 libs/pure3d/libp3d.a: libs/pure3d/CMakeFiles/p3d.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Linking CXX static library libp3d.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Linking CXX static library libp3d.a"
 	cd /work/hitr-psp/build/libs/pure3d && $(CMAKE_COMMAND) -P CMakeFiles/p3d.dir/cmake_clean_target.cmake
 	cd /work/hitr-psp/build/libs/pure3d && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/p3d.dir/link.txt --verbose=$(VERBOSE)
 

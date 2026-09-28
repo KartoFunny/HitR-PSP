@@ -3,7 +3,9 @@
 //=============================================================================
 
 #ifndef RAD_PSP
+#include <cstdio>
 #include <SDL.h>
+
 #else
 #include <strings.h>
 static inline int SDL_strcasecmp(const char* a, const char* b)
@@ -570,9 +572,7 @@ void tLoadManager::SwitchTask(void)
         start = radTimeGetMicroseconds64();
         GetMemoryStats(&freememorystart, &allocationsstart);
     }
-    
     radLoad->Service();
-    
     if (mLoadActive)
     {
         radTime64 end = radTimeGetMicroseconds64();

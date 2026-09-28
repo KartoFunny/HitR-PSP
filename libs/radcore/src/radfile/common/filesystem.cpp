@@ -23,20 +23,6 @@
 #include "pch.hpp"
 
 
-// hitr_trace_helper
-#ifdef RAD_PSP
-#include <pspiofilemgr.h>
-#include <pspkernel.h>
-static void PspTrFS(const char* tag) {
-    static int cnt = 0; if (cnt > 300) return; cnt++;
-    SceUID fd = sceIoOpen("ms0:/hitr_trace.log", PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
-    if (fd < 0) return;
-    int n=0; while(tag[n]) n++;
-    sceIoWrite(fd, tag, n); sceIoWrite(fd, "\n", 1); sceIoClose(fd);
-}
-#else
-#define PspTrFS(x) ((void)0)
-#endif
 #include <ctype.h>
 #include <raddebug.hpp>
 #include <string.h>
@@ -375,7 +361,6 @@ void radFileSystem::FileOpen
     radMemorySpace      cacheSpace 
 )
 {
-    PspTrFS("[RFS] FileOpen enter");
     rAssertMsg( s_Initialized, "radFileSystem not initialized" );
 	rAssert( pFileName != NULL );
     rAssert( pIRadFile != NULL );

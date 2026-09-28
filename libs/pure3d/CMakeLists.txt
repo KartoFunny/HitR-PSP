@@ -76,6 +76,7 @@ set(P3D_SOURCES
 	"p3d/memorysection.cpp"
 	#"p3d/platform/linux/plat_filemap.cpp"
 	"p3d/png.cpp"
+	"p3d/psppng.cpp"
 	"p3d/pointcamera.cpp"
 	"p3d/pointlight.cpp"
 	"p3d/primgroup.cpp"

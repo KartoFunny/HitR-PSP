@@ -4,6 +4,7 @@
 
 #ifndef RAD_PSP
 #include <SDL.h>
+
 #else
 #include <strings.h>
 static inline int SDL_strcasecmp(const char* a, const char* b)

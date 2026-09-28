@@ -5,6 +5,21 @@
 
 #include <p3d/fileftt.hpp>
 
+
+#ifdef RAD_PSP
+#include <cstdio>
+static void FTTr(const char* tag, const char* name) {
+    static int cnt = 0; if (cnt > 300) return; cnt++;
+    FILE* f = fopen("ms0:/hitr_ftt.log", "a");
+    if (!f) return;
+    fputs(tag, f);
+    if (name) { fputs(" ", f); fputs(name, f); }
+    fputs("\n", f); fclose(f);
+}
+#else
+#define FTTr(a,b) ((void)0)
+#endif
+
 #include <radtime.hpp>
 #include <p3d/loadmanager.hpp>
 #include <p3d/utility.hpp>
@@ -157,17 +172,19 @@ void tFileFTT::OnFileOperationsComplete(void*)
 void tFileFTT::WaitForCompletion( void )
 {
     int i = 0;
-    unsigned int time = radTimeGetMicroseconds64();
     while(!m_pIRadFile->CheckForCompletion())
     {
         i++;
+#ifdef RAD_PSP
+        if (i > 100) {
+            // PSP: prevent infinite loop when async read never completes.
+            FILE* _f = fopen("ms0:/hitr_ftt.log", "a");
+            if (_f) { fputs("[FTT] timeout WaitForCompletion\n", _f); fclose(_f); }
+            break;
+        }
+#endif
         p3d::loadManager->SwitchTask();
         gLastTime = radTimeGetMicroseconds64();
-    }
-    if(i>0)
-    {
-        time = radTimeGetMicroseconds64()-time;
-        rReleasePrintf("P3D Loading Starved for %d frames, %d ms\n",i,(time/1000));
     }
 }
 

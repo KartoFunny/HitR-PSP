@@ -46,6 +46,10 @@
 
 #include <worldsim/coins/coinmanager.h>
 
+// hitr strip stub
+#define FEUpdTr(x) ((void)0)
+
+
 //******************************************************************************
 //
 // Global Data, Local Data, Local Classes
@@ -261,6 +265,7 @@ void FrontEndContext::OnStop( ContextEnum nextContext )
 //=============================================================================
 void FrontEndContext::OnUpdate( unsigned int elapsedTime )
 {
+    FEUpdTr("[FE2] OnUpdate enter");
 #ifdef RAD_PSP
     // PSP FORCE: after 30 frames, try to start the front end even if the
     // Scrooby async-load never reported completion (which is what we see).
@@ -296,14 +301,13 @@ void FrontEndContext::OnUpdate( unsigned int elapsedTime )
 
     // update game data manager
     //
+    FEUpdTr("[FE2] before GDM");
     GetGameDataManager()->Update( elapsedTime );
-
-    // update GUI system
-    //
+    FEUpdTr("[FE2] before GuiSystem");
     GetGuiSystem()->Update( elapsedTime );
-
-    //Chuck: adding this so that the rewards manager reflects changes found in the charactersheet.
+    FEUpdTr("[FE2] after GuiSystem");
     GetRewardsManager()->SynchWithCharacterSheet();
+    FEUpdTr("[FE2] end");
 }
 
 //=============================================================================

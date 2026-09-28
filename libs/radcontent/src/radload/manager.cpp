@@ -491,11 +491,29 @@ void radLoadManager::Service()
     }
 #endif
 #ifdef RAD_PSP
-    // PSP: reentrancy guard — the callback->Done() path can re-enter
-    // Service() through tFileFTT::WaitForCompletion -> SwitchTask.
-    // We only allow one level of Service(); nested calls return immediately.
+    // PSP: reentrancy guard with timeout. The callback->Done() path can
+    // re-enter Service() through tFileFTT::WaitForCompletion -> SwitchTask.
+    // If s_depth stays > 0 for too many frames, force-reset (deadlock recovery).
     static int s_depth = 0;
-    if (s_depth > 0) return;
+    static int s_stuck_frames = 0;
+    if (s_depth > 0) {
+        if (++s_stuck_frames > 300) {
+            // ~5 sec stuck — force reset
+            s_depth = 0;
+            s_stuck_frames = 0;
+            if (m_pCurrent) {
+                radLoadObject::Release(m_pCurrent);
+                m_pCurrent = NULL;
+            }
+            // Drop one item from the queue so we can make progress
+            if (!m_pLoadQueue->Empty()) {
+                radLoadObject* obj = m_pLoadQueue->Pop();
+                if (obj) obj->Release();
+            }
+        }
+        return;
+    }
+    s_stuck_frames = 0;
     s_depth++;
     if( IsLoadPending() )
     {
