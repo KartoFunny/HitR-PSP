@@ -14881,6 +14881,7 @@ code/CMakeFiles/SRR2.dir/contexts/frontendcontext.cpp.obj: /work/hitr-psp/code/c
   /usr/local/pspdev/psp/include/_ansi.h \
   /usr/local/pspdev/psp/include/_newlib_version.h \
   /usr/local/pspdev/psp/include/assert.h \
+  /usr/local/pspdev/psp/include/bits/posix_opt.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/backward/binders.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/bit \
   /usr/local/pspdev/psp/include/c++/15.2.0/bits/alloc_traits.h \
@@ -14922,6 +14923,7 @@ code/CMakeFiles/SRR2.dir/contexts/frontendcontext.cpp.obj: /work/hitr-psp/code/c
   /usr/local/pspdev/psp/include/c++/15.2.0/cmath \
   /usr/local/pspdev/psp/include/c++/15.2.0/concepts \
   /usr/local/pspdev/psp/include/c++/15.2.0/cstdint \
+  /usr/local/pspdev/psp/include/c++/15.2.0/cstdio \
   /usr/local/pspdev/psp/include/c++/15.2.0/cstdlib \
   /usr/local/pspdev/psp/include/c++/15.2.0/debug/assertions.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/debug/debug.h \
@@ -14942,26 +14944,66 @@ code/CMakeFiles/SRR2.dir/contexts/frontendcontext.cpp.obj: /work/hitr-psp/code/c
   /usr/local/pspdev/psp/include/c++/15.2.0/vector \
   /usr/local/pspdev/psp/include/limits.h \
   /usr/local/pspdev/psp/include/machine/_default_types.h \
+  /usr/local/pspdev/psp/include/machine/_time.h \
   /usr/local/pspdev/psp/include/machine/_types.h \
   /usr/local/pspdev/psp/include/machine/ieeefp.h \
   /usr/local/pspdev/psp/include/machine/stdlib.h \
+  /usr/local/pspdev/psp/include/machine/time.h \
+  /usr/local/pspdev/psp/include/machine/types.h \
   /usr/local/pspdev/psp/include/math.h \
   /usr/local/pspdev/psp/include/newlib.h \
+  /usr/local/pspdev/psp/include/signal.h \
   /usr/local/pspdev/psp/include/stdint.h \
   /usr/local/pspdev/psp/include/stdio.h \
   /usr/local/pspdev/psp/include/stdlib.h \
   /usr/local/pspdev/psp/include/string.h \
   /usr/local/pspdev/psp/include/sys/_intsup.h \
+  /usr/local/pspdev/psp/include/sys/_pthreadtypes.h \
+  /usr/local/pspdev/psp/include/sys/_sigset.h \
   /usr/local/pspdev/psp/include/sys/_stdint.h \
+  /usr/local/pspdev/psp/include/sys/_timespec.h \
+  /usr/local/pspdev/psp/include/sys/_timeval.h \
   /usr/local/pspdev/psp/include/sys/_types.h \
   /usr/local/pspdev/psp/include/sys/cdefs.h \
   /usr/local/pspdev/psp/include/sys/config.h \
   /usr/local/pspdev/psp/include/sys/features.h \
   /usr/local/pspdev/psp/include/sys/lock.h \
   /usr/local/pspdev/psp/include/sys/reent.h \
+  /usr/local/pspdev/psp/include/sys/sched.h \
+  /usr/local/pspdev/psp/include/sys/signal.h \
   /usr/local/pspdev/psp/include/sys/stdio.h \
   /usr/local/pspdev/psp/include/sys/string.h \
   /usr/local/pspdev/psp/include/sys/syslimits.h \
+  /usr/local/pspdev/psp/include/sys/time.h \
+  /usr/local/pspdev/psp/include/sys/timespec.h \
+  /usr/local/pspdev/psp/include/sys/types.h \
+  /usr/local/pspdev/psp/include/time.h \
+  /usr/local/pspdev/psp/sdk/include/pspdebug.h \
+  /usr/local/pspdev/psp/sdk/include/pspintrman.h \
+  /usr/local/pspdev/psp/sdk/include/pspintrman_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+  /usr/local/pspdev/psp/sdk/include/pspkdebug.h \
+  /usr/local/pspdev/psp/sdk/include/pspkernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerror.h \
+  /usr/local/pspdev/psp/sdk/include/psploadcore.h \
+  /usr/local/pspdev/psp/sdk/include/psploadexec.h \
+  /usr/local/pspdev/psp/sdk/include/pspmoduleinfo.h \
+  /usr/local/pspdev/psp/sdk/include/pspmodulemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspmodulemgr_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspstdio.h \
+  /usr/local/pspdev/psp/sdk/include/pspstdio_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspsysmem.h \
+  /usr/local/pspdev/psp/sdk/include/pspsysreg.h \
+  /usr/local/pspdev/psp/sdk/include/pspthreadman.h \
+  /usr/local/pspdev/psp/sdk/include/psptypes.h \
+  /usr/local/pspdev/psp/sdk/include/pspuser.h \
+  /usr/local/pspdev/psp/sdk/include/psputils.h \
   /work/hitr-psp/code/camera/icamerashaker.h \
   /work/hitr-psp/code/camera/sinecosshaker.h \
   /work/hitr-psp/code/camera/supercam.h \
@@ -20753,12 +20795,15 @@ code/CMakeFiles/SRR2.dir/loading/intersectionloader.cpp.obj: /work/hitr-psp/code
 
 code/CMakeFiles/SRR2.dir/loading/loadingmanager.cpp.obj: /work/hitr-psp/code/loading/loadingmanager.cpp \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/float.h \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/limits.h \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdarg.h \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/syslimits.h \
   /usr/local/pspdev/psp/include/_ansi.h \
   /usr/local/pspdev/psp/include/_newlib_version.h \
   /usr/local/pspdev/psp/include/assert.h \
+  /usr/local/pspdev/psp/include/bits/posix_opt.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/backward/binders.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/bit \
   /usr/local/pspdev/psp/include/c++/15.2.0/bits/alloc_traits.h \
@@ -20818,26 +20863,68 @@ code/CMakeFiles/SRR2.dir/loading/loadingmanager.cpp.obj: /work/hitr-psp/code/loa
   /usr/local/pspdev/psp/include/c++/15.2.0/stdlib.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/type_traits \
   /usr/local/pspdev/psp/include/c++/15.2.0/vector \
+  /usr/local/pspdev/psp/include/limits.h \
   /usr/local/pspdev/psp/include/machine/_default_types.h \
+  /usr/local/pspdev/psp/include/machine/_time.h \
   /usr/local/pspdev/psp/include/machine/_types.h \
   /usr/local/pspdev/psp/include/machine/ieeefp.h \
   /usr/local/pspdev/psp/include/machine/stdlib.h \
+  /usr/local/pspdev/psp/include/machine/time.h \
+  /usr/local/pspdev/psp/include/machine/types.h \
   /usr/local/pspdev/psp/include/math.h \
   /usr/local/pspdev/psp/include/newlib.h \
+  /usr/local/pspdev/psp/include/signal.h \
   /usr/local/pspdev/psp/include/stdint.h \
   /usr/local/pspdev/psp/include/stdio.h \
   /usr/local/pspdev/psp/include/stdlib.h \
   /usr/local/pspdev/psp/include/string.h \
   /usr/local/pspdev/psp/include/sys/_intsup.h \
+  /usr/local/pspdev/psp/include/sys/_pthreadtypes.h \
+  /usr/local/pspdev/psp/include/sys/_sigset.h \
   /usr/local/pspdev/psp/include/sys/_stdint.h \
+  /usr/local/pspdev/psp/include/sys/_timespec.h \
+  /usr/local/pspdev/psp/include/sys/_timeval.h \
   /usr/local/pspdev/psp/include/sys/_types.h \
   /usr/local/pspdev/psp/include/sys/cdefs.h \
   /usr/local/pspdev/psp/include/sys/config.h \
   /usr/local/pspdev/psp/include/sys/features.h \
   /usr/local/pspdev/psp/include/sys/lock.h \
   /usr/local/pspdev/psp/include/sys/reent.h \
+  /usr/local/pspdev/psp/include/sys/sched.h \
+  /usr/local/pspdev/psp/include/sys/signal.h \
   /usr/local/pspdev/psp/include/sys/stdio.h \
   /usr/local/pspdev/psp/include/sys/string.h \
+  /usr/local/pspdev/psp/include/sys/syslimits.h \
+  /usr/local/pspdev/psp/include/sys/time.h \
+  /usr/local/pspdev/psp/include/sys/timespec.h \
+  /usr/local/pspdev/psp/include/sys/types.h \
+  /usr/local/pspdev/psp/include/time.h \
+  /usr/local/pspdev/psp/sdk/include/pspdebug.h \
+  /usr/local/pspdev/psp/sdk/include/pspintrman.h \
+  /usr/local/pspdev/psp/sdk/include/pspintrman_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+  /usr/local/pspdev/psp/sdk/include/pspkdebug.h \
+  /usr/local/pspdev/psp/sdk/include/pspkernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerror.h \
+  /usr/local/pspdev/psp/sdk/include/psploadcore.h \
+  /usr/local/pspdev/psp/sdk/include/psploadexec.h \
+  /usr/local/pspdev/psp/sdk/include/pspmoduleinfo.h \
+  /usr/local/pspdev/psp/sdk/include/pspmodulemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspmodulemgr_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspstdio.h \
+  /usr/local/pspdev/psp/sdk/include/pspstdio_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspsysmem.h \
+  /usr/local/pspdev/psp/sdk/include/pspsysreg.h \
+  /usr/local/pspdev/psp/sdk/include/pspthreadman.h \
+  /usr/local/pspdev/psp/sdk/include/psptypes.h \
+  /usr/local/pspdev/psp/sdk/include/pspuser.h \
+  /usr/local/pspdev/psp/sdk/include/psputils.h \
   /work/hitr-psp/code/ai/vehicle/potentialfield.h \
   /work/hitr-psp/code/ai/vehicle/potentials.h \
   /work/hitr-psp/code/ai/vehicle/vehicleai.h \
@@ -21249,12 +21336,15 @@ code/CMakeFiles/SRR2.dir/loading/locatorloader.cpp.obj: /work/hitr-psp/code/load
 
 code/CMakeFiles/SRR2.dir/loading/p3dfilehandler.cpp.obj: /work/hitr-psp/code/loading/p3dfilehandler.cpp \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/float.h \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/limits.h \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdarg.h \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/syslimits.h \
   /usr/local/pspdev/psp/include/_ansi.h \
   /usr/local/pspdev/psp/include/_newlib_version.h \
   /usr/local/pspdev/psp/include/assert.h \
+  /usr/local/pspdev/psp/include/bits/posix_opt.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/backward/binders.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/bit \
   /usr/local/pspdev/psp/include/c++/15.2.0/bits/alloc_traits.h \
@@ -21314,26 +21404,68 @@ code/CMakeFiles/SRR2.dir/loading/p3dfilehandler.cpp.obj: /work/hitr-psp/code/loa
   /usr/local/pspdev/psp/include/c++/15.2.0/stdlib.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/type_traits \
   /usr/local/pspdev/psp/include/c++/15.2.0/vector \
+  /usr/local/pspdev/psp/include/limits.h \
   /usr/local/pspdev/psp/include/machine/_default_types.h \
+  /usr/local/pspdev/psp/include/machine/_time.h \
   /usr/local/pspdev/psp/include/machine/_types.h \
   /usr/local/pspdev/psp/include/machine/ieeefp.h \
   /usr/local/pspdev/psp/include/machine/stdlib.h \
+  /usr/local/pspdev/psp/include/machine/time.h \
+  /usr/local/pspdev/psp/include/machine/types.h \
   /usr/local/pspdev/psp/include/math.h \
   /usr/local/pspdev/psp/include/newlib.h \
+  /usr/local/pspdev/psp/include/signal.h \
   /usr/local/pspdev/psp/include/stdint.h \
   /usr/local/pspdev/psp/include/stdio.h \
   /usr/local/pspdev/psp/include/stdlib.h \
   /usr/local/pspdev/psp/include/string.h \
   /usr/local/pspdev/psp/include/sys/_intsup.h \
+  /usr/local/pspdev/psp/include/sys/_pthreadtypes.h \
+  /usr/local/pspdev/psp/include/sys/_sigset.h \
   /usr/local/pspdev/psp/include/sys/_stdint.h \
+  /usr/local/pspdev/psp/include/sys/_timespec.h \
+  /usr/local/pspdev/psp/include/sys/_timeval.h \
   /usr/local/pspdev/psp/include/sys/_types.h \
   /usr/local/pspdev/psp/include/sys/cdefs.h \
   /usr/local/pspdev/psp/include/sys/config.h \
   /usr/local/pspdev/psp/include/sys/features.h \
   /usr/local/pspdev/psp/include/sys/lock.h \
   /usr/local/pspdev/psp/include/sys/reent.h \
+  /usr/local/pspdev/psp/include/sys/sched.h \
+  /usr/local/pspdev/psp/include/sys/signal.h \
   /usr/local/pspdev/psp/include/sys/stdio.h \
   /usr/local/pspdev/psp/include/sys/string.h \
+  /usr/local/pspdev/psp/include/sys/syslimits.h \
+  /usr/local/pspdev/psp/include/sys/time.h \
+  /usr/local/pspdev/psp/include/sys/timespec.h \
+  /usr/local/pspdev/psp/include/sys/types.h \
+  /usr/local/pspdev/psp/include/time.h \
+  /usr/local/pspdev/psp/sdk/include/pspdebug.h \
+  /usr/local/pspdev/psp/sdk/include/pspintrman.h \
+  /usr/local/pspdev/psp/sdk/include/pspintrman_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+  /usr/local/pspdev/psp/sdk/include/pspkdebug.h \
+  /usr/local/pspdev/psp/sdk/include/pspkernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerror.h \
+  /usr/local/pspdev/psp/sdk/include/psploadcore.h \
+  /usr/local/pspdev/psp/sdk/include/psploadexec.h \
+  /usr/local/pspdev/psp/sdk/include/pspmoduleinfo.h \
+  /usr/local/pspdev/psp/sdk/include/pspmodulemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspmodulemgr_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspstdio.h \
+  /usr/local/pspdev/psp/sdk/include/pspstdio_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspsysmem.h \
+  /usr/local/pspdev/psp/sdk/include/pspsysreg.h \
+  /usr/local/pspdev/psp/sdk/include/pspthreadman.h \
+  /usr/local/pspdev/psp/sdk/include/psptypes.h \
+  /usr/local/pspdev/psp/sdk/include/pspuser.h \
+  /usr/local/pspdev/psp/sdk/include/psputils.h \
   /work/hitr-psp/code/loading/filehandler.h \
   /work/hitr-psp/code/loading/p3dfilehandler.h \
   /work/hitr-psp/code/main/commandlineoptions.h \
@@ -21835,6 +21967,13 @@ code/CMakeFiles/SRR2.dir/loading/scroobyfilehandler.cpp.obj: /work/hitr-psp/code
   /usr/local/pspdev/psp/include/sys/reent.h \
   /usr/local/pspdev/psp/include/sys/stdio.h \
   /usr/local/pspdev/psp/include/sys/string.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+  /usr/local/pspdev/psp/sdk/include/psptypes.h \
   /work/hitr-psp/code/data/gamedata.h \
   /work/hitr-psp/code/loading/filehandler.h \
   /work/hitr-psp/code/loading/scroobyfilehandler.h \
@@ -22538,6 +22677,8 @@ code/CMakeFiles/SRR2.dir/main/pchsrr2.cpp.obj: /work/hitr-psp/code/main/pchsrr2.
   /work/hitr-psp/libs/radmath/radmath/trig.hpp \
   /work/hitr-psp/libs/radmath/radmath/util.hpp \
   /work/hitr-psp/libs/radmath/radmath/vector.hpp
+
+code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj: /work/hitr-psp/code/main/psp_globals2.cpp
 
 code/CMakeFiles/SRR2.dir/main/pspmain.cpp.obj: /work/hitr-psp/code/main/pspmain.cpp \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/float.h \
@@ -58897,12 +59038,22 @@ code/CMakeFiles/SRR2.dir/psp_globals.cpp.obj: /work/hitr-psp/code/psp_globals.cp
   /usr/local/pspdev/psp/include/sys/reent.h \
   /usr/local/pspdev/psp/include/sys/stdio.h \
   /usr/local/pspdev/psp/include/sys/string.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+  /usr/local/pspdev/psp/sdk/include/psptypes.h \
   /work/hitr-psp/code/events/eventenum.h \
   /work/hitr-psp/code/events/eventlistener.h \
   /work/hitr-psp/code/memory/classsizetracker.h \
   /work/hitr-psp/code/meta/locatorevents.h \
   /work/hitr-psp/code/sound/soundfx/gcreverbcontroller.h \
   /work/hitr-psp/code/sound/soundfx/reverbcontroller.h \
+  /work/hitr-psp/libs/radcontent/inc/radload/radload.hpp \
+  /work/hitr-psp/libs/radcontent/inc/radload/radloadconfig.hpp \
+  /work/hitr-psp/libs/radcontent/inc/radload/utility/object.hpp \
   /work/hitr-psp/code/main/tuidunaligned.h \
   /work/hitr-psp/libs/radcore/inc/raddebug.hpp \
   /work/hitr-psp/libs/radcore/inc/radfile.hpp \
@@ -92375,6 +92526,8 @@ code/CMakeFiles/SRR2.dir/worldsim/worldphysicsmanager.cpp.obj: /work/hitr-psp/co
 
 /work/hitr-psp/code/presentation/gui/frontend/guiscreenvehiclegallery.h:
 
+/work/hitr-psp/code/presentation/gui/frontend/guiscreenskingallery.h:
+
 /usr/local/pspdev/psp/include/signal.h:
 
 /usr/local/pspdev/psp/include/machine/types.h:
@@ -92388,8 +92541,6 @@ code/CMakeFiles/SRR2.dir/worldsim/worldphysicsmanager.cpp.obj: /work/hitr-psp/co
 /usr/local/pspdev/psp/include/c++/15.2.0/system_error:
 
 /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h:
-
-/work/hitr-psp/code/presentation/gui/frontend/guiscreenskingallery.h:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/gthr.h:
 
@@ -92844,8 +92995,6 @@ code/CMakeFiles/SRR2.dir/worldsim/worldphysicsmanager.cpp.obj: /work/hitr-psp/co
 /usr/local/pspdev/psp/sdk/include/pspgu.h:
 
 /work/hitr-psp/code/worldsim/traffic/trafficmanager.h:
-
-/work/hitr-psp/libs/choreo/inc/choreo/rig.hpp:
 
 /work/hitr-psp/libs/pure3d/p3d/pointlight.hpp:
 
@@ -93981,6 +94130,10 @@ code/CMakeFiles/SRR2.dir/worldsim/worldphysicsmanager.cpp.obj: /work/hitr-psp/co
 
 /work/hitr-psp/code/ai/actor/evasionbehaviour.cpp:
 
+/work/hitr-psp/libs/choreo/inc/choreo/rig.hpp:
+
+/work/hitr-psp/code/main/psp_globals2.cpp:
+
 /work/hitr-psp/code/presentation/transitionplayer.cpp:
 
 /work/hitr-psp/code/atc/atcmanager.h:
@@ -94345,11 +94498,67 @@ code/CMakeFiles/SRR2.dir/worldsim/worldphysicsmanager.cpp.obj: /work/hitr-psp/co
 
 /work/hitr-psp/code/contexts/demo/loadingdemocontext.h:
 
+/usr/local/pspdev/psp/include/machine/_time.h:
+
+/work/hitr-psp/code/camera/wrecklesseventlistener.cpp:
+
+/work/hitr-psp/libs/pure3d/p3d/mipmapfilter.hpp:
+
+/usr/local/pspdev/psp/include/sys/_timeval.h:
+
+/usr/local/pspdev/psp/sdk/include/pspdebug.h:
+
+/work/hitr-psp/code/sound/dialog/dialogpriorityqueue.cpp:
+
+/usr/local/pspdev/psp/sdk/include/pspintrman_kernel.h:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr_kernel.h:
+
 /work/hitr-psp/libs/poser/inc/poser/posedriver.hpp:
 
 /work/hitr-psp/code/contexts/frontendcontext.h:
 
-/usr/local/pspdev/psp/sdk/include/pspiofilemgr_kernel.h:
+/work/hitr-psp/libs/radmath/radmath/geometry.hpp:
+
+/usr/local/pspdev/psp/sdk/include/pspkernel.h:
+
+/work/hitr-psp/code/ai/actor/ufobehaviour.cpp:
+
+/work/hitr-psp/code/ai/automaticdoor.cpp:
+
+/usr/local/pspdev/psp/sdk/include/pspkerror.h:
+
+/work/hitr-psp/code/ai/vehicle/potentialfield.h:
+
+/work/hitr-psp/code/ai/vehicle/chaseai.h:
+
+/usr/local/pspdev/psp/sdk/include/pspmodulemgr_kernel.h:
+
+/work/hitr-psp/code/mission/statepropcollectible.cpp:
+
+/usr/local/pspdev/psp/sdk/include/pspstdio.h:
+
+/usr/local/pspdev/psp/sdk/include/pspstdio_kernel.h:
+
+/work/hitr-psp/code/data/savegameinfo.cpp:
+
+/work/hitr-psp/code/mission/objectives/loseobjective.h:
+
+/usr/local/pspdev/psp/sdk/include/pspsysmem.h:
+
+/work/hitr-psp/code/mission/rewards/rewardsmanager.h:
+
+/work/hitr-psp/code/presentation/tutorialmanager.h:
+
+/usr/local/pspdev/psp/sdk/include/pspsysreg.h:
+
+/usr/local/pspdev/psp/include/errno.h:
+
+/usr/local/pspdev/psp/sdk/include/pspthreadman.h:
+
+/usr/local/pspdev/psp/sdk/include/psputils.h:
+
+/work/hitr-psp/code/meta/triggervolumetracker.cpp:
 
 /work/hitr-psp/code/contexts/gameplay/gameplaycontext.cpp:
 
@@ -94381,10 +94590,6 @@ code/CMakeFiles/SRR2.dir/worldsim/worldphysicsmanager.cpp.obj: /work/hitr-psp/co
 
 /work/hitr-psp/code/data/memcard/memorycardmanager.cpp:
 
-/work/hitr-psp/code/data/savegameinfo.cpp:
-
-/usr/local/pspdev/psp/sdk/include/pspstdio_kernel.h:
-
 /work/hitr-psp/code/presentation/gui/guitextbible.h:
 
 /work/hitr-psp/code/presentation/gui/frontend/guiscreenscrapbook.h:
@@ -94412,58 +94617,6 @@ code/CMakeFiles/SRR2.dir/worldsim/worldphysicsmanager.cpp.obj: /work/hitr-psp/co
 /usr/local/pspdev/psp/sdk/include/pspgum.h:
 
 /work/hitr-psp/code/loading/cameradataloader.cpp:
-
-/usr/local/pspdev/psp/include/machine/_time.h:
-
-/work/hitr-psp/code/camera/wrecklesseventlistener.cpp:
-
-/work/hitr-psp/libs/pure3d/p3d/mipmapfilter.hpp:
-
-/usr/local/pspdev/psp/include/sys/_timeval.h:
-
-/usr/local/pspdev/psp/sdk/include/pspdebug.h:
-
-/work/hitr-psp/code/sound/dialog/dialogpriorityqueue.cpp:
-
-/usr/local/pspdev/psp/sdk/include/pspintrman_kernel.h:
-
-/work/hitr-psp/libs/radmath/radmath/geometry.hpp:
-
-/usr/local/pspdev/psp/sdk/include/pspkernel.h:
-
-/work/hitr-psp/code/ai/actor/ufobehaviour.cpp:
-
-/work/hitr-psp/code/ai/automaticdoor.cpp:
-
-/usr/local/pspdev/psp/sdk/include/pspkerror.h:
-
-/work/hitr-psp/code/ai/vehicle/potentialfield.h:
-
-/work/hitr-psp/code/ai/vehicle/chaseai.h:
-
-/usr/local/pspdev/psp/sdk/include/pspmodulemgr_kernel.h:
-
-/work/hitr-psp/code/mission/statepropcollectible.cpp:
-
-/usr/local/pspdev/psp/sdk/include/pspstdio.h:
-
-/work/hitr-psp/code/mission/objectives/loseobjective.h:
-
-/usr/local/pspdev/psp/sdk/include/pspsysmem.h:
-
-/work/hitr-psp/code/mission/rewards/rewardsmanager.h:
-
-/work/hitr-psp/code/presentation/tutorialmanager.h:
-
-/usr/local/pspdev/psp/sdk/include/pspsysreg.h:
-
-/usr/local/pspdev/psp/include/errno.h:
-
-/usr/local/pspdev/psp/sdk/include/pspthreadman.h:
-
-/usr/local/pspdev/psp/sdk/include/psputils.h:
-
-/work/hitr-psp/code/meta/triggervolumetracker.cpp:
 
 /work/hitr-psp/code/stateprop/statepropdatatypes.hpp:
 

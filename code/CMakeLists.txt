@@ -542,6 +542,7 @@ if(PSP)
 		"main/pspmain.cpp"
 		"main/pspplatform.cpp"
 		"psp_globals.cpp"
+    "main/psp_globals2.cpp"
 		"psp_sound_stubs.cpp"
 	)
 	# Исключаем только низкоуровневый soundrenderer, который лезет в radsound HAL

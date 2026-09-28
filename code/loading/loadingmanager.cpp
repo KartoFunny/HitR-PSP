@@ -14,6 +14,13 @@
 //========================================
 // Ftech
 #include <raddebug.hpp>
+
+
+// hitr_lm_h
+
+#ifdef RAD_PSP
+#include <pspiofilemgr.h>
+#endif
 #include <radtime.hpp>
 #include <radfile.hpp>
 #include <string.h>
@@ -597,6 +604,23 @@ LoadingManager::~LoadingManager()
 //==============================================================================
 void LoadingManager::ProcessNextRequest()
 {
+#ifdef RAD_PSP
+    { SceUID fd = sceIoOpen("ms0:/hitr_lm.log",
+                            PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+      if(fd>=0){
+          char b[64]; int i=0;
+          const char* p="[LM] PNR mLoading="; while(p[i]){b[i]=p[i];i++;}
+          b[i++]='0'+(mLoading?1:0);
+          const char* q=" head="; int j=0; while(q[j]){b[i++]=q[j++];}
+          int v=mRequestHead; char t[8]; int k=0;
+          if(v==0){b[i++]='0';} else {while(v>0){t[k++]='0'+(v%10);v/=10;}for(int x=k-1;x>=0;x--)b[i++]=t[x];}
+          q=" tail="; j=0; while(q[j]){b[i++]=q[j++];}
+          v=mRequestTail; k=0;
+          if(v==0){b[i++]='0';} else {while(v>0){t[k++]='0'+(v%10);v/=10;}for(int x=k-1;x>=0;x--)b[i++]=t[x];}
+          b[i++]='\n';
+          sceIoWrite(fd,b,i); sceIoClose(fd);
+      } }
+#endif
     // Are we done?
     if(!mLoading)
     {

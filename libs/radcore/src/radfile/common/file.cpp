@@ -674,11 +674,23 @@ bool radFile::CheckForCompletion( void )
 
 void radFile::WaitForCompletion( void )
 {
+#ifdef RAD_PSP
+    // PSP: all I/O is done inline via radDriveThread::QueueRequest's
+    // ProcessRequestsInline. m_pDrive->Service() is a no-op on this platform,
+    // so an infinite loop here would deadlock on large files that need
+    // multiple read chunks. Just check once and bail.
+    if ( !CheckForCompletion() )
+    {
+        // give the drive one synchronous service attempt then stop
+        m_pDrive->Service();
+    }
+#else
     while ( !CheckForCompletion( ) )
     {
         m_pDrive->Service( );
 //        radThreadSleep(0);
     }
+#endif
 }
 
 //=============================================================================

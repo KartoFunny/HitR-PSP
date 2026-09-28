@@ -117,6 +117,10 @@ void PspPlatform::InitializeFoundation()
 #include <memory/memoryutilities.h>
 #include <memory/srrmemory.h>
 
+// PSP: declared in libs/pure3d/p3d/loaders.cpp
+namespace p3d { void InstallDefaultLoaders(); }
+
+
 // gMemorySystemInitialized объявлен в srrmemory.h
 extern bool gMemorySystemInitialized;
 
@@ -217,6 +221,16 @@ void PspPlatform::InitializePure3D()
         {
             mpPlatform->SetActiveContext(mpContext);
             PLog("[3D] active context set\n");
+
+#ifdef RAD_PSP
+            // PSP: install default Pure3D file loaders (p3d, png, tga, bmp
+            // + all chunk loaders). On other platforms this is done by
+            // *platform.cpp when it installs its platform loaders. We have
+            // to do it here, after p3d::loadManager and p3d::context are set.
+            PLog("[3D] InstallDefaultLoaders\n");
+            p3d::InstallDefaultLoaders();
+            PLog("[3D] loaders installed\n");
+#endif
         }
     }
 }

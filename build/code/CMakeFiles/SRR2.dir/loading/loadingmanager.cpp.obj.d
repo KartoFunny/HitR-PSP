@@ -18,16 +18,23 @@ code/CMakeFiles/SRR2.dir/loading/loadingmanager.cpp.obj: \
  /usr/local/pspdev/psp/include/machine/_types.h \
  /usr/local/pspdev/psp/include/sys/lock.h \
  /usr/local/pspdev/psp/include/sys/stdio.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+ /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+ /usr/local/pspdev/psp/sdk/include/psptypes.h \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
+ /usr/local/pspdev/psp/include/stdint.h \
+ /usr/local/pspdev/psp/include/sys/_intsup.h \
+ /usr/local/pspdev/psp/include/sys/_stdint.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
  /work/hitr-psp/libs/radcore/inc/radtime.hpp \
  /work/hitr-psp/libs/radcore/inc/radobject.hpp \
  /usr/local/pspdev/psp/include/c++/15.2.0/cstdint \
  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h \
  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h \
  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h \
- /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
- /usr/local/pspdev/psp/include/stdint.h \
- /usr/local/pspdev/psp/include/sys/_intsup.h \
- /usr/local/pspdev/psp/include/sys/_stdint.h \
  /work/hitr-psp/code/memory/classsizetracker.h \
  /work/hitr-psp/libs/radcore/inc/radoptions.hpp \
  /work/hitr-psp/libs/radcore/inc/radmemory.hpp \

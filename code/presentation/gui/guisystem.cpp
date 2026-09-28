@@ -658,6 +658,16 @@ void CGuiSystem::HandleMessage
 		}
         case GUI_MSG_RUN_FRONTEND:
         {
+#ifdef RAD_PSP
+            // PSP: PNG broken, Scrooby pages not loaded, CGuiManagerFrontEnd
+            // was never populated → m_pManagerFrontEnd has no windows. Skip
+            // all of this; just set state and return.
+            {
+                FILE* _f = fopen("ms0:/hitr_force.log", "a");
+                if (_f) { fputs("[CGS] PSP: RUN_FRONTEND SKIPPED\n", _f); fclose(_f); }
+            }
+            m_state = FRONTEND_ACTIVE;
+#else
             // thaw frontend render layer
             GetRenderManager()->mpLayer(RenderEnums::GUI)->Thaw();
 
@@ -675,6 +685,7 @@ void CGuiSystem::HandleMessage
             {
                 m_pManagerFrontEnd->Start();
             }
+#endif
 
 /*
 #ifdef RAD_GAMECUBE

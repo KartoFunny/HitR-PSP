@@ -4,6 +4,12 @@
 
 
 #include <p3d/sprite.hpp>
+
+// hitr stripped — empty trace stub
+#define SprTr(x) ((void)0)
+
+
+// hitr_sprite_helper
 #include <p3d/utility.hpp>
 #include <p3d/chunkfile.hpp>
 #include <p3d/image.hpp>
@@ -44,6 +50,7 @@ struct tRect
     int height;
     int width;
 };
+
 
 tSprite::tSprite(tImage* image, tShader* mat, int border, int nx, int ny, tImageConverter* conv)
 {
@@ -130,6 +137,16 @@ tSprite::tSprite(tTexture** images, int w, int h, int count, tShader* mat, int b
     nPolys = count;
 
     // We've only got one texture, so ignore the blitborder
+#ifdef RAD_PSP
+    // PSP: if any required texture is missing, bail out. The caller (our
+    // LoadObject) will return NULL for this sprite.
+    for (int q = 0; q < count; ++q) {
+        if (!textures[q]) {
+            if (polys) { delete[] polys; polys = NULL; }
+            return;
+        }
+    }
+#endif
     if ((textures[0]->GetHeight() == h) && (textures[0]->GetWidth() == w))
     {
         blitBorder = 0;
@@ -753,7 +770,7 @@ tEntity* tSpriteLoader::LoadObject(tChunkFile* f, tEntityStore* store)
     int imageCount;
     tImage* image = NULL;
     tTexture** images = NULL;
-        
+
     f->GetPString(name);
     nativeX = f->GetLong();
     nativeY = f->GetLong();
@@ -766,35 +783,25 @@ tEntity* tSpriteLoader::LoadObject(tChunkFile* f, tEntityStore* store)
     if ((imageCount>1) || blitBorder)
     {
          images = new tTexture*[imageCount];
+         for (int q = 0; q < imageCount; ++q) images[q] = NULL;
     }
 
     while(f->ChunksRemaining())
     {
-        switch(f->BeginChunk())
-        {
-            case P3D_IMAGE:
-                {
-                    image = imageLoader->LoadImage(f, 32);
-                }
-                break;
-            case Pure3D::Texture::IMAGE:
-                 {
-                      if (images)
-                      {
-                            images[count] = LoadTexture(f,32);
-                            images[count]->AddRef();
-                            count++;
-                      }
-                      else
-                      {
-                          image = LoadImage(f, 32);
-                      }
-
-                 }
-                 break;
-
-            default:
-                break;
+        unsigned cid = f->BeginChunk();
+        if (cid == P3D_IMAGE) {
+            image = imageLoader->LoadImage(f, 32);
+            SprTr(image ? "[Spr] imageLoader->LoadImage OK" : "[Spr] imageLoader->LoadImage NULL");
+        } else if (cid == Pure3D::Texture::IMAGE) {
+            if (images) {
+                images[count] = tSpriteLoader::LoadTexture(f, 32);
+                if (images[count]) images[count]->AddRef();
+                count++;
+            } else {
+                image = tSpriteLoader::LoadImage(f, 32);
+                SprTr(image ? "[Spr] tSpriteLoader::LoadImage OK" : "[Spr] tSpriteLoader::LoadImage NULL");
+            }
+        } else {
         }
         f->EndChunk();
     }
@@ -802,23 +809,28 @@ tEntity* tSpriteLoader::LoadObject(tChunkFile* f, tEntityStore* store)
     if(image)
     {
         tShader* mat = p3d::find<tShader>(store, shader);
+        if (!mat) {
+            mat = new tShader("psp_default");
+        }
         tSprite* sprite = new tSprite(image, mat, 1, nativeX, nativeY, converter);
         sprite->SetName(name);
-
         image->Release();
         return sprite;
     }
     else if (images)
     {
+         // PSP: if first texture is null, bail.
+         if (!images[0]) {
+             delete[] images;
+             return NULL;
+         }
          tShader* mat = p3d::find<tShader>(store, shader);
+         SprTr(mat ? "[Spr] multi: mat found" : "[Spr] multi: mat NULL, allocating dummy");
+         if (!mat) {
+             mat = new tShader("psp_default");
+         }
          tSprite* sprite = new tSprite(images, imageWidth, imageHeight, imageCount, mat, 1, nativeX, nativeY, converter);
          sprite->SetName(name);
-
-         // don't delete the textures any more, cause we use them right off the bat.
-         /*for (int i=0; i < imageCount; i++)
-         {
-              images[i]->Release();
-         }*/
          return sprite;
     }
     return NULL;
@@ -837,32 +849,21 @@ tImage* tSpriteLoader::LoadImage(tChunkFile* f, int depth /*=32*/)
     bool palettized = f->GetLong() == 1;
     bool alpha = f->GetLong() == 1;
     unsigned format = f->GetLong();
-
     imageFactory->SetDesiredDepth(bpp);
-
     while(f->ChunksRemaining())
     {
-        switch(f->BeginChunk())
-        {
-            case Pure3D::Texture::IMAGE_DATA:
-            {
-                unsigned size = f->GetLong();
-                tFile* file = f->BeginInset();
-                image = imageFactory->ParseAsImage(file, name, (tImageHandler::Format)format);
-                f->EndInset(file);
-                break;
-            }
-
-            case Pure3D::Texture::IMAGE_FILENAME:
-            {
-                char fileName[255];
-                f->GetPString(fileName);
-                image = imageFactory->LoadAsImage(fileName, name);
-                break;
-            }
-
-            default:
-                break;
+        unsigned cid = f->BeginChunk();
+        if (cid == Pure3D::Texture::IMAGE_DATA) {
+            unsigned size = f->GetLong();
+            tFile* file = f->BeginInset();
+            image = imageFactory->ParseAsImage(file, name, (tImageHandler::Format)format);
+            f->EndInset(file);
+            SprTr(image ? "[Spr] LoadImage: ParseAsImage OK" : "[Spr] LoadImage: ParseAsImage NULL");
+        } else if (cid == Pure3D::Texture::IMAGE_FILENAME) {
+            char fileName[255];
+            f->GetPString(fileName);
+            image = imageFactory->LoadAsImage(fileName, name);
+            SprTr(image ? "[Spr] LoadImage: LoadAsImage OK" : "[Spr] LoadImage: LoadAsImage NULL");
         }
         f->EndChunk();
     }
@@ -880,6 +881,7 @@ tTexture* tSpriteLoader::LoadTexture(tChunkFile* f, int depth /*=32*/)
     tTexture* image = NULL;
     char name[128];
     f->GetPString(name);
+    SprTr(name);
     int version = f->GetLong();
     P3DASSERT(version == IMAGE_VERSION);
     int width = f->GetLong();
@@ -888,7 +890,6 @@ tTexture* tSpriteLoader::LoadTexture(tChunkFile* f, int depth /*=32*/)
     bool palettized = f->GetLong() == 1;
     bool alpha = f->GetLong() == 1;
     unsigned format = f->GetLong();
-
     imageFactory->SetDesiredDepth(bpp);
     switch(format)
     {
@@ -904,34 +905,25 @@ tTexture* tSpriteLoader::LoadTexture(tChunkFile* f, int depth /*=32*/)
          break;
     }
 
-
     while(f->ChunksRemaining())
     {
-        switch(f->BeginChunk())
-        {
-            case Pure3D::Texture::IMAGE_DATA:
-            {
-                unsigned size = f->GetLong();
-                tFile* file = f->BeginInset();
-                image = imageFactory->ParseAsTexture(file, name, size, (tImageHandler::Format)format);
-                f->EndInset(file);
-                break;
-            }
-
-            case Pure3D::Texture::IMAGE_FILENAME:
-            {
-                char fileName[255];
-                f->GetPString(fileName);
-                image = imageFactory->LoadAsTexture(fileName, name);
-                break;
-            }
-
-            default:
-                break;
+        unsigned cid = f->BeginChunk();
+        if (cid == Pure3D::Texture::IMAGE_DATA) {
+            unsigned size = f->GetLong();
+            tFile* file = f->BeginInset();
+            image = imageFactory->ParseAsTexture(file, name, size, (tImageHandler::Format)format);
+            f->EndInset(file);
+            SprTr(image ? "[Tex] ParseAsTexture OK" : "[Tex] ParseAsTexture NULL");
+        } else if (cid == Pure3D::Texture::IMAGE_FILENAME) {
+            char fileName[255];
+            f->GetPString(fileName);
+            SprTr(fileName);
+            image = imageFactory->LoadAsTexture(fileName, name);
+            SprTr(image ? "[Tex] LoadAsTexture OK" : "[Tex] LoadAsTexture NULL");
+        } else {
         }
         f->EndChunk();
     }
-
     return image;
 }
 

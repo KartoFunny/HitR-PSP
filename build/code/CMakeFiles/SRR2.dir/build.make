@@ -6904,10 +6904,24 @@ code/CMakeFiles/SRR2.dir/psp_globals.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SRR2.dir/psp_globals.cpp.s"
 	cd /work/hitr-psp/build/code && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /work/hitr-psp/code/psp_globals.cpp -o CMakeFiles/SRR2.dir/psp_globals.cpp.s
 
+code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj: code/CMakeFiles/SRR2.dir/flags.make
+code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj: /work/hitr-psp/code/main/psp_globals2.cpp
+code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj: code/CMakeFiles/SRR2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_489) "Building CXX object code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj"
+	cd /work/hitr-psp/build/code && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj -MF CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj.d -o CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj -c /work/hitr-psp/code/main/psp_globals2.cpp
+
+code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SRR2.dir/main/psp_globals2.cpp.i"
+	cd /work/hitr-psp/build/code && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /work/hitr-psp/code/main/psp_globals2.cpp > CMakeFiles/SRR2.dir/main/psp_globals2.cpp.i
+
+code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SRR2.dir/main/psp_globals2.cpp.s"
+	cd /work/hitr-psp/build/code && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /work/hitr-psp/code/main/psp_globals2.cpp -o CMakeFiles/SRR2.dir/main/psp_globals2.cpp.s
+
 code/CMakeFiles/SRR2.dir/psp_sound_stubs.cpp.obj: code/CMakeFiles/SRR2.dir/flags.make
 code/CMakeFiles/SRR2.dir/psp_sound_stubs.cpp.obj: /work/hitr-psp/code/psp_sound_stubs.cpp
 code/CMakeFiles/SRR2.dir/psp_sound_stubs.cpp.obj: code/CMakeFiles/SRR2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_489) "Building CXX object code/CMakeFiles/SRR2.dir/psp_sound_stubs.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_490) "Building CXX object code/CMakeFiles/SRR2.dir/psp_sound_stubs.cpp.obj"
 	cd /work/hitr-psp/build/code && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT code/CMakeFiles/SRR2.dir/psp_sound_stubs.cpp.obj -MF CMakeFiles/SRR2.dir/psp_sound_stubs.cpp.obj.d -o CMakeFiles/SRR2.dir/psp_sound_stubs.cpp.obj -c /work/hitr-psp/code/psp_sound_stubs.cpp
 
 code/CMakeFiles/SRR2.dir/psp_sound_stubs.cpp.i: cmake_force
@@ -7408,6 +7422,7 @@ SRR2_OBJECTS = \
 "CMakeFiles/SRR2.dir/main/pspmain.cpp.obj" \
 "CMakeFiles/SRR2.dir/main/pspplatform.cpp.obj" \
 "CMakeFiles/SRR2.dir/psp_globals.cpp.obj" \
+"CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj" \
 "CMakeFiles/SRR2.dir/psp_sound_stubs.cpp.obj"
 
 # External object files for target SRR2
@@ -7901,6 +7916,7 @@ code/SRR2: code/CMakeFiles/SRR2.dir/psp_early_init.cpp.obj
 code/SRR2: code/CMakeFiles/SRR2.dir/main/pspmain.cpp.obj
 code/SRR2: code/CMakeFiles/SRR2.dir/main/pspplatform.cpp.obj
 code/SRR2: code/CMakeFiles/SRR2.dir/psp_globals.cpp.obj
+code/SRR2: code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj
 code/SRR2: code/CMakeFiles/SRR2.dir/psp_sound_stubs.cpp.obj
 code/SRR2: code/CMakeFiles/SRR2.dir/build.make
 code/SRR2: libs/choreo/libchoreo.a
@@ -7924,7 +7940,7 @@ code/SRR2: libs/radcore/libradcore.a
 code/SRR2: libs/radmath/libradmath.a
 code/SRR2: libs/libpng/libpng_static.a
 code/SRR2: code/CMakeFiles/SRR2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_490) "Linking CXX executable SRR2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_491) "Linking CXX executable SRR2"
 	cd /work/hitr-psp/build/code && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SRR2.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold "PSP: fixup-imports на SRR2"
 	cd /work/hitr-psp/build/code && /usr/local/pspdev/bin/psp-fixup-imports /work/hitr-psp/build/code/SRR2

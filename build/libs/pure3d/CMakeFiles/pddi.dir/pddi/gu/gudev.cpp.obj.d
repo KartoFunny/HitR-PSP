@@ -47,6 +47,13 @@ libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gudev.cpp.obj: \
  /work/hitr-psp/libs/pure3d/pddi/pddipc.hpp \
  /work/hitr-psp/libs/pure3d/pddi/pddishade.hpp \
  /work/hitr-psp/libs/pure3d/pddi/gu/gudev.hpp \
+ /work/hitr-psp/libs/pure3d/pddi/gu/guprimbuf.hpp \
+ /work/hitr-psp/libs/pure3d/pddi/gu/gutexture.hpp \
+ /usr/local/pspdev/psp/include/c++/15.2.0/stdlib.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/cstdlib \
+ /usr/local/pspdev/psp/include/string.h \
+ /usr/local/pspdev/psp/include/sys/string.h \
+ /work/hitr-psp/libs/pure3d/pddi/gu/gushader.hpp \
  /work/hitr-psp/libs/pure3d/pddi/gu/gudisplay.hpp \
  /work/hitr-psp/libs/pure3d/pddi/gu/gucon.hpp \
  /work/hitr-psp/libs/pure3d/pddi/base/basecontext.hpp \
@@ -54,6 +61,4 @@ libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gudev.cpp.obj: \
  /work/hitr-psp/libs/pure3d/pddi/base/basetype.hpp \
  /work/hitr-psp/libs/pure3d/pddi/base/debug.hpp \
  /work/hitr-psp/libs/pure3d/pddi/base/font.hpp \
- /usr/local/pspdev/psp/include/c++/15.2.0/cstring \
- /usr/local/pspdev/psp/include/string.h \
- /usr/local/pspdev/psp/include/sys/string.h
+ /usr/local/pspdev/psp/include/c++/15.2.0/cstring

@@ -134,6 +134,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/work/hitr-psp/code/main/commandlineoptions.cpp" "code/CMakeFiles/SRR2.dir/main/commandlineoptions.cpp.obj" "gcc" "code/CMakeFiles/SRR2.dir/main/commandlineoptions.cpp.obj.d"
   "/work/hitr-psp/code/main/game.cpp" "code/CMakeFiles/SRR2.dir/main/game.cpp.obj" "gcc" "code/CMakeFiles/SRR2.dir/main/game.cpp.obj.d"
   "/work/hitr-psp/code/main/pchsrr2.cpp" "code/CMakeFiles/SRR2.dir/main/pchsrr2.cpp.obj" "gcc" "code/CMakeFiles/SRR2.dir/main/pchsrr2.cpp.obj.d"
+  "/work/hitr-psp/code/main/psp_globals2.cpp" "code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj" "gcc" "code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj.d"
   "/work/hitr-psp/code/main/pspmain.cpp" "code/CMakeFiles/SRR2.dir/main/pspmain.cpp.obj" "gcc" "code/CMakeFiles/SRR2.dir/main/pspmain.cpp.obj.d"
   "/work/hitr-psp/code/main/pspplatform.cpp" "code/CMakeFiles/SRR2.dir/main/pspplatform.cpp.obj" "gcc" "code/CMakeFiles/SRR2.dir/main/pspplatform.cpp.obj.d"
   "/work/hitr-psp/code/main/singletons.cpp" "code/CMakeFiles/SRR2.dir/main/singletons.cpp.obj" "gcc" "code/CMakeFiles/SRR2.dir/main/singletons.cpp.obj.d"

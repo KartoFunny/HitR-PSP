@@ -46,13 +46,19 @@ libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj: \
  /work/hitr-psp/libs/pure3d/pddi/pddipsp.hpp \
  /work/hitr-psp/libs/pure3d/pddi/pddipc.hpp \
  /work/hitr-psp/libs/pure3d/pddi/pddishade.hpp \
- /work/hitr-psp/libs/pure3d/pddi/gu/guprim.hpp \
- /usr/local/pspdev/psp/sdk/include/pspgu.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+ /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
  /usr/local/pspdev/psp/sdk/include/psptypes.h \
  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
  /usr/local/pspdev/psp/include/stdint.h \
  /usr/local/pspdev/psp/include/sys/_intsup.h \
  /usr/local/pspdev/psp/include/sys/_stdint.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+ /work/hitr-psp/libs/pure3d/pddi/gu/guprim.hpp \
+ /usr/local/pspdev/psp/sdk/include/pspgu.h \
  /usr/local/pspdev/psp/sdk/include/pspge.h \
  /usr/local/pspdev/psp/sdk/include/pspgum.h \
  /usr/local/pspdev/psp/include/c++/15.2.0/cstring \

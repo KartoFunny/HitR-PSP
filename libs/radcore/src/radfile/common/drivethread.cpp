@@ -8,6 +8,22 @@
 //=============================================================================
 
 #include "pch.hpp"
+
+
+// hitr_trace_helper_dt
+#ifdef RAD_PSP
+#include <pspiofilemgr.h>
+#include <pspkernel.h>
+static void PspTrDT(const char* tag) {
+    static int cnt = 0; if (cnt > 500) return; cnt++;
+    SceUID fd = sceIoOpen("ms0:/hitr_trace.log", PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+    if (fd < 0) return;
+    int n=0; while(tag[n]) n++;
+    sceIoWrite(fd, tag, n); sceIoWrite(fd, "\n", 1); sceIoClose(fd);
+}
+#else
+#define PspTrDT(x) ((void)0)
+#endif
 #include "drivethread.hpp"
 #include "requests.hpp"
 
@@ -189,7 +205,12 @@ radDriveThread::radDriveThread( IRadThreadMutex* pMutex, radMemoryAllocator allo
                            IRadThread::PriorityHigh, 
                            stackSize,
                            alloc );
+#ifdef RAD_PSP
+    // PSP: we don't rely on the background thread (see QueueRequest).
+    // Thread creation may fail; not fatal.
+#else
     rAssertMsg( m_pThread != NULL, "radDriveThread: cannot create thread" );
+#endif
 }
 
 radDriveThread::~radDriveThread( )
@@ -257,6 +278,7 @@ void radDriveThread::QueueRequest
     bool                 toHead
 )     
 {
+    PspTrDT("[DT] QueueRequest enter");
     Lock( );
     
     //
@@ -290,12 +312,70 @@ void radDriveThread::QueueRequest
     m_OutstandingRequests++;
 
     Unlock( );
-    
+
+#ifdef RAD_PSP
+    // PSP: process requests inline — background thread unavailable/reliable.
+    ProcessRequestsInline();
+#else
     //
     // signal the thread.
     //    
     m_pSema->Signal( );
+#endif
 }
+
+#ifdef RAD_PSP
+//=============================================================================
+// radDriveThread::ProcessRequestsInline — PSP-specific synchronous driver
+//=============================================================================
+void radDriveThread::ProcessRequestsInline( void )
+{
+    PspTrDT("[DT] ProcessRequestsInline enter");
+    static bool s_busy = false;
+    if ( s_busy )
+    {
+        // re-entrant call (from within a request handler) — bail, the outer
+        // loop will pick up any newly queued requests.
+        return;
+    }
+    s_busy = true;
+
+    while ( true )
+    {
+        radRequest* request = NextRequest( NULL );
+        if ( request == NULL ) break;
+
+        SetCurrentRequest( request );
+
+        radDrive* drive = request->GetOwner();
+        radDrive::CompletionStatus completionStatus;
+
+        if ( drive->GetLastError() != Success )
+        {
+            completionStatus = request->ReInit();
+            if ( completionStatus == radDrive::Complete )
+            {
+                completionStatus = request->DoRequest();
+            }
+        }
+        else
+        {
+            completionStatus = request->DoRequest();
+        }
+
+        // Simplify error handling for PSP: always delete request.
+        // Retry/Suspend would need the semaphore machinery we're bypassing.
+        delete request;
+        SetCurrentRequest( NULL );
+
+        Lock();
+        m_OutstandingRequests--;
+        Unlock();
+    }
+
+    s_busy = false;
+}
+#endif
 
 //=============================================================================
 // Function:    radDriveThread::CancelRequests

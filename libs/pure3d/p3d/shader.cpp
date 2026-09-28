@@ -14,13 +14,19 @@
 tShader::tShader()
 {
     shader = p3d::device->NewShader("simple");
-    shader->AddRef();
+    if (shader) { shader->AddRef(); }
+#ifdef RAD_PSP
+    else { rReleasePrintf("tShader: NewShader(simple) returned NULL\n"); }
+#endif
 }
 
 tShader::tShader(const char* shaderName, char* definition)
 {
     shader = p3d::device->NewShader(shaderName, definition);
-    shader->AddRef();
+    if (shader) { shader->AddRef(); }
+#ifdef RAD_PSP
+    else { rReleasePrintf("tShader: NewShader(%s) returned NULL\n", shaderName ? shaderName : "(null)"); }
+#endif
 }
 
 tShader::~tShader()

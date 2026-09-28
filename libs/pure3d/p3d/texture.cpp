@@ -5,6 +5,12 @@
     All rights reserved.
 ===========================================================================*/
 #include <p3d/texture.hpp>
+
+// hitr stripped — empty trace stubs
+#define TexTr(x) ((void)0)
+
+
+// hitr_tex_helper
 #include <p3d/image.hpp>
 #include <p3d/imagefactory.hpp>
 #include <p3d/imageconverter.hpp>
@@ -160,6 +166,36 @@ tEntity* tTextureLoader::LoadObject(tChunkFile* f, tEntityStore* store)
 
 tTexture* tTextureLoader::LoadTexture(tChunkFile* f)
 {
+#ifdef RAD_PSP
+    // PSP STUB: PNG decoding unavailable → create a valid empty tTexture so
+    // callers don't get NULL. Consume the chunk. Skip real parsing.
+    char name[128];
+    f->GetPString(name);
+    TexTr(name);
+
+    // Skip rest of this chunk's data
+    while (f->ChunksRemaining()) { f->BeginChunk(); f->EndChunk(); }
+
+    tTexture* tex = new tTexture;
+    tex->AddRef();
+    {
+        pddiTextureDesc desc;
+        desc.SetSizeX(4);
+        desc.SetSizeY(4);
+        desc.SetBitDepth(32);
+        desc.SetAlphaDepth(8);
+        desc.SetMipMapCount(0);
+        desc.SetType(PDDI_TEXTYPE_RGB);
+        desc.SetUsage(PDDI_USAGE_STATIC);
+        pddiTexture* pt = p3d::device->NewTexture(&desc);
+        if (pt) {
+            tex->SetTexture(pt);
+            pt->Release();
+        }
+    }
+    tex->SetName(name);
+    return tex;
+#else
     char name[128];
     f->GetPString(name);
 
@@ -221,6 +257,7 @@ tTexture* tTextureLoader::LoadTexture(tChunkFile* f)
         texture->SetPriority(priority);
     }
     return texture;
+#endif
 }
 
 tTexture* tTextureLoader::LoadImage(tChunkFile* f, tImageFactory* factory, tTexture* buildTexture, int mipLevel)

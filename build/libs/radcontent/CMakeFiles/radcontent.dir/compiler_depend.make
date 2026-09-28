@@ -130,11 +130,14 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/inventory.cpp.obj: /work/h
   /work/hitr-psp/libs/radmath/radmath/vector.hpp
 
 libs/radcontent/CMakeFiles/radcontent.dir/src/radload/manager.cpp.obj: /work/hitr-psp/libs/radcontent/src/radload/manager.cpp \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/limits.h \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdarg.h \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/syslimits.h \
   /usr/local/pspdev/psp/include/_ansi.h \
   /usr/local/pspdev/psp/include/_newlib_version.h \
+  /usr/local/pspdev/psp/include/bits/posix_opt.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/bits/std_abs.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/cstdint \
   /usr/local/pspdev/psp/include/c++/15.2.0/cstdlib \
@@ -142,25 +145,67 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/manager.cpp.obj: /work/hit
   /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h \
   /usr/local/pspdev/psp/include/c++/15.2.0/stdlib.h \
+  /usr/local/pspdev/psp/include/limits.h \
   /usr/local/pspdev/psp/include/machine/_default_types.h \
+  /usr/local/pspdev/psp/include/machine/_time.h \
   /usr/local/pspdev/psp/include/machine/_types.h \
   /usr/local/pspdev/psp/include/machine/ieeefp.h \
   /usr/local/pspdev/psp/include/machine/stdlib.h \
+  /usr/local/pspdev/psp/include/machine/time.h \
+  /usr/local/pspdev/psp/include/machine/types.h \
   /usr/local/pspdev/psp/include/newlib.h \
+  /usr/local/pspdev/psp/include/signal.h \
   /usr/local/pspdev/psp/include/stdint.h \
   /usr/local/pspdev/psp/include/stdio.h \
   /usr/local/pspdev/psp/include/stdlib.h \
   /usr/local/pspdev/psp/include/string.h \
   /usr/local/pspdev/psp/include/sys/_intsup.h \
+  /usr/local/pspdev/psp/include/sys/_pthreadtypes.h \
+  /usr/local/pspdev/psp/include/sys/_sigset.h \
   /usr/local/pspdev/psp/include/sys/_stdint.h \
+  /usr/local/pspdev/psp/include/sys/_timespec.h \
+  /usr/local/pspdev/psp/include/sys/_timeval.h \
   /usr/local/pspdev/psp/include/sys/_types.h \
   /usr/local/pspdev/psp/include/sys/cdefs.h \
   /usr/local/pspdev/psp/include/sys/config.h \
   /usr/local/pspdev/psp/include/sys/features.h \
   /usr/local/pspdev/psp/include/sys/lock.h \
   /usr/local/pspdev/psp/include/sys/reent.h \
+  /usr/local/pspdev/psp/include/sys/sched.h \
+  /usr/local/pspdev/psp/include/sys/signal.h \
   /usr/local/pspdev/psp/include/sys/stdio.h \
   /usr/local/pspdev/psp/include/sys/string.h \
+  /usr/local/pspdev/psp/include/sys/syslimits.h \
+  /usr/local/pspdev/psp/include/sys/time.h \
+  /usr/local/pspdev/psp/include/sys/timespec.h \
+  /usr/local/pspdev/psp/include/sys/types.h \
+  /usr/local/pspdev/psp/include/time.h \
+  /usr/local/pspdev/psp/sdk/include/pspdebug.h \
+  /usr/local/pspdev/psp/sdk/include/pspintrman.h \
+  /usr/local/pspdev/psp/sdk/include/pspintrman_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+  /usr/local/pspdev/psp/sdk/include/pspkdebug.h \
+  /usr/local/pspdev/psp/sdk/include/pspkernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerror.h \
+  /usr/local/pspdev/psp/sdk/include/psploadcore.h \
+  /usr/local/pspdev/psp/sdk/include/psploadexec.h \
+  /usr/local/pspdev/psp/sdk/include/pspmoduleinfo.h \
+  /usr/local/pspdev/psp/sdk/include/pspmodulemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspmodulemgr_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspstdio.h \
+  /usr/local/pspdev/psp/sdk/include/pspstdio_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspsysmem.h \
+  /usr/local/pspdev/psp/sdk/include/pspsysreg.h \
+  /usr/local/pspdev/psp/sdk/include/pspthreadman.h \
+  /usr/local/pspdev/psp/sdk/include/psptypes.h \
+  /usr/local/pspdev/psp/sdk/include/pspuser.h \
+  /usr/local/pspdev/psp/sdk/include/psputils.h \
   /work/hitr-psp/code/memory/classsizetracker.h \
   /work/hitr-psp/libs/radcontent/inc/radload/loader.hpp \
   /work/hitr-psp/libs/radcontent/inc/radload/radload.hpp \
@@ -345,10 +390,6 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
   /work/hitr-psp/libs/radcore/inc/radthread.hpp
 
 
-/work/hitr-psp/libs/radcontent/src/radload/stream.cpp:
-
-/work/hitr-psp/libs/radcontent/inc/radload/utility/stream.hpp:
-
 /work/hitr-psp/libs/radcontent/src/radload/queue.cpp:
 
 /work/hitr-psp/libs/radcore/inc/radmemorymonitor.hpp:
@@ -357,13 +398,77 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
 
 /work/hitr-psp/libs/radcore/inc/radthread.hpp:
 
+/usr/local/pspdev/psp/sdk/include/pspuser.h:
+
+/usr/local/pspdev/psp/sdk/include/pspthreadman.h:
+
+/usr/local/pspdev/psp/sdk/include/pspsysreg.h:
+
+/usr/local/pspdev/psp/sdk/include/pspmodulemgr_kernel.h:
+
+/usr/local/pspdev/psp/sdk/include/pspmodulemgr.h:
+
+/usr/local/pspdev/psp/sdk/include/psputils.h:
+
+/usr/local/pspdev/psp/sdk/include/pspmoduleinfo.h:
+
+/usr/local/pspdev/psp/sdk/include/psploadexec.h:
+
+/usr/local/pspdev/psp/sdk/include/pspkerror.h:
+
+/work/hitr-psp/libs/radcontent/src/radload/stream.cpp:
+
+/usr/local/pspdev/psp/sdk/include/pspkernel.h:
+
 /work/hitr-psp/libs/radcontent/src/radload/manager.hpp:
 
+/usr/local/pspdev/psp/sdk/include/pspkdebug.h:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr_kernel.h:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr.h:
+
+/usr/local/pspdev/psp/include/time.h:
+
+/usr/local/pspdev/psp/include/sys/types.h:
+
+/usr/local/pspdev/psp/include/sys/time.h:
+
 /usr/local/pspdev/psp/include/sys/string.h:
+
+/usr/local/pspdev/psp/sdk/include/psptypes.h:
+
+/usr/local/pspdev/psp/include/sys/signal.h:
+
+/usr/local/pspdev/psp/include/sys/_timeval.h:
+
+/work/hitr-psp/libs/radcontent/inc/radload/utility/stream.hpp:
+
+/usr/local/pspdev/psp/include/sys/_timespec.h:
+
+/usr/local/pspdev/psp/include/machine/types.h:
+
+/usr/local/pspdev/psp/include/machine/_time.h:
+
+/usr/local/pspdev/psp/include/limits.h:
+
+/usr/local/pspdev/psp/include/bits/posix_opt.h:
+
+/usr/local/pspdev/lib/gcc/psp/15.2.0/include/syslimits.h:
 
 /work/hitr-psp/libs/radcontent/inc/radload/utility/inventory.hpp:
 
 /usr/local/pspdev/psp/include/math.h:
+
+/usr/local/pspdev/psp/include/sys/syslimits.h:
 
 /usr/local/pspdev/psp/include/_ansi.h:
 
@@ -372,6 +477,10 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
 /usr/local/pspdev/psp/include/machine/ieeefp.h:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/typeinfo:
+
+/usr/local/pspdev/psp/include/sys/sched.h:
+
+/usr/local/pspdev/psp/include/signal.h:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/stdlib.h:
 
@@ -385,6 +494,8 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
 
 /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h:
 
+/usr/local/pspdev/psp/sdk/include/pspstdio.h:
+
 /usr/local/pspdev/psp/include/c++/15.2.0/bits/version.h:
 
 /usr/local/pspdev/psp/include/sys/features.h:
@@ -393,9 +504,15 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
 
 /work/hitr-psp/libs/radcore/inc/radkey.hpp:
 
+/usr/local/pspdev/psp/sdk/include/pspstdio_kernel.h:
+
+/usr/local/pspdev/psp/sdk/include/pspintrman_kernel.h:
+
 /usr/local/pspdev/psp/include/machine/stdlib.h:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/cstdint:
+
+/usr/local/pspdev/lib/gcc/psp/15.2.0/include/limits.h:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h:
 
@@ -404,6 +521,8 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
 /work/hitr-psp/libs/radcontent/src/radload/inventory.cpp:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/cmath:
+
+/usr/local/pspdev/psp/sdk/include/pspdebug.h:
 
 /work/hitr-psp/libs/radcore/inc/radobject.hpp:
 
@@ -425,6 +544,8 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
 
 /usr/local/pspdev/psp/include/assert.h:
 
+/usr/local/pspdev/psp/include/sys/_pthreadtypes.h:
+
 /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/bits/cpp_type_traits.h:
@@ -441,6 +562,8 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
 
 /usr/local/pspdev/psp/include/c++/15.2.0/bits/std_abs.h:
 
+/usr/local/pspdev/psp/sdk/include/pspkerneltypes.h:
+
 /work/hitr-psp/libs/radcontent/inc/radload/utility/object.hpp:
 
 /work/hitr-psp/libs/radmath/radmath/quaternion.hpp:
@@ -450,6 +573,8 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
 /work/hitr-psp/libs/radcore/inc/radfile.hpp:
 
 /work/hitr-psp/libs/radcore/inc/radoptions.hpp:
+
+/usr/local/pspdev/psp/include/machine/time.h:
 
 /usr/local/pspdev/psp/include/stdio.h:
 
@@ -462,6 +587,8 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
 /usr/local/pspdev/psp/include/sys/_stdint.h:
 
 /usr/local/pspdev/psp/include/sys/_types.h:
+
+/usr/local/pspdev/psp/sdk/include/psploadcore.h:
 
 /work/hitr-psp/libs/radmath/radmath/trig.hpp:
 
@@ -477,7 +604,11 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
 
 /work/hitr-psp/libs/radcontent/inc/radload/utility/hashtable.hpp:
 
+/usr/local/pspdev/psp/include/sys/timespec.h:
+
 /work/hitr-psp/code/main/tuidunaligned.h:
+
+/usr/local/pspdev/psp/sdk/include/pspsysmem.h:
 
 /work/hitr-psp/libs/radcontent/inc/radload/radload.hpp:
 
@@ -493,7 +624,11 @@ libs/radcontent/CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj: /work/hitr
 
 /work/hitr-psp/libs/radcore/inc/radmemory.hpp:
 
+/usr/local/pspdev/psp/sdk/include/pspintrman.h:
+
 /work/hitr-psp/libs/radmath/radmath/buildconfig.hpp:
+
+/usr/local/pspdev/psp/include/sys/_sigset.h:
 
 /work/hitr-psp/libs/radmath/radmath/geometry.hpp:
 

@@ -15,6 +15,8 @@
 #include <radmemorymonitor.hpp>
 #include <radthread.hpp>
 
+
+
 //  class to trap momory allocations from PDDI and pass them on to the radcore memormy manager
 class RadcoreMemAdapt : public pddiExtMemRegistration::CallBack
 {
@@ -84,6 +86,7 @@ tContext::tContext(pddiDevice* dev, pddiDisplay* disp, pddiRenderContext* con)
 
     loadManager = new tLoadManager; 
     loadManager->AddRef();
+
 
     skinning = (pddiExtHardwareSkinning*)RenderContext->GetExtension(PDDI_EXT_HARDWARE_SKINNING);
     vertexProgram = (pddiExtVertexProgram*)RenderContext->GetExtension(PDDI_EXT_VERTEX_PROGRAM);

@@ -59,6 +59,12 @@ bool tPNGHandler::CheckFormat(Format format)
 
 void tPNGHandler::CreateImage(tFile* file, tImageHandler::Builder* builder)
 {
+#ifdef RAD_PSP
+    // PSP: libpng 1.0.3 fails to initialize on this platform.
+    // Skip PNG decoding entirely; builder stays empty, caller gets NULL texture.
+    (void)file; (void)builder;
+    return;
+#else
     png_structp pPNG = png_create_read_struct(PNG_LIBPNG_VER_STRING, nullptr, nullptr, nullptr);
 
 
@@ -142,6 +148,7 @@ void tPNGHandler::CreateImage(tFile* file, tImageHandler::Builder* builder)
     // we are done!
     png_destroy_info_struct(pPNG, &pngInfo);
     png_destroy_read_struct(&pPNG, 0, 0);
+#endif  // RAD_PSP
 }
 
 bool tPNGHandler::SaveImage(tImage* image, char* filename)

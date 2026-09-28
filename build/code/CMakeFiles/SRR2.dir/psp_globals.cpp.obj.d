@@ -59,4 +59,14 @@ code/CMakeFiles/SRR2.dir/psp_globals.cpp.obj: \
  /work/hitr-psp/code/sound/soundfx/reverbcontroller.h \
  /work/hitr-psp/code/events/eventlistener.h \
  /work/hitr-psp/code/events/eventenum.h \
- /work/hitr-psp/code/meta/locatorevents.h
+ /work/hitr-psp/code/meta/locatorevents.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+ /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+ /usr/local/pspdev/psp/sdk/include/psptypes.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+ /work/hitr-psp/libs/radcontent/inc/radload/radload.hpp \
+ /work/hitr-psp/libs/radcontent/inc/radload/utility/object.hpp \
+ /work/hitr-psp/libs/radcontent/inc/radload/radloadconfig.hpp

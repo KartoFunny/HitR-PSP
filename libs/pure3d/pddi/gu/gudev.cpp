@@ -3,6 +3,9 @@
 //=============================================================================
 #include <pddi/pddi.hpp>
 #include "gudev.hpp"
+#include "guprimbuf.hpp"
+#include "gutexture.hpp"
+#include "gushader.hpp"
 #include "gudisplay.hpp"
 #include "gucon.hpp"
 
@@ -44,9 +47,16 @@ pddiRenderContext* pguDevice::NewRenderContext(pddiDisplay* display)
     return m_context;
 }
 
-pddiTexture*     pguDevice::NewTexture(pddiTextureDesc*) { return nullptr; }
-pddiPrimBuffer*  pguDevice::NewPrimBuffer(pddiPrimBufferDesc*) { return nullptr; }
-pddiShader*      pguDevice::NewShader(const char*, const char*) { return nullptr; }
+pddiTexture*     pguDevice::NewTexture(pddiTextureDesc* desc)
+{
+    return new pguTexture(desc);
+}
+pddiPrimBuffer*  pguDevice::NewPrimBuffer(pddiPrimBufferDesc* desc)
+{
+    if (!desc) return 0;
+    return new pguPrimBuffer(desc);
+}
+pddiShader*      pguDevice::NewShader(const char*, const char*) { return new pguShader(); }
 void             pguDevice::AddCustomShader(const char*, const char*) { }
 void             pguDevice::SetMessageCallback(MessageCallback*) { }
 

@@ -52,6 +52,16 @@ radPspDrive::radPspDrive( const char* pdrivespec, radMemoryAllocator alloc )
       m_OpenFiles( 0 ),
       m_pMutex( NULL )
 {
+#ifdef RAD_PSP
+    // PSP HACK: the incoming pdrivespec arrives corrupted ('MS0:' -> 'MSn:'),
+    // so we build a fresh copy on the stack, ignoring the argument entirely.
+    {
+        char kMs0[8];
+        kMs0[0]='M'; kMs0[1]='S'; kMs0[2]='0'; kMs0[3]=':'; kMs0[4]='\0';
+        pdrivespec = kMs0;
+        PDLog("[PSPDRIVE] ctor using forced name '%s'", pdrivespec);
+    }
+#endif
     m_DriveName[0] = '\0';
     m_DrivePath[0] = '\0';
 
@@ -62,6 +72,8 @@ radPspDrive::radPspDrive( const char* pdrivespec, radMemoryAllocator alloc )
     // Создать фоновый поток для драйва
     m_pDriveThread = new( alloc ) radDriveThread( m_pMutex, alloc );
     rAssert( m_pDriveThread != NULL );
+
+    PDLog("[PSPDRIVE] ctor pdrivespec='%s'", pdrivespec ? pdrivespec : "(null)");
 
     // Скопировать имя драйва
     strncpy( m_DriveName, pdrivespec, radFileDrivenameMax );
@@ -121,26 +133,70 @@ radDrive::CompletionStatus radPspDrive::OpenFile
     unsigned int*       pSize
 )
 {
-    char fullName[ radFileFilenameMax + 1 ];
-    BuildFileSpec( fileName, fullName, radFileFilenameMax + 1 );
+    // PROBE: build path byte-by-byte, no literals, no std::string.
+    static const unsigned char PREFIX[5] = { 0x6D, 0x73, 0x30, 0x3A, 0x2F }; // "ms0:/"
+    char fullName[512];
+    unsigned i = 0;
+    fullName[i++] = (char)PREFIX[0];
+    fullName[i++] = (char)PREFIX[1];
+    fullName[i++] = (char)PREFIX[2];
+    fullName[i++] = (char)PREFIX[3];
+    fullName[i++] = (char)PREFIX[4];
+    for (const char* p = fileName; *p && i + 2 < sizeof(fullName); ++p) {
+        char c = *p;
+        if (c == '\\') c = '/';
+        fullName[i++] = c;
+    }
+    fullName[i] = 0;
 
-    // PSP-флаги открытия
-    int createFlags = writeAccess ? PSP_O_RDWR : PSP_O_RDONLY;
-    switch ( flags )
+    // Hex dump of first 8 bytes + full string via two logs
     {
+        static const char* HEX = "0123456789ABCDEF";
+        char dump[64];
+        unsigned n = 0;
+        for (unsigned k = 0; k < 8 && k < i; ++k) {
+            unsigned char b = (unsigned char)fullName[k];
+            dump[n++] = HEX[b >> 4];
+            dump[n++] = HEX[b & 0xF];
+            dump[n++] = ' ';
+        }
+        dump[n] = 0;
+        PDLog("[PSPDRIVE] PROBE prefix_hex: %s", dump);
+        PDLog("[PSPDRIVE] PROBE fullName: %s", fullName);
+    }
+
+    // Also try alternate paths to locate the real mount point
+    {
+        SceUID t1 = sceIoOpen(fullName, 1, 0777);
+        PDLog("[PSPDRIVE] PROBE A (as given) rc=%d", (int)t1);
+        if (t1 >= 0) sceIoClose(t1);
+
+        char alt[520];
+        unsigned k = 0;
+        alt[k++] = 'm'; alt[k++] = 's'; alt[k++] = '0'; alt[k++] = ':'; alt[k++] = '/';
+        alt[k++] = 'P'; alt[k++] = 'S'; alt[k++] = 'P'; alt[k++] = '/';
+        for (const char* p = fileName; *p && k + 2 < sizeof(alt); ++p) {
+            char c = *p; if (c == '\\') c = '/';
+            alt[k++] = c;
+        }
+        alt[k] = 0;
+        SceUID t2 = sceIoOpen(alt, 1, 0777);
+        PDLog("[PSPDRIVE] PROBE B (ms0:/PSP/...) rc=%d", (int)t2);
+        if (t2 >= 0) sceIoClose(t2);
+    }
+
+    int createFlags = writeAccess ? PSP_O_RDWR : PSP_O_RDONLY;
+    switch ( flags ) {
     case OpenExisting:  break;
     case OpenAlways:    createFlags |= PSP_O_CREAT;               break;
     case CreateAlways:  createFlags |= PSP_O_CREAT | PSP_O_TRUNC; break;
-    default:
-        rAssertMsg( false, "radPspDrive: unknown open flag" );
-        return Error;
+    default: return Error;
     }
 
-    PDLog("[PSPDRIVE] OpenFile: %s (flags=%d)", fullName, createFlags);
     SceUID uid = sceIoOpen( fullName, createFlags, 0777 );
-    if ( uid < 0 )
-    {
-        *pHandle  = (radFileHandle)0;
+    if ( uid < 0 ) {
+        PDLog("[PSPDRIVE] sceIoOpen FAILED rc=%d", (int)uid);
+        *pHandle = (radFileHandle)0;
         m_LastError = FileNotFound;
         return Error;
     }
@@ -148,6 +204,7 @@ radDrive::CompletionStatus radPspDrive::OpenFile
     *pHandle = (radFileHandle)(intptr_t)uid;
     m_OpenFiles++;
     *pSize = sceIoLseek( uid, 0, PSP_SEEK_END );
+    PDLog("[PSPDRIVE] OpenFile OK size=%u", *pSize);
     m_LastError = Success;
     return Complete;
 }

@@ -3,6 +3,22 @@
 //=============================================================================
 
 #include <radload/manager.hpp>
+
+
+// hitr_trace_helper_ld
+#ifdef RAD_PSP
+#include <pspiofilemgr.h>
+#include <pspkernel.h>
+static void PspTrLD(const char* tag) {
+    static int cnt = 0; if (cnt > 500) return; cnt++;
+    SceUID fd = sceIoOpen("ms0:/hitr_trace.log", PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+    if (fd < 0) return;
+    int n=0; while(tag[n]) n++;
+    sceIoWrite(fd, tag, n); sceIoWrite(fd, "\n", 1); sceIoClose(fd);
+}
+#else
+#define PspTrLD(x) ((void)0)
+#endif
 #include <string.h>
 #include <radload/utility/hashtable.hpp>
 #include <radload/utility/queue.hpp>
@@ -78,7 +94,9 @@ m_pMutex( NULL )
     m_pCallbacks ->AddRef();
 
     ::radThreadCreateMutex( &m_pMutex );
+#ifndef RAD_PSP
     m_pMutex->Lock();
+#endif
     ::radThreadCreateThread( &m_pThread, radLoadManager::LoadThreadEntry, static_cast<void*>(this), IRadThread::PriorityNormal, init.loadThreadStackSize );
 
 #ifdef RADLOAD_GATHER_STATS
@@ -166,6 +184,83 @@ radLoadFileLoader* radLoadManager::GetFileLoader( const char* extension )
 
 void radLoadManager::InternalService()
 {
+#ifdef RAD_PSP
+    {
+        static int s_is_count = 0;
+        s_is_count++;
+        if ((s_is_count % 20) == 0) {
+            SceUID fd = sceIoOpen("ms0:/hitr_service.log", PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+            if (fd >= 0) {
+                char b[64]; int i=0;
+                const char* m="[IS] n="; while(*m) b[i++]=*m++;
+                int v=s_is_count; char t[10]; int k=0;
+                while(v>0){t[k++]='0'+(v%10);v/=10;}
+                while(k>0)b[i++]=t[--k];
+                b[i++]='\n';
+                sceIoWrite(fd, b, i); sceIoClose(fd);
+            }
+        }
+    }
+    // PSP: one-shot — pop at most one item and return.
+    // Called every frame from Service(), so queue drains over time.
+    if( m_pLoadQueue->Empty() )
+    {
+        return;
+    }
+
+    radLoadObject* obj = m_pLoadQueue->Pop();
+    if( !obj ) return;
+
+    radLoadCallback* callback = dynamic_cast<radLoadCallback*>( obj );
+    if( callback )
+    {
+        m_pCallbacks->Push( callback );
+        return;
+    }
+
+    QueueItem* item = dynamic_cast<QueueItem*>(obj);
+    if( !item ) return;
+
+    m_pCurrent = item;
+    m_pCurrent->AddRef();
+    m_pCurrent->SetState( LOADING );
+
+    char* filename = item->GetOptions()->filename;
+
+    int i = strlen( filename ) - 1;
+    while( i && (filename[i] != '.') )
+    {
+        i--;
+    }
+    i++;
+
+    radLoadFileLoader* loader = m_pFileLoaders->Find( radMakeCaseInsensitiveKey( filename + i ) );
+    if( !loader )
+    {
+        PspTrLD("[LD] ERROR: no loader for extension");
+        PspTrLD( filename + i );
+        if( m_pCurrent->GetState() == LOADING )
+        {
+            m_pCurrent->SetState( COMPLETE );
+        }
+        radLoadObject::Release( m_pCurrent );
+        m_pCurrent = NULL;
+        return;
+    }
+
+    radMemoryAllocator oldAlloc = ::radMemorySetCurrentAllocator( item->GetOptions()->allocator );
+    PspTrLD("[LD] before loader->LoadFile");
+    loader->LoadFile( item->GetOptions(), static_cast<radLoadUpdatableRequest*>( item ) );
+    PspTrLD("[LD] after loader->LoadFile");
+    ::radMemorySetCurrentAllocator( oldAlloc );
+
+    if( m_pCurrent->GetState() == LOADING )
+    {
+        m_pCurrent->SetState( COMPLETE );
+    }
+    radLoadObject::Release( m_pCurrent );
+    m_pCurrent = NULL;
+#else
     m_pMutex->Lock();
     while( !m_bDone )
     {
@@ -187,16 +282,6 @@ void radLoadManager::InternalService()
                     m_pCurrent->SetState( LOADING );
 
                     char* filename = item->GetOptions()->filename;
-
-                    // Find the "." in filename.
-                    // Review: RAD: There are lots of functions that do this!  Try:
-                    /* 
-                    char* extension = strrchr( filename, '.' );
-                    rAssert( extension != NULL );
-                    extension++;
-                    */
-
-                    // Find the file extension.
                     int i = strlen( filename ) - 1;
                     while( i && (filename[i] != '.') )
                     {
@@ -207,33 +292,12 @@ void radLoadManager::InternalService()
                     radLoadFileLoader* loader = m_pFileLoaders->Find( radMakeCaseInsensitiveKey( filename + i ) );
                     rAssert( loader );
                     radMemoryAllocator old = ::radMemorySetCurrentAllocator (item->GetOptions()->allocator);
-
                     loader->LoadFile( item->GetOptions(), static_cast<radLoadUpdatableRequest*>( item ) );
-                    
                     ::radMemorySetCurrentAllocator (old);
                     if( m_pCurrent->GetState() == LOADING )
                     {
                         m_pCurrent->SetState( COMPLETE );
                     }
-    #ifdef RADLOAD_GATHER_STATS
-                    if( m_pCurrent->GetState() == COMPLETE )
-                    {
-                        m_completedLoads++;
-                        unsigned int time = m_pCurrent->GetTotalLoadTime();
-                        unsigned int queued = m_pCurrent->GetTotalQueuedTime();
-                    
-                        m_minLoadTime = (m_minLoadTime > time) ? time : m_minLoadTime;
-                        m_maxLoadTime = (m_maxLoadTime < time) ? time : m_maxLoadTime;
-                        m_avgLoadTime = (((m_avgLoadTime * (m_totalLoads - 1))/(m_totalLoads)) +
-                                (time/m_totalLoads));
-
-                        m_minQueuedTime = (m_minQueuedTime > queued) ? queued : m_minQueuedTime;
-                        m_maxQueuedTime = (m_maxQueuedTime < queued) ? queued : m_maxQueuedTime;
-                        m_avgQueuedTime = (((m_avgQueuedTime * (m_totalLoads - 1))/(m_totalLoads)) +
-                                (queued/m_totalLoads));
-                    }
-                    m_pendingLoads--;
-    #endif
                     radLoadObject::Release( m_pCurrent );
                 }
             }
@@ -244,7 +308,9 @@ void radLoadManager::InternalService()
         }
     }
     m_pMutex->Unlock();
+#endif
 }
+
 
 bool radLoadManager::IsLoadPending()
 {
@@ -258,6 +324,29 @@ bool radLoadManager::IsSyncLoading()
 
 void radLoadManager::Load( radLoadOptions* options, radLoadRequest** request )
 {
+    PspTrLD("[LD] Load enter");
+#ifdef RAD_PSP
+    {
+        static int s_ld_count = 0;
+        s_ld_count++;
+        if ((s_ld_count % 5) == 0) {
+            SceUID fd = sceIoOpen("ms0:/hitr_service.log", PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+            if (fd >= 0) {
+                char b[80]; int i=0;
+                const char* m="[LOAD] n="; while(*m) b[i++]=*m++;
+                int v=s_ld_count; char t[10]; int k=0;
+                while(v>0){t[k++]='0'+(v%10);v/=10;}
+                while(k>0)b[i++]=t[--k];
+                m=" q="; while(*m) b[i++]=*m++;
+                v=m_pLoadQueue->Size(); char t2[10]; int k2=0;
+                if(v==0){t2[k2++]='0';} else {while(v>0){t2[k2++]='0'+(v%10);v/=10;}}
+                while(k2>0)b[i++]=t2[--k2];
+                b[i++]='\n';
+                sceIoWrite(fd, b, i); sceIoClose(fd);
+            }
+        }
+    }
+#endif
 #ifdef RADLOAD_GATHER_STATS
     m_totalLoads++;
     m_pendingLoads++;
@@ -265,7 +354,15 @@ void radLoadManager::Load( radLoadOptions* options, radLoadRequest** request )
 #endif
     rAssert( options );
     rAssert( options->filename );
+#ifdef RAD_PSP
+    // PSP: syncLoad would deadlock: loader->LoadFile eventually calls back into
+    // Load() recursively, and the inner sync-loop's InternalService has an
+    // already-empty queue, so item never transitions to COMPLETE.
+    // Force async — Service() is pumped every frame and drains the queue.
+    options->syncLoad = false;
+#else
     options->syncLoad |= m_bSyncLoading;
+#endif
     radMemoryAllocator old = ::radMemorySetCurrentAllocator( RADMEMORY_ALLOC_TEMP );
     QueueItem* item = new QueueItem( *options );
     ::radMemorySetCurrentAllocator( old );
@@ -277,6 +374,7 @@ void radLoadManager::Load( radLoadOptions* options, radLoadRequest** request )
     {
         item->SetStream( options->stream );
     }
+#ifndef RAD_PSP
     if( options->syncLoad )
     {
         while( item->GetState() != COMPLETE )
@@ -285,6 +383,7 @@ void radLoadManager::Load( radLoadOptions* options, radLoadRequest** request )
             radFileService();
         }
     }
+#endif
 }
 
 void radLoadManager::Load( const char* filename, radLoadRequest** request )
@@ -297,6 +396,7 @@ void radLoadManager::Load( const char* filename, radLoadRequest** request )
 
 unsigned int radLoadManager::LoadThreadEntry( void* data )
 {
+    PspTrLD("[LD] LoadThreadEntry enter");
     radLoadManager* manager = static_cast<radLoadManager*>( data );
     manager->InternalService();
     return 0;
@@ -363,10 +463,50 @@ void radLoadManager::RemoveFileLoader( radLoadFileLoader* loader )
 
 void radLoadManager::Service()
 {
+    PspTrLD("[LD] Service enter");
+#ifdef RAD_PSP
+    {
+        static int s_svc_count = 0;
+        s_svc_count++;
+        if ((s_svc_count % 5) == 0) {
+            SceUID fd = sceIoOpen("ms0:/hitr_service.log", PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+            if (fd >= 0) {
+                char b[120]; int i=0;
+                const char* m="[SVC] count="; while(*m) b[i++]=*m++;
+                int v=s_svc_count; char t[10]; int k=0;
+                while(v>0){t[k++]='0'+(v%10);v/=10;}
+                while(k>0)b[i++]=t[--k];
+                m=" pending="; while(*m) b[i++]=*m++;
+                v=IsLoadPending()?1:0; b[i++]='0'+v;
+                m=" cbEmpty="; while(*m) b[i++]=*m++;
+                v=m_pCallbacks->Empty()?1:0; b[i++]='0'+v;
+                m=" qSize="; while(*m) b[i++]=*m++;
+                v=m_pLoadQueue->Size(); char t2[10]; int k2=0;
+                if(v==0){t2[k2++]='0';} else {while(v>0){t2[k2++]='0'+(v%10);v/=10;}}
+                while(k2>0)b[i++]=t2[--k2];
+                b[i++]='\n';
+                sceIoWrite(fd, b, i); sceIoClose(fd);
+            }
+        }
+    }
+#endif
+#ifdef RAD_PSP
+    // PSP: reentrancy guard — the callback->Done() path can re-enter
+    // Service() through tFileFTT::WaitForCompletion -> SwitchTask.
+    // We only allow one level of Service(); nested calls return immediately.
+    static int s_depth = 0;
+    if (s_depth > 0) return;
+    s_depth++;
+    if( IsLoadPending() )
+    {
+        InternalService();
+    }
+#else
     if( IsLoadPending() )
     {
         SwitchTasks();
     }
+#endif
 
     if(!m_pCallbacks->Empty())
     {
@@ -375,7 +515,9 @@ void radLoadManager::Service()
         callback->Release();
     }
 
-
+#ifdef RAD_PSP
+    s_depth--;
+#endif
 }
 
 void radLoadManager::SetSyncLoading( bool sync )
@@ -385,9 +527,15 @@ void radLoadManager::SetSyncLoading( bool sync )
 
 void radLoadManager::SwitchTasks()
 {
+    PspTrLD("[LD] SwitchTasks");
+#ifdef RAD_PSP
+    // PSP: single-threaded — just yield, no mutex ops.
+    radThreadSleep(0);
+#else
     m_pMutex->Unlock();
     radThreadSleep(0);
     m_pMutex->Lock();
+#endif
 }
 
 void radLoadManager::Terminate()
@@ -398,7 +546,9 @@ void radLoadManager::Terminate()
     m_pLoadQueue->Release();
     m_pCallbacks->Release();
     m_bDone = true;
+    #ifndef RAD_PSP
     m_pMutex->Unlock();
+#endif
     m_pThread->WaitForTermination();
     m_pThread->Release();
 

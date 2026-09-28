@@ -30,6 +30,7 @@
 // System Includes
 //========================================
 #include <raddebug.hpp>
+
 #include <radtime.hpp>
 #include <raddebugwatch.hpp>
 #include <radmovie2.hpp>
@@ -41,6 +42,7 @@
 #ifdef RAD_PSP
 #include <pspiofilemgr.h>
 #include <cstdarg>
+#include <radfile.hpp>
 static void BLOG(const char* fmt, ...) {
     SceUID fd = sceIoOpen("ms0:/hitr_bootctx.log",
                           PSP_O_WRONLY | PSP_O_CREAT | PSP_O_APPEND, 0777);
@@ -100,6 +102,7 @@ static void BLOG(const char* fmt, ...) {
 #ifdef RAD_PC
     #include <main/win32platform.h>
     #include <data/config/gameconfigmanager.h>
+
 #endif
 
 //******************************************************************************
@@ -408,11 +411,8 @@ void BootupContext::OnStart( ContextEnum previousContext )
 
     BLOG_M("[BC] OnStart END");
 
-#ifdef RAD_PSP
-    // PSP: пропускаем загрузку ресурсов — сразу в главное меню (FrontEnd).
-    // Ресурсы (P3D/PNG) у нас не загружаются: нет PSP-драйва для radfile.
-    GetGameFlow()->SetContext( CONTEXT_FRONTEND );
-#endif
+
+
 }
 
 
@@ -431,22 +431,49 @@ void BootupContext::OnStop( ContextEnum nextContext )
 {
     rTunePrintf("BootupContext::OnStop... ");
 
+#ifdef RAD_PSP
+    { SceUID fd = sceIoOpen("ms0:/hitr_onstop.log",
+                            PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+      if(fd>=0){ sceIoWrite(fd,"[STOP] OnStop enter\n",20); sceIoClose(fd);} }
+#endif
+
     GetGuiSystem()->UnregisterUserInputHandlers();
 
+#ifdef RAD_PSP
+    { SceUID fd = sceIoOpen("ms0:/hitr_onstop.log",
+                            PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+      if(fd>=0){ sceIoWrite(fd,"[STOP] after Unregister\n",25); sceIoClose(fd);} }
+    // PSP: GUI scripts not loaded, skip GUI_MSG_RELEASE_BOOTUP
+#else
     // release GUI bootup
     GetGuiSystem()->HandleMessage( GUI_MSG_RELEASE_BOOTUP );
+#endif
 
 #if defined( RAD_PC ) && defined( SHOW_MOVIES )
     GetInputManager()->GetFEMouse()->SetInGameMode( false );
 #endif
 
 
+#ifndef RAD_PSP
     MEMTRACK_POP_FLAG( "" );
-
     HeapMgr()->PopHeap ( GMA_PERSISTENT );
-
+#endif
     rTunePrintf("Finished\n");
+#ifdef RAD_PSP
+    {
+        SceUID fd = sceIoOpen("ms0:/hitr_onstop.log",
+                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+        if(fd>=0){ sceIoWrite(fd,"[STOP] before SetMemoryIdentification\n",38); sceIoClose(fd);}
+    }
+#endif
     SetMemoryIdentification( "BootupContext Finished" );
+#ifdef RAD_PSP
+    {
+        SceUID fd = sceIoOpen("ms0:/hitr_onstop.log",
+                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+        if(fd>=0){ sceIoWrite(fd,"[STOP] OnStop END\n",18); sceIoClose(fd);}
+    }
+#endif
 }
 
 
@@ -461,6 +488,9 @@ void BootupContext::OnStop( ContextEnum nextContext )
 // Return:      
 //
 //==============================================================================
+
+// hitr_upd_helper
+
 void BootupContext::OnUpdate( unsigned int elapsedTime )
 {
 #ifdef RAD_PSP
@@ -485,14 +515,60 @@ void BootupContext::OnUpdate( unsigned int elapsedTime )
     }
 #endif
 
+#ifdef RAD_PSP
+    // PSP: hard fallback — after 5 seconds in Bootup, force transition.
+    {
+        static int s_fe_cnt = 0;
+        if ( ++s_fe_cnt == 300 && m_bootupLoadCompleted )
+        {
+            extern bool g_pspRequestFrontEnd;
+            g_pspRequestFrontEnd = true;
+            SceUID fd = sceIoOpen("ms0:/hitr_fe.log", PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+            if (fd >= 0) { sceIoWrite(fd, "[FE] forced transition request\n", 30); sceIoClose(fd); }
+        }
+    }
+#endif
+
+#ifdef RAD_PSP
+    {
+        static int s_frm = 0;
+        if ((++s_frm % 60) == 0) {
+            SceUID fd = sceIoOpen("ms0:/hitr_update.log",
+                                  PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+            if (fd>=0){ char b[40]; int i=0; const char*p="[UPD] frame ";
+              while(p[i]){b[i]=p[i];i++;}
+              int v=s_frm; char n[10]; int k=0;
+              while(v>0){n[k++]='0'+(v%10);v/=10;}
+              for(int j=k-1;j>=0;j--) b[i++]=n[j];
+              b[i++]='\n'; sceIoWrite(fd,b,i); sceIoClose(fd);} }
+    }
+#endif
+
+#ifdef RAD_PSP
+    // PSP: ResetLicenseScreenDisplayTime() is called by the license-screen GUI
+    // which we don't have. Kick off the timer ourselves once assets are loaded.
+    if ( m_elapsedTime == -1 && m_bootupLoadCompleted && m_soundLoadCompleted )
+    {
+        rReleasePrintf("[BC] PSP: starting license-screen timer\n");
+        m_elapsedTime = 0;
+    }
+#endif
+
     if( m_elapsedTime != -1 )
     {
         if( m_elapsedTime > MINIMUM_LICENSE_SCREEN_DISPLAY_TIME &&
             m_bootupLoadCompleted && m_soundLoadCompleted )
         {
-            // Tell GUI system to quit out of the boot-up state
+#ifdef RAD_PSP
+            // PSP: don't call SetContext from inside OnUpdate (re-entrancy is
+            // risky — GameFlow::OnTimerDone is mid-call). Instead set a flag
+            // and let Game::Run do the transition after OnTimerDone returns.
+            extern bool g_pspRequestFrontEnd;
+            g_pspRequestFrontEnd = true;
+            rReleasePrintf("[BC] PSP: requesting FrontEnd transition\n");
+#else
             GetGuiSystem()->HandleMessage( GUI_MSG_QUIT_BOOTUP );
-
+#endif
             m_elapsedTime = -1;
         }
         else
@@ -501,11 +577,13 @@ void BootupContext::OnUpdate( unsigned int elapsedTime )
         }
     }
 
+#ifdef RAD_PSP
+    // PSP: таймер перехода во FRONTEND отключён — сидим в Bootup, пока не разберёмся с загрузкой.
+#endif
+
     // update game data manager
     GetGameDataManager()->Update( elapsedTime );
-
     GetPresentationManager()->Update( elapsedTime );
-
     // update GUI system
     GetGuiSystem()->Update( elapsedTime );
 }
@@ -570,7 +648,15 @@ void BootupContext::OnHandleEvent( EventEnum id, void* pEventData )
 //=============================================================================
 void BootupContext::OnProcessRequestsComplete( void* pUserData )
 {
+#ifdef RAD_PSP
+    // PSP: SoundManager is stubbed (GetSoundManager() returns nullptr), and
+    // AddCallback(this) passes pUserData=0, so the original comparison
+    // `pUserData == GetSoundManager()` matched falsely. Disambiguate by
+    // checking that GetSoundManager() actually exists.
+    if( pUserData != NULL && pUserData == GetSoundManager() )
+#else
     if( pUserData == GetSoundManager() )
+#endif
     {
         // set flag indicating all sound loads have completed
         //
@@ -582,6 +668,27 @@ void BootupContext::OnProcessRequestsComplete( void* pUserData )
         //
         m_bootupLoadCompleted = true;
     }
+#ifdef RAD_PSP
+    // PSP: SoundManager is stubbed; StartLoadingSound() from license GUI never
+    // runs, so m_soundLoadCompleted would never be set on its own. Force it
+    // once the bootup assets are done loading.
+    if ( m_bootupLoadCompleted )
+    {
+        m_soundLoadCompleted = true;
+    }
+    {
+        SceUID fd = sceIoOpen("ms0:/hitr_oprc.log", PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+        if (fd >= 0) {
+            char b[64]; int i=0;
+            const char* m = "[OPRC] bootup="; while(m[i]){b[i]=m[i];i++;}
+            b[i++] = '0' + (m_bootupLoadCompleted ? 1 : 0);
+            const char* m2 = " sound="; int j=0; while(m2[j]){b[i++]=m2[j++];}
+            b[i++] = '0' + (m_soundLoadCompleted ? 1 : 0);
+            b[i++] = '\n';
+            sceIoWrite(fd, b, i); sceIoClose(fd);
+        }
+    }
+#endif
 
     //
     // Tell the sound manager to do some processing, now that the scripts
@@ -594,7 +701,12 @@ void BootupContext::OnProcessRequestsComplete( void* pUserData )
     //
     if( m_bootupLoadCompleted && m_soundLoadCompleted )
     {
+#ifdef RAD_PSP
+        // PSP: SoundManager is stubbed (returns nullptr). Skip OnBootupComplete.
+        // The subsequent ToggleRumble is safe (InputManager exists).
+#else
         GetSoundManager()->OnBootupComplete();
+#endif
 
         GetInputManager()->ToggleRumble( false );
     }

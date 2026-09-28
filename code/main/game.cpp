@@ -843,6 +843,8 @@ const unsigned PROFILE_CHANNEL_AI = 1;
 const unsigned PROFILE_CHANNEL_RENDER = 2;
 const unsigned PROFILE_CHANNEL_LOAD = 3;
 
+// hitr_run_helper
+
 void Game::Run() 
 {
 
@@ -946,6 +948,16 @@ void Game::Run()
             mpGameFlow->OnTimerDone(elapsed, NULL);
             DEMOPROFILE( g_DemoProfiler.Stop(PROFILE_CHANNEL_AI); )
 
+#ifdef RAD_PSP
+            extern bool g_pspRequestFrontEnd;
+            if ( g_pspRequestFrontEnd )
+            {
+                g_pspRequestFrontEnd = false;
+                rReleasePrintf("[G] PSP: switching to FrontEnd\n");
+                GetGameFlow()->SetContext( CONTEXT_FRONTEND );
+            }
+#endif
+
             if( !mExitNow )
             {
                 DEMOPROFILE( g_DemoProfiler.Start(PROFILE_CHANNEL_RENDER); )
@@ -971,8 +983,14 @@ void Game::Run()
         // Service FTech subsystems.
         //
         ::radFileService();
+#ifdef RAD_PSP
+        // PSP: radDbgComService / radDebugConsoleService are stubs on this
+        // platform and can recurse into radLoad->Service (deadlock).
+        // Skip them entirely.
+#else
         ::radDbgComService();
         ::radDebugConsoleService();
+#endif
         
         if( CommandLineOptions::Get( CLO_MEMORY_MONITOR) )
         {
@@ -1002,12 +1020,23 @@ void Game::Run()
         // Spin Pure3D async loading.
         //
         DEMOPROFILE( g_DemoProfiler.Start(PROFILE_CHANNEL_LOAD); )
-#ifndef RAD_PSP
+#ifdef RAD_PSP
+        // PSP: call radLoad->Service() directly (SwitchTask had a recursive
+        // deadlock in some paths). This pumps the loading queue one item per
+        // frame, which is exactly what our oneshot InternalService expects.
+        extern void psp_pump_radload_service();
+        psp_pump_radload_service();
+#else
         p3d::loadManager->SwitchTask();
 #endif
         DEMOPROFILE( g_DemoProfiler.Stop(PROFILE_CHANNEL_LOAD); )
-
         ++mFrameCount;
+#ifdef RAD_PSP
+        if ((mFrameCount % 60) == 0) {
+            extern void psp_frame_tick(int);
+            psp_frame_tick(mFrameCount);
+        }
+#endif
 
         DEMOPROFILE( g_DemoProfiler.Stop(PROFILE_CHANNEL_ALL); )
 

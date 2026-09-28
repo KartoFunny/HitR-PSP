@@ -18,6 +18,59 @@ code/CMakeFiles/SRR2.dir/contexts/frontendcontext.cpp.obj: \
  /usr/local/pspdev/psp/include/machine/_types.h \
  /usr/local/pspdev/psp/include/sys/lock.h \
  /usr/local/pspdev/psp/include/sys/stdio.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/cstdio \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h \
+ /usr/local/pspdev/psp/sdk/include/pspkernel.h \
+ /usr/local/pspdev/psp/sdk/include/pspuser.h \
+ /usr/local/pspdev/psp/sdk/include/psptypes.h \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
+ /usr/local/pspdev/psp/include/stdint.h \
+ /usr/local/pspdev/psp/include/sys/_intsup.h \
+ /usr/local/pspdev/psp/include/sys/_stdint.h \
+ /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+ /usr/local/pspdev/psp/sdk/include/psploadexec.h \
+ /usr/local/pspdev/psp/sdk/include/pspmoduleinfo.h \
+ /usr/local/pspdev/psp/sdk/include/pspmodulemgr.h \
+ /usr/local/pspdev/psp/sdk/include/pspsysmem.h \
+ /usr/local/pspdev/psp/sdk/include/pspthreadman.h \
+ /usr/local/pspdev/psp/sdk/include/pspdebug.h \
+ /usr/local/pspdev/psp/sdk/include/psputils.h \
+ /usr/local/pspdev/psp/include/sys/time.h \
+ /usr/local/pspdev/psp/include/sys/_timeval.h \
+ /usr/local/pspdev/psp/include/sys/types.h \
+ /usr/local/pspdev/psp/include/sys/_pthreadtypes.h \
+ /usr/local/pspdev/psp/include/bits/posix_opt.h \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/limits.h \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/syslimits.h \
+ /usr/local/pspdev/psp/include/limits.h \
+ /usr/local/pspdev/psp/include/sys/syslimits.h \
+ /usr/local/pspdev/psp/include/sys/sched.h \
+ /usr/local/pspdev/psp/include/machine/types.h \
+ /usr/local/pspdev/psp/include/sys/timespec.h \
+ /usr/local/pspdev/psp/include/sys/_timespec.h \
+ /usr/local/pspdev/psp/include/time.h \
+ /usr/local/pspdev/psp/include/machine/time.h \
+ /usr/local/pspdev/psp/include/signal.h \
+ /usr/local/pspdev/psp/include/sys/signal.h \
+ /usr/local/pspdev/psp/include/sys/_sigset.h \
+ /usr/local/pspdev/psp/include/machine/_time.h \
+ /usr/local/pspdev/psp/sdk/include/pspkerror.h \
+ /usr/local/pspdev/psp/sdk/include/pspstdio.h \
+ /usr/local/pspdev/psp/sdk/include/pspintrman.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_kernel.h \
+ /usr/local/pspdev/psp/sdk/include/psploadcore.h \
+ /usr/local/pspdev/psp/sdk/include/pspstdio_kernel.h \
+ /usr/local/pspdev/psp/sdk/include/pspsysreg.h \
+ /usr/local/pspdev/psp/sdk/include/pspkdebug.h \
+ /usr/local/pspdev/psp/sdk/include/pspintrman_kernel.h \
+ /usr/local/pspdev/psp/sdk/include/pspmodulemgr_kernel.h \
  /work/hitr-psp/code/cheats/cheatinputsystem.h \
  /work/hitr-psp/code/cheats/cheatinputs.h \
  /work/hitr-psp/code/cheats/cheats.h \
@@ -32,13 +85,6 @@ code/CMakeFiles/SRR2.dir/contexts/frontendcontext.cpp.obj: \
  /work/hitr-psp/code/loading/filehandler.h \
  /work/hitr-psp/libs/radcore/inc/radobject.hpp \
  /usr/local/pspdev/psp/include/c++/15.2.0/cstdint \
- /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h \
- /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h \
- /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h \
- /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
- /usr/local/pspdev/psp/include/stdint.h \
- /usr/local/pspdev/psp/include/sys/_intsup.h \
- /usr/local/pspdev/psp/include/sys/_stdint.h \
  /work/hitr-psp/code/memory/classsizetracker.h \
  /work/hitr-psp/libs/radcore/inc/radoptions.hpp \
  /work/hitr-psp/libs/radcontent/inc/radload/utility/object.hpp \
@@ -146,10 +192,6 @@ code/CMakeFiles/SRR2.dir/contexts/frontendcontext.cpp.obj: \
  /work/hitr-psp/libs/scrooby/inc/BoundedDrawable.h \
  /work/hitr-psp/libs/scrooby/inc/Drawable.h \
  /work/hitr-psp/libs/radcore/inc/raddebugwatch.hpp \
- /usr/local/pspdev/lib/gcc/psp/15.2.0/include/limits.h \
- /usr/local/pspdev/lib/gcc/psp/15.2.0/include/syslimits.h \
- /usr/local/pspdev/psp/include/limits.h \
- /usr/local/pspdev/psp/include/sys/syslimits.h \
  /work/hitr-psp/libs/scrooby/src/strings/unicodeString.h \
  /work/hitr-psp/libs/scrooby/inc/Sprite.h \
  /work/hitr-psp/libs/scrooby/inc/Project.h \

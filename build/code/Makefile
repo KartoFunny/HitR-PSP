@@ -3154,6 +3154,30 @@ main/pchsrr2.cpp.s:
 	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f code/CMakeFiles/SRR2.dir/build.make code/CMakeFiles/SRR2.dir/main/pchsrr2.cpp.s
 .PHONY : main/pchsrr2.cpp.s
 
+main/psp_globals2.obj: main/psp_globals2.cpp.obj
+.PHONY : main/psp_globals2.obj
+
+# target to build an object file
+main/psp_globals2.cpp.obj:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f code/CMakeFiles/SRR2.dir/build.make code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj
+.PHONY : main/psp_globals2.cpp.obj
+
+main/psp_globals2.i: main/psp_globals2.cpp.i
+.PHONY : main/psp_globals2.i
+
+# target to preprocess a source file
+main/psp_globals2.cpp.i:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f code/CMakeFiles/SRR2.dir/build.make code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.i
+.PHONY : main/psp_globals2.cpp.i
+
+main/psp_globals2.s: main/psp_globals2.cpp.s
+.PHONY : main/psp_globals2.s
+
+# target to generate assembly for a file
+main/psp_globals2.cpp.s:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f code/CMakeFiles/SRR2.dir/build.make code/CMakeFiles/SRR2.dir/main/psp_globals2.cpp.s
+.PHONY : main/psp_globals2.cpp.s
+
 main/pspmain.obj: main/pspmain.cpp.obj
 .PHONY : main/pspmain.obj
 
@@ -12253,6 +12277,9 @@ help:
 	@echo "... main/pchsrr2.obj"
 	@echo "... main/pchsrr2.i"
 	@echo "... main/pchsrr2.s"
+	@echo "... main/psp_globals2.obj"
+	@echo "... main/psp_globals2.i"
+	@echo "... main/psp_globals2.s"
 	@echo "... main/pspmain.obj"
 	@echo "... main/pspmain.i"
 	@echo "... main/pspmain.s"

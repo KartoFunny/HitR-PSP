@@ -15,6 +15,16 @@
 // Foundation Tech
 #include <raddebug.hpp>
 
+// hitr stripped — empty trace stubs
+#define FEStTr(x) ((void)0)
+
+#include <cstdio>
+
+#ifdef RAD_PSP
+#include <pspkernel.h>
+#include <pspiofilemgr.h>
+#endif
+
 //========================================
 // Project Includes
 //========================================
@@ -123,6 +133,13 @@ FrontEndContext::~FrontEndContext()
 //=============================================================================
 void FrontEndContext::OnStart( ContextEnum previousContext )
 {
+#ifdef RAD_PSP
+    {
+        SceUID fd = sceIoOpen("ms0:/hitr_fe.log",
+                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+        if(fd>=0){ sceIoWrite(fd,"[FE] OnStart enter\n",19); sceIoClose(fd);}
+    }
+#endif
     SetMemoryIdentification( "FEContext" );
     MEMTRACK_PUSH_FLAG( "Front End" );
 
@@ -155,13 +172,49 @@ void FrontEndContext::OnStart( ContextEnum previousContext )
     {
         // Start the front end.
         LEAK_DETECTION_CHECKPOINT();
+#ifdef RAD_PSP
+        // PSP: We came from CONTEXT_BOOTUP, but our Bootup never ran GUI init
+        // (we skipped movies and license GUI), so m_pManagerFrontEnd is not
+        // yet created. Kick off GUI_MSG_INIT_FRONTEND to load the scrooby
+        // project and create the FrontEnd manager. StartFrontEnd will happen
+        // later from OnProcessRequestsComplete once the project is loaded.
+        {
+            SceUID fd = sceIoOpen("ms0:/hitr_fe.log",
+                                  PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+            if(fd>=0){ sceIoWrite(fd,"[FE] PSP: forcing INIT_FRONTEND\n",30); sceIoClose(fd);}
+        }
+        GetGuiSystem()->HandleMessage( GUI_MSG_INIT_FRONTEND );
+        GetLoadingManager()->AddCallback( this );
+#else
         this->StartFrontEnd( CGuiWindow::GUI_SCREEN_ID_SPLASH );
+#endif
     }
 
+#ifdef RAD_PSP
+    {
+        SceUID fd = sceIoOpen("ms0:/hitr_fe.log",
+                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+        if(fd>=0){ sceIoWrite(fd,"[FE] before ToggleRumble\n",25); sceIoClose(fd);}
+    }
+#endif
     GetInputManager()->ToggleRumble( false );
 
+#ifdef RAD_PSP
+    {
+        SceUID fd = sceIoOpen("ms0:/hitr_fe.log",
+                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+        if(fd>=0){ sceIoWrite(fd,"[FE] before RegisterUserInputHandlers\n",38); sceIoClose(fd);}
+    }
+#endif
     GetGuiSystem()->RegisterUserInputHandlers();
 
+#ifdef RAD_PSP
+    {
+        SceUID fd = sceIoOpen("ms0:/hitr_fe.log",
+                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+        if(fd>=0){ sceIoWrite(fd,"[FE] OnStart END\n",17); sceIoClose(fd);}
+    }
+#endif
     GetInputManager()->SetGameState( Input::ACTIVE_FRONTEND );
 }
 
@@ -209,9 +262,20 @@ void FrontEndContext::OnStop( ContextEnum nextContext )
 void FrontEndContext::OnUpdate( unsigned int elapsedTime )
 {
 #ifdef RAD_PSP
+    // PSP FORCE: after 30 frames, try to start the front end even if the
+    // Scrooby async-load never reported completion (which is what we see).
+    {
+        static int s_force = 0;
+        s_force++;
+        if (s_force == 30) {
+            FILE* f = fopen("ms0:/hitr_force.log", "a");
+            if (f) { fputs("[FE] forcing StartFrontEnd at frame 30\n", f); fclose(f); }
+            this->StartFrontEnd( CGuiWindow::GUI_SCREEN_ID_SPLASH );
+        }
+    }
     {
         static int s_count = 0;
-        if (++s_count <= 5) {
+        if (++s_count <= 200) {
             SceUID fd = sceIoOpen("ms0:/hitr_fe.log",
                                   PSP_O_WRONLY | PSP_O_CREAT | PSP_O_APPEND, 0777);
             if (fd >= 0) {
@@ -340,9 +404,13 @@ void FrontEndContext::StartFrontEnd( unsigned int initialScreen )
     // Start up GUI frontend manager
     GetGuiSystem()->HandleMessage( GUI_MSG_RUN_FRONTEND, initialScreen );
 
+#ifdef RAD_PSP
+    // PSP: SoundManager is a stub returning nullptr; skip.
+#else
     //
     // Notify the sound system that the front end is starting
     //
     GetSoundManager()->OnFrontEndStart();
+#endif
 }
 

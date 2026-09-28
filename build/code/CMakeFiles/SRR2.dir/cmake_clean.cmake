@@ -251,6 +251,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/SRR2.dir/main/game.cpp.obj.d"
   "CMakeFiles/SRR2.dir/main/pchsrr2.cpp.obj"
   "CMakeFiles/SRR2.dir/main/pchsrr2.cpp.obj.d"
+  "CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj"
+  "CMakeFiles/SRR2.dir/main/psp_globals2.cpp.obj.d"
   "CMakeFiles/SRR2.dir/main/pspmain.cpp.obj"
   "CMakeFiles/SRR2.dir/main/pspmain.cpp.obj.d"
   "CMakeFiles/SRR2.dir/main/pspplatform.cpp.obj"

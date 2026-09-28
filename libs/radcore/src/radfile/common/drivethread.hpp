@@ -50,6 +50,10 @@ public:
     bool OutstandingRequests( void );
 
 private:
+#ifdef RAD_PSP
+    // PSP_INLINE_PROCESS_DECLARED
+    void ProcessRequestsInline( void );
+#endif
 
     //
     // Thread entry point for the drive thread.

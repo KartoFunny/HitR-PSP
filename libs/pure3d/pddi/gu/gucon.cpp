@@ -43,9 +43,13 @@ void pguContext::BeginFrame()
     sceGuStart(GU_DIRECT, s_ctx_list);
 
     // Очищаем экран цветом из state (по умолчанию — чёрный)
+#ifdef RAD_PSP
+    // FORCE black — we want to see sprites, not background colour
+    sceGuClearColor(0xFF000000);
+#else
     pddiColour bg = state.viewState->clearColour;
-    // pddiColour.c — ABGR, GU хочет ровно то же самое.
     sceGuClearColor(bg.c);
+#endif
     sceGuClearDepth(0);
     sceGuClear(GU_COLOR_BUFFER_BIT | GU_DEPTH_BUFFER_BIT);
 
@@ -54,6 +58,7 @@ void pguContext::BeginFrame()
 
 void pguContext::EndFrame()
 {
+    // PSP: debug rectangles removed — we want clean screen for sprites.
     sceGuFinish();
     sceGuSync(0, 0);
 
@@ -62,6 +67,7 @@ void pguContext::EndFrame()
 
     pddiBaseContext::EndFrame();
 }
+
 
 void pguContext::Clear(unsigned bufferMask)
 {

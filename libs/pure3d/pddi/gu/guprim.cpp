@@ -2,6 +2,36 @@
 // guprim.cpp — реализация pguPrimStream через GU
 //=============================================================================
 #include <pddi/pddi.hpp>
+
+
+// RenderTr helper
+#ifdef RAD_PSP
+#include <pspiofilemgr.h>
+static void RenderTr(const char* tag, int primType, int count, float x0, float y0, float z0, unsigned int col0) {
+    static int cnt = 0; if (cnt > 400) return; cnt++;
+    SceUID fd = sceIoOpen("ms0:/hitr_render.log", PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+    if (fd < 0) return;
+    char b[200]; int i = 0;
+    const char* m = tag; while (*m) b[i++] = *m++;
+    b[i++] = ' '; b[i++] = 'p'; b[i++] = '='; b[i++] = '0' + (primType % 10);
+    b[i++] = ' '; b[i++] = 'n'; b[i++] = '='; 
+    int v = count; char t[8]; int k = 0; while (v > 0) { t[k++] = '0' + (v % 10); v /= 10; }
+    while (k > 0) b[i++] = t[--k];
+    b[i++] = ' '; b[i++] = '(';
+    int vv = (int)x0; char s1[8]; int k1 = 0; if (vv<0){b[i++]='-';vv=-vv;} if(vv==0){s1[k1++]='0';} else {while(vv>0){s1[k1++]='0'+(vv%10);vv/=10;}} while(k1>0)b[i++]=s1[--k1];
+    b[i++] = ','; vv = (int)y0; char s2[8]; int k2 = 0; if(vv<0){b[i++]='-';vv=-vv;} if(vv==0){s2[k2++]='0';} else {while(vv>0){s2[k2++]='0'+(vv%10);vv/=10;}} while(k2>0)b[i++]=s2[--k2];
+    b[i++] = ','; vv = (int)z0; char s3[8]; int k3 = 0; if(vv<0){b[i++]='-';vv=-vv;} if(vv==0){s3[k3++]='0';} else {while(vv>0){s3[k3++]='0'+(vv%10);vv/=10;}} while(k3>0)b[i++]=s3[--k3];
+    b[i++] = ')'; b[i++] = ' '; b[i++] = 'c'; b[i++] = '=';
+    unsigned int cv = col0; char hex[10]; int h = 0;
+    const char* H = "0123456789ABCDEF";
+    for (int z = 28; z >= 0; z -= 4) hex[h++] = H[(cv >> z) & 0xF];
+    for (int z = 0; z < 8; ++z) b[i++] = hex[z];
+    b[i++] = '\n';
+    sceIoWrite(fd, b, i); sceIoClose(fd);
+}
+#else
+#define RenderTr(a,b,c,d,e,f,g) ((void)0)
+#endif
 #include <pddi/pddipc.hpp>
 #include "guprim.hpp"
 
@@ -91,7 +121,24 @@ void pguPrimStream::Vertex(pddiVector* v, pddiVector* n, pddiVector2* uv)
 
 void pguPrimStream::Flush()
 {
+#ifdef RAD_PSP
+    {
+        SceUID fd = sceIoOpen("ms0:/hitr_flush.log", PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
+        if (fd >= 0) {
+            char b[80]; int i=0;
+            const char* m = "[F] flush n="; while(*m) b[i++]=*m++;
+            int v=m_count; char t[8]; int k=0; if(v==0){t[k++]='0';} else {while(v>0){t[k++]='0'+(v%10);v/=10;}}
+            while(k>0)b[i++]=t[--k];
+            b[i++]=' '; b[i++]='p'; b[i++]='='; b[i++]='0'+(m_guPrimType%10);
+            b[i++]='\n';
+            sceIoWrite(fd, b, i); sceIoClose(fd);
+        }
+    }
+#endif
     if (m_count < 2) return;
+    RenderTr("[R] Flush", (int)m_guPrimType, m_count,
+             g_sink.positions[0][0], g_sink.positions[0][1], g_sink.positions[0][2],
+             g_sink.colours[0]);
 
     struct V { float x, y, z; unsigned int c; };
     V* gu_v = (V*)sceGuGetMemory(m_count * sizeof(V));
