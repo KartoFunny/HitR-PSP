@@ -8,14 +8,7 @@
 
 #ifdef RAD_PSP
 #include <cstdio>
-static void FTTr(const char* tag, const char* name) {
-    static int cnt = 0; if (cnt > 300) return; cnt++;
-    FILE* f = fopen("ms0:/hitr_ftt.log", "a");
-    if (!f) return;
-    fputs(tag, f);
-    if (name) { fputs(" ", f); fputs(name, f); }
-    fputs("\n", f); fclose(f);
-}
+static void FTTr(const char* tag, const char* name) { }
 #else
 #define FTTr(a,b) ((void)0)
 #endif

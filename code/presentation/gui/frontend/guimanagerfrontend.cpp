@@ -178,10 +178,7 @@ void CGuiManagerFrontEnd::Populate()
 #ifdef RAD_PSP
     // PSP: Scrooby pages are not loaded (PNG stub broke inner elements), so
     // building CGuiScreenXxx objects would crash on null pages. Skip.
-    {
-        FILE* _f = fopen("ms0:/hitr_force.log", "a");
-        if (_f) { fputs("[CGS] PSP: FE Populate SKIPPED\n", _f); fclose(_f); }
-    }
+    { }
     return;
 #endif
 MEMTRACK_PUSH_GROUP( "CGUIManagerFrontEnd" );

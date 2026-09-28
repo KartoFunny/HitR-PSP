@@ -431,11 +431,7 @@ void BootupContext::OnStop( ContextEnum nextContext )
 {
     rTunePrintf("BootupContext::OnStop... ");
 
-#ifdef RAD_PSP
-    { SceUID fd = sceIoOpen("ms0:/hitr_onstop.log",
-                            PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
-      if(fd>=0){ sceIoWrite(fd,"[STOP] OnStop enter\n",20); sceIoClose(fd);} }
-#endif
+
 
     GetGuiSystem()->UnregisterUserInputHandlers();
 
@@ -459,21 +455,9 @@ void BootupContext::OnStop( ContextEnum nextContext )
     HeapMgr()->PopHeap ( GMA_PERSISTENT );
 #endif
     rTunePrintf("Finished\n");
-#ifdef RAD_PSP
-    {
-        SceUID fd = sceIoOpen("ms0:/hitr_onstop.log",
-                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
-        if(fd>=0){ sceIoWrite(fd,"[STOP] before SetMemoryIdentification\n",38); sceIoClose(fd);}
-    }
-#endif
+
     SetMemoryIdentification( "BootupContext Finished" );
-#ifdef RAD_PSP
-    {
-        SceUID fd = sceIoOpen("ms0:/hitr_onstop.log",
-                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
-        if(fd>=0){ sceIoWrite(fd,"[STOP] OnStop END\n",18); sceIoClose(fd);}
-    }
-#endif
+
 }
 
 

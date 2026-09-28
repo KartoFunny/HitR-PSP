@@ -15,6 +15,18 @@
 // Foundation Tech
 #include <raddebug.hpp>
 
+#ifdef RAD_PSP
+#include <cstdio>
+static void FEUpdTr(const char* tag) {
+    static int cnt = 0; if (cnt > 20) return; cnt++;
+    FILE* f = fopen("ms0:/hitr_fe2.log", "a");
+    if (!f) return;
+    fputs(tag, f); fputs("\n", f); fclose(f);
+}
+#else
+#define FEUpdTr(x) ((void)0)
+#endif
+
 // hitr stripped — empty trace stubs
 #define FEStTr(x) ((void)0)
 
@@ -47,7 +59,6 @@
 #include <worldsim/coins/coinmanager.h>
 
 // hitr strip stub
-#define FEUpdTr(x) ((void)0)
 
 
 //******************************************************************************
@@ -137,13 +148,7 @@ FrontEndContext::~FrontEndContext()
 //=============================================================================
 void FrontEndContext::OnStart( ContextEnum previousContext )
 {
-#ifdef RAD_PSP
-    {
-        SceUID fd = sceIoOpen("ms0:/hitr_fe.log",
-                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
-        if(fd>=0){ sceIoWrite(fd,"[FE] OnStart enter\n",19); sceIoClose(fd);}
-    }
-#endif
+
     SetMemoryIdentification( "FEContext" );
     MEMTRACK_PUSH_FLAG( "Front End" );
 
@@ -194,31 +199,13 @@ void FrontEndContext::OnStart( ContextEnum previousContext )
 #endif
     }
 
-#ifdef RAD_PSP
-    {
-        SceUID fd = sceIoOpen("ms0:/hitr_fe.log",
-                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
-        if(fd>=0){ sceIoWrite(fd,"[FE] before ToggleRumble\n",25); sceIoClose(fd);}
-    }
-#endif
+
     GetInputManager()->ToggleRumble( false );
 
-#ifdef RAD_PSP
-    {
-        SceUID fd = sceIoOpen("ms0:/hitr_fe.log",
-                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
-        if(fd>=0){ sceIoWrite(fd,"[FE] before RegisterUserInputHandlers\n",38); sceIoClose(fd);}
-    }
-#endif
+
     GetGuiSystem()->RegisterUserInputHandlers();
 
-#ifdef RAD_PSP
-    {
-        SceUID fd = sceIoOpen("ms0:/hitr_fe.log",
-                              PSP_O_WRONLY|PSP_O_CREAT|PSP_O_APPEND, 0777);
-        if(fd>=0){ sceIoWrite(fd,"[FE] OnStart END\n",17); sceIoClose(fd);}
-    }
-#endif
+
     GetInputManager()->SetGameState( Input::ACTIVE_FRONTEND );
 }
 
@@ -272,11 +259,7 @@ void FrontEndContext::OnUpdate( unsigned int elapsedTime )
     {
         static int s_force = 0;
         s_force++;
-        if (s_force == 30) {
-            FILE* f = fopen("ms0:/hitr_force.log", "a");
-            if (f) { fputs("[FE] forcing StartFrontEnd at frame 30\n", f); fclose(f); }
-            this->StartFrontEnd( CGuiWindow::GUI_SCREEN_ID_SPLASH );
-        }
+        if (s_force == 30) { }
     }
     {
         static int s_count = 0;
@@ -302,11 +285,15 @@ void FrontEndContext::OnUpdate( unsigned int elapsedTime )
     // update game data manager
     //
     FEUpdTr("[FE2] before GDM");
+    FEUpdTr("[FE2] before GDM");
     GetGameDataManager()->Update( elapsedTime );
+    FEUpdTr("[FE2] after GDM");
     FEUpdTr("[FE2] before GuiSystem");
     GetGuiSystem()->Update( elapsedTime );
     FEUpdTr("[FE2] after GuiSystem");
+    FEUpdTr("[FE2] before Rewards");
     GetRewardsManager()->SynchWithCharacterSheet();
+    FEUpdTr("[FE2] after Rewards");
     FEUpdTr("[FE2] end");
 }
 
