@@ -1,16 +1,29 @@
 code/CMakeFiles/SRR2.dir/render/RenderManager/RenderManager.cpp.obj: \
  /work/hitr-psp/code/render/RenderManager/RenderManager.cpp \
  /work/hitr-psp/libs/pure3d/./constants/chunkids.hpp \
+ /usr/local/pspdev/psp/sdk/include/pspgu.h \
+ /usr/local/pspdev/psp/sdk/include/psptypes.h \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
+ /usr/local/pspdev/psp/include/stdint.h \
+ /usr/local/pspdev/psp/include/machine/_default_types.h \
+ /usr/local/pspdev/psp/include/sys/features.h \
+ /usr/local/pspdev/psp/include/_newlib_version.h \
+ /usr/local/pspdev/psp/include/sys/_intsup.h \
+ /usr/local/pspdev/psp/include/sys/_stdint.h \
+ /usr/local/pspdev/psp/sdk/include/pspge.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+ /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
  /work/hitr-psp/libs/radcore/inc/raddebug.hpp \
  /usr/local/pspdev/psp/include/stdio.h \
  /usr/local/pspdev/psp/include/_ansi.h \
  /usr/local/pspdev/psp/include/newlib.h \
- /usr/local/pspdev/psp/include/_newlib_version.h \
  /usr/local/pspdev/psp/include/sys/config.h \
  /usr/local/pspdev/psp/include/machine/ieeefp.h \
- /usr/local/pspdev/psp/include/sys/features.h \
  /usr/local/pspdev/psp/include/sys/cdefs.h \
- /usr/local/pspdev/psp/include/machine/_default_types.h \
  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h \
  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdarg.h \
  /usr/local/pspdev/psp/include/sys/reent.h \
@@ -25,10 +38,6 @@ code/CMakeFiles/SRR2.dir/render/RenderManager/RenderManager.cpp.obj: \
  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h \
  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h \
  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h \
- /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
- /usr/local/pspdev/psp/include/stdint.h \
- /usr/local/pspdev/psp/include/sys/_intsup.h \
- /usr/local/pspdev/psp/include/sys/_stdint.h \
  /work/hitr-psp/code/memory/classsizetracker.h \
  /work/hitr-psp/libs/radcore/inc/radoptions.hpp \
  /work/hitr-psp/libs/radcore/inc/radmemory.hpp \

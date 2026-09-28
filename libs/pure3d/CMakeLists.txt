@@ -154,6 +154,7 @@ elseif(SRR2_P3D_PDDI STREQUAL "GU")
 		"pddi/gu/gudev.cpp"
 		"pddi/gu/gudisplay.cpp"
 		"pddi/gu/gucon.cpp"
+		"pddi/gu/guprim.cpp"
 	)
 	message(STATUS "PSP: PDDI with GU backend")
 else()

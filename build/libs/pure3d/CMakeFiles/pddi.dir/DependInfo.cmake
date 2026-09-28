@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/work/hitr-psp/libs/pure3d/pddi/gu/gucon.cpp" "libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gucon.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gucon.cpp.obj.d"
   "/work/hitr-psp/libs/pure3d/pddi/gu/gudev.cpp" "libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gudev.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gudev.cpp.obj.d"
   "/work/hitr-psp/libs/pure3d/pddi/gu/gudisplay.cpp" "libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gudisplay.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gudisplay.cpp.obj.d"
+  "/work/hitr-psp/libs/pure3d/pddi/gu/guprim.cpp" "libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj.d"
   "/work/hitr-psp/libs/pure3d/pddi/pddipsp.cpp" "libs/pure3d/CMakeFiles/pddi.dir/pddi/pddipsp.cpp.obj" "gcc" "libs/pure3d/CMakeFiles/pddi.dir/pddi/pddipsp.cpp.obj.d"
   )
 

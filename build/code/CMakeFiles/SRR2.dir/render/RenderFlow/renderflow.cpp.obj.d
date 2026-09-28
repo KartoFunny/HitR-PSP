@@ -84,6 +84,13 @@ code/CMakeFiles/SRR2.dir/render/RenderFlow/renderflow.cpp.obj: \
  /work/hitr-psp/libs/pure3d/./p3d/array.hpp \
  /work/hitr-psp/libs/pure3d/./p3d/../../../code/render/Culling/SwapArray.h \
  /work/hitr-psp/libs/pure3d/./p3d/displaylist.hpp \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+ /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+ /usr/local/pspdev/psp/sdk/include/psptypes.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+ /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
  /work/hitr-psp/libs/pure3d/./p3d/utility.hpp \
  /work/hitr-psp/libs/pure3d/./p3d/context.hpp \
  /work/hitr-psp/libs/pure3d/./p3d/platform.hpp \

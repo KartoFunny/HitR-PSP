@@ -299,6 +299,7 @@ libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gucon.cpp.obj: /work/hitr-psp/libs/pure3
   /work/hitr-psp/libs/pure3d/pddi/gu/gucon.hpp \
   /work/hitr-psp/libs/pure3d/pddi/gu/gudev.hpp \
   /work/hitr-psp/libs/pure3d/pddi/gu/gudisplay.hpp \
+  /work/hitr-psp/libs/pure3d/pddi/gu/guprim.hpp \
   /work/hitr-psp/libs/pure3d/pddi/pddi.hpp \
   /work/hitr-psp/libs/pure3d/pddi/pddienum.hpp \
   /work/hitr-psp/libs/pure3d/pddi/pddiext.hpp \
@@ -435,6 +436,65 @@ libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gudisplay.cpp.obj: /work/hitr-psp/libs/p
   /work/hitr-psp/libs/radmath/radmath/util.hpp \
   /work/hitr-psp/libs/radmath/radmath/vector.hpp
 
+libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj: /work/hitr-psp/libs/pure3d/pddi/gu/guprim.cpp \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/float.h \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
+  /usr/local/pspdev/psp/include/_ansi.h \
+  /usr/local/pspdev/psp/include/_newlib_version.h \
+  /usr/local/pspdev/psp/include/assert.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/cpp_type_traits.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/requires_hosted.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/std_abs.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/version.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/cmath \
+  /usr/local/pspdev/psp/include/c++/15.2.0/cstring \
+  /usr/local/pspdev/psp/include/c++/15.2.0/ext/type_traits.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/math.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h \
+  /usr/local/pspdev/psp/include/machine/_default_types.h \
+  /usr/local/pspdev/psp/include/machine/_types.h \
+  /usr/local/pspdev/psp/include/machine/ieeefp.h \
+  /usr/local/pspdev/psp/include/machine/stdlib.h \
+  /usr/local/pspdev/psp/include/math.h \
+  /usr/local/pspdev/psp/include/newlib.h \
+  /usr/local/pspdev/psp/include/stdint.h \
+  /usr/local/pspdev/psp/include/stdlib.h \
+  /usr/local/pspdev/psp/include/string.h \
+  /usr/local/pspdev/psp/include/sys/_intsup.h \
+  /usr/local/pspdev/psp/include/sys/_stdint.h \
+  /usr/local/pspdev/psp/include/sys/_types.h \
+  /usr/local/pspdev/psp/include/sys/cdefs.h \
+  /usr/local/pspdev/psp/include/sys/config.h \
+  /usr/local/pspdev/psp/include/sys/features.h \
+  /usr/local/pspdev/psp/include/sys/lock.h \
+  /usr/local/pspdev/psp/include/sys/reent.h \
+  /usr/local/pspdev/psp/include/sys/string.h \
+  /usr/local/pspdev/psp/sdk/include/pspge.h \
+  /usr/local/pspdev/psp/sdk/include/pspgu.h \
+  /usr/local/pspdev/psp/sdk/include/pspgum.h \
+  /usr/local/pspdev/psp/sdk/include/psptypes.h \
+  /work/hitr-psp/libs/pure3d/pddi/buildconfig.hpp \
+  /work/hitr-psp/libs/pure3d/pddi/gu/guprim.hpp \
+  /work/hitr-psp/libs/pure3d/pddi/pddi.hpp \
+  /work/hitr-psp/libs/pure3d/pddi/pddienum.hpp \
+  /work/hitr-psp/libs/pure3d/pddi/pddipc.hpp \
+  /work/hitr-psp/libs/pure3d/pddi/pddipsp.hpp \
+  /work/hitr-psp/libs/pure3d/pddi/pddishade.hpp \
+  /work/hitr-psp/libs/pure3d/pddi/pdditype.hpp \
+  /work/hitr-psp/libs/radmath/radmath/buildconfig.hpp \
+  /work/hitr-psp/libs/radmath/radmath/geometry.hpp \
+  /work/hitr-psp/libs/radmath/radmath/matrix.hpp \
+  /work/hitr-psp/libs/radmath/radmath/quaternion.hpp \
+  /work/hitr-psp/libs/radmath/radmath/radmath.hpp \
+  /work/hitr-psp/libs/radmath/radmath/random.hpp \
+  /work/hitr-psp/libs/radmath/radmath/spline.hpp \
+  /work/hitr-psp/libs/radmath/radmath/trig.hpp \
+  /work/hitr-psp/libs/radmath/radmath/util.hpp \
+  /work/hitr-psp/libs/radmath/radmath/vector.hpp
+
 libs/pure3d/CMakeFiles/pddi.dir/pddi/pddipsp.cpp.obj: /work/hitr-psp/libs/pure3d/pddi/pddipsp.cpp \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/float.h \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h \
@@ -487,6 +547,8 @@ libs/pure3d/CMakeFiles/pddi.dir/pddi/pddipsp.cpp.obj: /work/hitr-psp/libs/pure3d
 /work/hitr-psp/libs/pure3d/pddi/pddipsp.cpp:
 
 /work/hitr-psp/libs/pure3d/pddi/gu/gudev.cpp:
+
+/work/hitr-psp/libs/pure3d/pddi/gu/guprim.hpp:
 
 /work/hitr-psp/libs/pure3d/pddi/gu/gudisplay.hpp:
 
@@ -541,6 +603,8 @@ libs/pure3d/CMakeFiles/pddi.dir/pddi/pddipsp.cpp.obj: /work/hitr-psp/libs/pure3d
 /usr/local/pspdev/psp/include/sys/signal.h:
 
 /usr/local/pspdev/psp/include/sys/_timeval.h:
+
+/work/hitr-psp/libs/pure3d/pddi/gu/guprim.cpp:
 
 /usr/local/pspdev/psp/include/sys/_stdint.h:
 
@@ -605,6 +669,8 @@ libs/pure3d/CMakeFiles/pddi.dir/pddi/pddipsp.cpp.obj: /work/hitr-psp/libs/pure3d
 /usr/local/pspdev/psp/include/machine/ieeefp.h:
 
 /work/hitr-psp/libs/pure3d/pddi/pddipsp.hpp:
+
+/usr/local/pspdev/psp/sdk/include/pspgum.h:
 
 /usr/local/pspdev/psp/include/sys/cdefs.h:
 

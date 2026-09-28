@@ -31,6 +31,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/radcore.dir/src/radfile/common/remotedrive.cpp.obj.d"
   "CMakeFiles/radcore.dir/src/radfile/common/requests.cpp.obj"
   "CMakeFiles/radcore.dir/src/radfile/common/requests.cpp.obj.d"
+  "CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj"
+  "CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj.d"
   "CMakeFiles/radcore.dir/src/radkey/radkey.cpp.obj"
   "CMakeFiles/radcore.dir/src/radkey/radkey.cpp.obj.d"
   "CMakeFiles/radcore.dir/src/radmemory/align.cpp.obj"

@@ -184,6 +184,20 @@ libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gucon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pddi.dir/pddi/gu/gucon.cpp.s"
 	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /work/hitr-psp/libs/pure3d/pddi/gu/gucon.cpp -o CMakeFiles/pddi.dir/pddi/gu/gucon.cpp.s
 
+libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj: libs/pure3d/CMakeFiles/pddi.dir/flags.make
+libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj: /work/hitr-psp/libs/pure3d/pddi/gu/guprim.cpp
+libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj: libs/pure3d/CMakeFiles/pddi.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj"
+	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj -MF CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj.d -o CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj -c /work/hitr-psp/libs/pure3d/pddi/gu/guprim.cpp
+
+libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.i"
+	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /work/hitr-psp/libs/pure3d/pddi/gu/guprim.cpp > CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.i
+
+libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.s"
+	cd /work/hitr-psp/build/libs/pure3d && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /work/hitr-psp/libs/pure3d/pddi/gu/guprim.cpp -o CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.s
+
 # Object files for target pddi
 pddi_OBJECTS = \
 "CMakeFiles/pddi.dir/pddi/base/basecontext.cpp.obj" \
@@ -193,7 +207,8 @@ pddi_OBJECTS = \
 "CMakeFiles/pddi.dir/pddi/pddipsp.cpp.obj" \
 "CMakeFiles/pddi.dir/pddi/gu/gudev.cpp.obj" \
 "CMakeFiles/pddi.dir/pddi/gu/gudisplay.cpp.obj" \
-"CMakeFiles/pddi.dir/pddi/gu/gucon.cpp.obj"
+"CMakeFiles/pddi.dir/pddi/gu/gucon.cpp.obj" \
+"CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj"
 
 # External object files for target pddi
 pddi_EXTERNAL_OBJECTS =
@@ -206,9 +221,10 @@ libs/pure3d/libpddi.a: libs/pure3d/CMakeFiles/pddi.dir/pddi/pddipsp.cpp.obj
 libs/pure3d/libpddi.a: libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gudev.cpp.obj
 libs/pure3d/libpddi.a: libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gudisplay.cpp.obj
 libs/pure3d/libpddi.a: libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gucon.cpp.obj
+libs/pure3d/libpddi.a: libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj
 libs/pure3d/libpddi.a: libs/pure3d/CMakeFiles/pddi.dir/build.make
 libs/pure3d/libpddi.a: libs/pure3d/CMakeFiles/pddi.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libpddi.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libpddi.a"
 	cd /work/hitr-psp/build/libs/pure3d && $(CMAKE_COMMAND) -P CMakeFiles/pddi.dir/cmake_clean_target.cmake
 	cd /work/hitr-psp/build/libs/pure3d && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pddi.dir/link.txt --verbose=$(VERBOSE)
 

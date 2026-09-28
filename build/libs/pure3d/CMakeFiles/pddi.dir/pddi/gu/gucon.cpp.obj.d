@@ -54,6 +54,7 @@ libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gucon.cpp.obj: \
  /work/hitr-psp/libs/pure3d/pddi/base/font.hpp \
  /work/hitr-psp/libs/pure3d/pddi/gu/gudev.hpp \
  /work/hitr-psp/libs/pure3d/pddi/gu/gudisplay.hpp \
+ /work/hitr-psp/libs/pure3d/pddi/gu/guprim.hpp \
  /usr/local/pspdev/psp/sdk/include/pspgu.h \
  /usr/local/pspdev/psp/sdk/include/psptypes.h \
  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \

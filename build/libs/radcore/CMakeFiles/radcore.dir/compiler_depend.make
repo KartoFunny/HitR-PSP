@@ -622,6 +622,13 @@ libs/radcore/CMakeFiles/radcore.dir/src/radfile/common/platformdrives.cpp.obj: /
   /work/hitr-psp/libs/radcore/inc/radtime.hpp \
   /work/hitr-psp/libs/radcore/src/pch/pch.hpp \
   /work/hitr-psp/libs/radcore/src/radprotocols/fileprotocol.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/drive.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/drivethread.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/file.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/filecache.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/platformdrives.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/saferefobject.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/psp/pspdrive.hpp \
   /work/hitr-psp/libs/radcore/src/radfile/common/cementLibrary.hpp \
   /work/hitr-psp/libs/radcore/src/radfile/common/cementer.hpp \
   /work/hitr-psp/libs/radcore/src/radfile/common/drive.hpp \
@@ -781,6 +788,173 @@ libs/radcore/CMakeFiles/radcore.dir/src/radfile/common/requests.cpp.obj: /work/h
   /work/hitr-psp/libs/radcore/src/radfile/common/platformdrives.hpp \
   /work/hitr-psp/libs/radcore/src/radfile/common/requests.hpp \
   /work/hitr-psp/libs/radcore/src/radfile/common/saferefobject.hpp
+
+libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj: /work/hitr-psp/libs/radcore/src/radfile/psp/pspdrive.cpp \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/limits.h \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdarg.h \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
+  /usr/local/pspdev/lib/gcc/psp/15.2.0/include/syslimits.h \
+  /usr/local/pspdev/psp/include/_ansi.h \
+  /usr/local/pspdev/psp/include/_newlib_version.h \
+  /usr/local/pspdev/psp/include/bits/posix_opt.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/algorithm \
+  /usr/local/pspdev/psp/include/c++/15.2.0/backward/binders.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bit \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/algorithmfwd.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/alloc_traits.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/allocator.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/basic_string.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/basic_string.tcc \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/char_traits.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/charconv.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/concept_check.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/cpp_type_traits.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/cxxabi_forced.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/exception.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/exception_defines.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/functexcept.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/functional_hash.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/hash_bytes.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/invoke.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/localefwd.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/memoryfwd.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/move.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/new_allocator.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/ostream_insert.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/postypes.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/predefined_ops.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/ptr_traits.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/range_access.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/refwrap.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/requires_hosted.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/std_abs.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_algo.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_algobase.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_construct.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_function.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_heap.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_iterator.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_iterator_base_funcs.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_iterator_base_types.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_pair.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_tempbuf.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/stringfwd.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/uniform_int_dist.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/utility.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/bits/version.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/cctype \
+  /usr/local/pspdev/psp/include/c++/15.2.0/cerrno \
+  /usr/local/pspdev/psp/include/c++/15.2.0/clocale \
+  /usr/local/pspdev/psp/include/c++/15.2.0/concepts \
+  /usr/local/pspdev/psp/include/c++/15.2.0/cstdarg \
+  /usr/local/pspdev/psp/include/c++/15.2.0/cstdint \
+  /usr/local/pspdev/psp/include/c++/15.2.0/cstdio \
+  /usr/local/pspdev/psp/include/c++/15.2.0/cstdlib \
+  /usr/local/pspdev/psp/include/c++/15.2.0/cstring \
+  /usr/local/pspdev/psp/include/c++/15.2.0/cwchar \
+  /usr/local/pspdev/psp/include/c++/15.2.0/debug/assertions.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/debug/debug.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/ext/alloc_traits.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/ext/numeric_traits.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/ext/string_conversions.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/ext/type_traits.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/initializer_list \
+  /usr/local/pspdev/psp/include/c++/15.2.0/iosfwd \
+  /usr/local/pspdev/psp/include/c++/15.2.0/new \
+  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++allocator.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++locale.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/stdlib.h \
+  /usr/local/pspdev/psp/include/c++/15.2.0/string \
+  /usr/local/pspdev/psp/include/c++/15.2.0/type_traits \
+  /usr/local/pspdev/psp/include/ctype.h \
+  /usr/local/pspdev/psp/include/errno.h \
+  /usr/local/pspdev/psp/include/limits.h \
+  /usr/local/pspdev/psp/include/locale.h \
+  /usr/local/pspdev/psp/include/machine/_default_types.h \
+  /usr/local/pspdev/psp/include/machine/_time.h \
+  /usr/local/pspdev/psp/include/machine/_types.h \
+  /usr/local/pspdev/psp/include/machine/ieeefp.h \
+  /usr/local/pspdev/psp/include/machine/stdlib.h \
+  /usr/local/pspdev/psp/include/machine/time.h \
+  /usr/local/pspdev/psp/include/machine/types.h \
+  /usr/local/pspdev/psp/include/newlib.h \
+  /usr/local/pspdev/psp/include/signal.h \
+  /usr/local/pspdev/psp/include/stdint.h \
+  /usr/local/pspdev/psp/include/stdio.h \
+  /usr/local/pspdev/psp/include/stdlib.h \
+  /usr/local/pspdev/psp/include/string.h \
+  /usr/local/pspdev/psp/include/sys/_intsup.h \
+  /usr/local/pspdev/psp/include/sys/_pthreadtypes.h \
+  /usr/local/pspdev/psp/include/sys/_sigset.h \
+  /usr/local/pspdev/psp/include/sys/_stdint.h \
+  /usr/local/pspdev/psp/include/sys/_timespec.h \
+  /usr/local/pspdev/psp/include/sys/_timeval.h \
+  /usr/local/pspdev/psp/include/sys/_types.h \
+  /usr/local/pspdev/psp/include/sys/cdefs.h \
+  /usr/local/pspdev/psp/include/sys/config.h \
+  /usr/local/pspdev/psp/include/sys/errno.h \
+  /usr/local/pspdev/psp/include/sys/features.h \
+  /usr/local/pspdev/psp/include/sys/lock.h \
+  /usr/local/pspdev/psp/include/sys/reent.h \
+  /usr/local/pspdev/psp/include/sys/sched.h \
+  /usr/local/pspdev/psp/include/sys/signal.h \
+  /usr/local/pspdev/psp/include/sys/stdio.h \
+  /usr/local/pspdev/psp/include/sys/string.h \
+  /usr/local/pspdev/psp/include/sys/syslimits.h \
+  /usr/local/pspdev/psp/include/sys/time.h \
+  /usr/local/pspdev/psp/include/sys/timespec.h \
+  /usr/local/pspdev/psp/include/sys/types.h \
+  /usr/local/pspdev/psp/include/time.h \
+  /usr/local/pspdev/psp/include/wchar.h \
+  /usr/local/pspdev/psp/sdk/include/pspdebug.h \
+  /usr/local/pspdev/psp/sdk/include/pspintrman.h \
+  /usr/local/pspdev/psp/sdk/include/pspintrman_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+  /usr/local/pspdev/psp/sdk/include/pspkdebug.h \
+  /usr/local/pspdev/psp/sdk/include/pspkernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerror.h \
+  /usr/local/pspdev/psp/sdk/include/psploadcore.h \
+  /usr/local/pspdev/psp/sdk/include/psploadexec.h \
+  /usr/local/pspdev/psp/sdk/include/pspmoduleinfo.h \
+  /usr/local/pspdev/psp/sdk/include/pspmodulemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspmodulemgr_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspstdio.h \
+  /usr/local/pspdev/psp/sdk/include/pspstdio_kernel.h \
+  /usr/local/pspdev/psp/sdk/include/pspsysmem.h \
+  /usr/local/pspdev/psp/sdk/include/pspsysreg.h \
+  /usr/local/pspdev/psp/sdk/include/pspthreadman.h \
+  /usr/local/pspdev/psp/sdk/include/psptypes.h \
+  /usr/local/pspdev/psp/sdk/include/pspuser.h \
+  /usr/local/pspdev/psp/sdk/include/psputils.h \
+  /work/hitr-psp/code/memory/classsizetracker.h \
+  /work/hitr-psp/code/main/tuidunaligned.h \
+  /work/hitr-psp/libs/radcore/inc/raddebug.hpp \
+  /work/hitr-psp/libs/radcore/inc/radfile.hpp \
+  /work/hitr-psp/libs/radcore/inc/radkey.hpp \
+  /work/hitr-psp/libs/radcore/inc/radmemory.hpp \
+  /work/hitr-psp/libs/radcore/inc/radobject.hpp \
+  /work/hitr-psp/libs/radcore/inc/radoptions.hpp \
+  /work/hitr-psp/libs/radcore/inc/radthread.hpp \
+  /work/hitr-psp/libs/radcore/src/pch/pch.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/cementLibrary.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/cementer.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/drive.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/drivethread.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/file.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/filecache.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/platformdrives.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/common/saferefobject.hpp \
+  /work/hitr-psp/libs/radcore/src/radfile/psp/pspdrive.hpp
 
 libs/radcore/CMakeFiles/radcore.dir/src/radkey/radkey.cpp.obj: /work/hitr-psp/libs/radcore/src/radkey/radkey.cpp \
   /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdarg.h \
@@ -2414,41 +2588,43 @@ libs/radcore/CMakeFiles/radcore.dir/src/radtime/time.cpp.obj: /work/hitr-psp/lib
   /work/hitr-psp/libs/radcore/src/radtime/time.hpp
 
 
-/usr/local/pspdev/psp/include/c++/15.2.0/ratio:
+/work/hitr-psp/libs/radcore/src/radtime/time.hpp:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/ctime:
+/usr/local/pspdev/psp/include/c++/15.2.0/chrono:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/parse_numbers.h:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/bits/chrono.h:
 
+/work/hitr-psp/libs/radcore/src/radtime/time.cpp:
+
 /work/hitr-psp/libs/radcore/src/radtime/stopwatch.cpp:
 
-/work/hitr-psp/libs/radcore/src/radthread/semaphore.cpp:
-
-/work/hitr-psp/libs/radcore/src/radtime/time.hpp:
+/work/hitr-psp/libs/radcore/src/radthread/thread.hpp:
 
 /work/hitr-psp/libs/radcore/src/radthread/psp_sdl_shim.hpp:
 
-/work/hitr-psp/libs/radcore/inc/radtextdisplay.hpp:
+/work/hitr-psp/libs/radcore/src/radthread/mutex.cpp:
+
+/work/hitr-psp/libs/radcore/src/radtextdisplay/textdisplay.hpp:
 
 /work/hitr-psp/libs/radcore/src/radstring/string.cpp:
 
-/work/hitr-psp/libs/radcore/src/radstats/statmanager.cpp:
+/usr/local/pspdev/psp/include/math.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/math.h:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/cmath:
 
 /work/hitr-psp/libs/radcore/src/radstats/simplestat.cpp:
 
-/work/hitr-psp/libs/radcore/src/radremotecommand/remotecommand.hpp:
+/work/hitr-psp/libs/radcore/src/radremotecommand/remotecommandtarget.cpp:
 
-/work/hitr-psp/libs/radcore/inc/radremotecommand.hpp:
+/work/hitr-psp/libs/radcore/src/radprotocols/remotecommandprotocol.hpp:
 
-/work/hitr-psp/libs/radcore/src/radremotecommand/functionlist.cpp:
+/work/hitr-psp/libs/radcore/src/radprofiler/profilesample.cpp:
 
 /work/hitr-psp/libs/radcore/src/radprofiler/profiler2.cpp:
-
-/work/hitr-psp/libs/radcore/src/radprofiler/profilesample.hpp:
-
-/work/hitr-psp/libs/radcore/src/radthread/thread.hpp:
 
 /work/hitr-psp/libs/radcore/src/radprofiler/profiler.hpp:
 
@@ -2456,456 +2632,560 @@ libs/radcore/CMakeFiles/radcore.dir/src/radtime/time.cpp.obj: /work/hitr-psp/lib
 
 /work/hitr-psp/libs/radcore/src/radprofiler/profiler.cpp:
 
-/work/hitr-psp/libs/radcore/src/radobjectlist/weakinterfacewrapper.cpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/move.h:
 
-/usr/local/pspdev/psp/include/math.h:
-
-/work/hitr-psp/libs/radcore/src/radprotocols/remotecommandprotocol.hpp:
-
-/work/hitr-psp/libs/radcore/src/radobjectlist/weakcallbackwrapper.cpp:
-
-/work/hitr-psp/libs/radcore/src/radobjectlist/dynamicarray.cpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/cstddef:
-
-/work/hitr-psp/libs/radcore/src/radobjectbtree/objectbtree.cpp:
-
-/work/hitr-psp/libs/radcore/src/radobjectbtree/objectavltree.cpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/typeinfo:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/hash_bytes.h:
-
-/work/hitr-psp/libs/radcore/src/radobject/object.cpp:
-
-/work/hitr-psp/libs/radcore/src/radmemorymonitor/memmonitorclient.hpp:
-
-/work/hitr-psp/libs/radcore/src/radmemory/twowayallocator.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++allocator.h:
-
-/work/hitr-psp/libs/radcore/src/radprofiler/profilesample.cpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/new:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/math.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/ext/type_traits.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/ext/numeric_traits.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/ext/aligned_buffer.h:
-
-/work/hitr-psp/libs/radcore/src/radthread/system.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/debug/debug.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/debug/assertions.h:
-
-/work/hitr-psp/libs/radcore/src/radthread/thread.cpp:
-
-/work/hitr-psp/libs/radcore/inc/radobjectbtree.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_pair.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_iterator.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_function.h:
-
-/work/hitr-psp/libs/radcore/src/radthread/system.cpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_algobase.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/range_access.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/ptr_traits.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/new_allocator.h:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/localefwd.h:
 
 /work/hitr-psp/libs/radcore/src/radmemory/trackingheap.h:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/move.h:
-
-/work/hitr-psp/libs/radcore/src/radtextdisplay/textdisplay.hpp:
-
 /usr/local/pspdev/psp/include/c++/15.2.0/bits/memoryfwd.h:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/invoke.h:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/basic_string.tcc:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/functexcept.h:
+/usr/local/pspdev/psp/include/bits/posix_opt.h:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/exception.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/chrono:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/erase_if.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/cpp_type_traits.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/exception_defines.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/concept_check.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/tuple:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/backward/binders.h:
-
-/work/hitr-psp/libs/radcore/src/radmemory/trackingheap.cpp:
-
-/work/hitr-psp/libs/radcore/src/radmemory/platalloc.cpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/version.h:
-
-/work/hitr-psp/libs/radcore/src/radmemory/memorypool.cpp:
-
-/work/hitr-psp/libs/radcore/src/radmemory/staticheap.h:
-
-/work/hitr-psp/libs/radcore/src/raddebugcommunication/targetsocketchannel.hpp:
-
-/usr/local/pspdev/psp/include/string.h:
-
-/work/hitr-psp/libs/radcore/src/radplatform/platform.cpp:
-
-/work/hitr-psp/libs/radcore/src/raddebugcommunication/protocol.hpp:
-
-/work/hitr-psp/libs/radcore/src/radstats/simplestat.hpp:
-
-/work/hitr-psp/libs/radcore/src/radmemory/memoryspacepsp.cpp:
-
-/work/hitr-psp/libs/radcore/src/raddebugcommunication/decitypes.h:
-
-/work/hitr-psp/libs/radcore/src/psp_controller_stubs.cpp:
-
-/work/hitr-psp/libs/radcore/src/raddebugcommunication/targetdecichannel.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/stdlib.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/initializer_list:
-
-/usr/local/pspdev/psp/include/sys/sched.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/cstdlib:
-
-/usr/local/pspdev/psp/include/machine/stdlib.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/std_abs.h:
-
-/work/hitr-psp/libs/radcore/inc/radtime.hpp:
-
-/work/hitr-psp/libs/radcore/src/radobjectlist/objectlist.cpp:
-
-/work/hitr-psp/libs/radcore/src/pch/pch.hpp:
-
-/work/hitr-psp/libs/radcore/src/radfile/common/remotedrive.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/allocator.h:
-
-/work/hitr-psp/libs/radcore/inc/radstring.hpp:
-
-/work/hitr-psp/libs/radcore/inc/radobjectlist.hpp:
-
-/work/hitr-psp/libs/radcore/inc/radmemorymonitor.hpp:
-
-/work/hitr-psp/libs/radcore/inc/radthread.hpp:
-
-/usr/local/pspdev/psp/include/signal.h:
-
-/usr/local/pspdev/psp/include/assert.h:
-
-/work/hitr-psp/libs/radcore/inc/radplatform.hpp:
-
-/work/hitr-psp/libs/radcore/src/radmemory/staticheap.cpp:
-
-/usr/local/pspdev/psp/include/sys/_types.h:
-
-/work/hitr-psp/libs/radcore/inc/radobject.hpp:
-
-/usr/local/pspdev/psp/sdk/include/pspdebug.h:
-
-/work/hitr-psp/code/main/globaltypes.h:
-
-/usr/local/pspdev/psp/include/machine/ieeefp.h:
-
-/usr/local/pspdev/psp/include/stdlib.h:
-
-/work/hitr-psp/libs/radcore/inc/radoptions.hpp:
-
-/work/hitr-psp/libs/radcore/src/radmemory/twowayallocator.cpp:
-
-/work/hitr-psp/libs/radcore/inc/radfile.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/limits:
-
-/usr/local/pspdev/psp/include/stdint.h:
-
-/work/hitr-psp/libs/radcore/src/radtime/stopwatch.hpp:
-
-/usr/local/pspdev/psp/include/sys/stdio.h:
-
-/work/hitr-psp/libs/radcore/src/radprotocols/memorymonitorprotocol.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_iterator_base_types.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/requires_hosted.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/alloc_traits.h:
-
-/work/hitr-psp/libs/radcore/inc/raddebug.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h:
-
-/usr/local/pspdev/lib/gcc/psp/15.2.0/include/limits.h:
-
-/work/hitr-psp/libs/radcore/src/raddebugcommunication/targetx.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_tree.h:
+/work/hitr-psp/libs/radcore/src/radfile/psp/pspdrive.cpp:
 
 /usr/local/pspdev/psp/include/sys/_pthreadtypes.h:
 
-/usr/local/pspdev/psp/include/sys/reent.h:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_tree.h:
 
-/work/hitr-psp/libs/radcore/inc/radmemory.hpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/new_allocator.h:
 
-/work/hitr-psp/libs/radcore/src/radmemory/platalloc.hpp:
+/usr/local/pspdev/psp/include/limits.h:
 
-/work/hitr-psp/libs/radcore/src/raddebug/debug.cpp:
+/work/hitr-psp/libs/radcore/src/radfile/common/remotedrive.cpp:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/file.cpp:
+/work/hitr-psp/libs/radcore/src/radstats/simplestat.hpp:
 
-/usr/local/pspdev/psp/include/machine/_types.h:
+/work/hitr-psp/libs/radcore/src/radmemory/externalmemoryheap.cpp:
 
-/work/hitr-psp/libs/radcore/src/raddebugcommunication/socket.hpp:
+/work/hitr-psp/libs/radcore/src/radfile/common/radfile.cpp:
 
-/work/hitr-psp/libs/radcore/src/raddebugcommunication/targetx.cpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/char_traits.h:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/cementLibrary.hpp:
+/work/hitr-psp/libs/radcore/src/radfile/common/remotedrive.hpp:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/parse_numbers.h:
+/work/hitr-psp/libs/radcore/src/radfile/common/platformdrives.cpp:
 
-/work/hitr-psp/code/main/commandlineoptions.h:
+/usr/local/pspdev/psp/include/_newlib_version.h:
 
-/usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h:
+/work/hitr-psp/libs/radcore/inc/radremotecommand.hpp:
 
-/usr/local/pspdev/psp/include/machine/_default_types.h:
+/work/hitr-psp/libs/radcore/src/raddebugcommunication/deci2x.h:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/predefined_ops.h:
+/work/hitr-psp/libs/radcore/src/radfile/common/instancedrive.cpp:
 
-/usr/local/pspdev/psp/include/errno.h:
+/usr/local/pspdev/psp/sdk/include/pspstdio.h:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/ext/alloc_traits.h:
+/work/hitr-psp/libs/radcore/src/radfile/common/instancedrive.hpp:
 
-/usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdarg.h:
+/work/hitr-psp/libs/radcore/src/raddebugconsole/consoleclient.cpp:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/cstring:
+/work/hitr-psp/libs/radcore/src/radmemorymonitor/memmonitorclient.cpp:
 
-/usr/local/pspdev/psp/include/newlib.h:
+/work/hitr-psp/libs/radcore/src/radfile/common/filecache.cpp:
 
-/usr/local/pspdev/psp/include/sys/cdefs.h:
+/work/hitr-psp/libs/radcore/src/raddispatch/dispatcher.hpp:
 
-/usr/local/pspdev/psp/include/sys/_intsup.h:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_map.h:
 
-/usr/local/pspdev/psp/include/_ansi.h:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/hash_bytes.h:
 
-/work/hitr-psp/libs/radcore/src/radtextdisplay/textdisplay.cpp:
-
-/usr/local/pspdev/psp/include/sys/config.h:
-
-/work/hitr-psp/libs/radcore/inc/radstacktrace.hpp:
-
-/usr/local/pspdev/psp/include/sys/features.h:
-
-/work/hitr-psp/libs/radcore/src/radstats/statmanager.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bit:
-
-/usr/local/pspdev/psp/include/stdio.h:
-
-/work/hitr-psp/libs/radcore/inc/raddebugconsole.hpp:
-
-/work/hitr-psp/libs/radcore/inc/raddebugcommunication.hpp:
-
-/usr/local/pspdev/psp/include/machine/time.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/cstdint:
-
-/work/hitr-psp/code/memory/classsizetracker.h:
-
-/usr/local/pspdev/psp/include/sys/_stdint.h:
-
-/work/hitr-psp/libs/radcore/inc/radcontroller.hpp:
-
-/usr/local/pspdev/lib/gcc/psp/15.2.0/include/syslimits.h:
-
-/work/hitr-psp/libs/radcore/src/raddebugconsole/consoleclient.hpp:
-
-/work/hitr-psp/libs/radcore/src/radprotocols/debugconsoleprotocol.hpp:
-
-/usr/local/pspdev/psp/sdk/include/pspkerneltypes.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/concepts:
-
-/usr/local/pspdev/psp/sdk/include/pspmoduleinfo.h:
-
-/work/hitr-psp/libs/radcore/src/radobjectbtree/objectbtree.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_iterator_base_funcs.h:
-
-/work/hitr-psp/libs/radcore/src/radfile/common/platformdrives.hpp:
-
-/usr/local/pspdev/psp/sdk/include/psptypes.h:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/uses_allocator.h:
-
-/usr/local/pspdev/psp/include/sys/lock.h:
-
-/work/hitr-psp/libs/radcore/src/radprotocols/fileprotocol.hpp:
-
-/usr/local/pspdev/psp/include/sys/signal.h:
-
-/usr/local/pspdev/psp/sdk/include/pspthreadman.h:
-
-/work/hitr-psp/libs/radcore/src/radfile/common/cementer.cpp:
-
-/usr/local/pspdev/psp/include/time.h:
-
-/work/hitr-psp/libs/radcore/src/radmemory/memory.hpp:
-
-/work/hitr-psp/code/main/tuidunaligned.h:
-
-/usr/local/pspdev/psp/include/sys/timespec.h:
-
-/work/hitr-psp/libs/radcore/inc/radstats.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_multimap.h:
-
-/work/hitr-psp/code/memory/leakdetection.h:
-
-/work/hitr-psp/libs/radcore/inc/radkey.hpp:
-
-/work/hitr-psp/libs/radcore/src/radmemory/binallocator.hpp:
-
-/work/hitr-psp/libs/radcore/src/radfile/common/file.hpp:
-
-/usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h:
-
-/work/hitr-psp/libs/radcore/src/radfile/common/filecache.hpp:
-
-/work/hitr-psp/libs/radcore/src/radfile/common/saferefobject.hpp:
-
-/work/hitr-psp/libs/radcore/src/radmemorymonitor/memmonitorclienthelp.cpp:
-
-/work/hitr-psp/libs/radcore/src/radfile/common/drive.cpp:
-
-/usr/local/pspdev/psp/include/sys/syslimits.h:
-
-/work/hitr-psp/libs/radcore/src/radfile/common/drivethread.hpp:
-
-/work/hitr-psp/libs/radcore/src/radfile/common/filesystem.hpp:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/type_traits:
-
-/usr/local/pspdev/psp/include/c++/15.2.0/map:
-
-/work/hitr-psp/libs/radcore/src/radfile/common/requests.hpp:
+/work/hitr-psp/libs/radcore/src/radfile/common/drivethread.cpp:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/bits/utility.h:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/cerrno:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/drivethread.cpp:
+/work/hitr-psp/libs/radcore/src/radthread/thread.cpp:
 
-/work/hitr-psp/libs/radcore/src/radremotecommand/remotecommandserver.cpp:
+/work/hitr-psp/libs/radcore/src/radfile/common/requests.hpp:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_map.h:
+/work/hitr-psp/libs/radcore/src/radfile/common/filesystem.hpp:
 
-/work/hitr-psp/libs/radcore/src/raddispatch/dispatcher.hpp:
+/usr/local/pspdev/psp/include/sys/syslimits.h:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/drive.hpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/charconv.h:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/filecache.cpp:
+/work/hitr-psp/libs/radcore/src/radmemorymonitor/memmonitorclienthelp.cpp:
 
-/work/hitr-psp/libs/radcore/src/radthread/mutex.cpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/functional_hash.h:
 
-/work/hitr-psp/libs/radcore/src/radmemorymonitor/memmonitorclient.cpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/algorithmfwd.h:
 
-/work/hitr-psp/libs/radcore/src/radmemory/memoryobject.cpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/concept_check.h:
 
-/work/hitr-psp/libs/radcore/src/raddebugconsole/consoleclient.cpp:
+/work/hitr-psp/libs/radcore/src/radmemory/memorymanager.cpp:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/filesystem.cpp:
+/work/hitr-psp/libs/radcore/inc/radkey.hpp:
 
-/work/hitr-psp/libs/radcore/src/radthread/semaphore.hpp:
+/work/hitr-psp/code/memory/leakdetection.h:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/instancedrive.hpp:
+/work/hitr-psp/code/main/tuidunaligned.h:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/instancedrive.cpp:
+/work/hitr-psp/libs/radcore/src/radfile/common/cementer.cpp:
 
-/work/hitr-psp/libs/radcore/src/raddebugcommunication/deci2x.h:
+/usr/local/pspdev/psp/sdk/include/pspthreadman.h:
 
-/usr/local/pspdev/psp/include/_newlib_version.h:
+/work/hitr-psp/libs/radcore/src/radthread/semaphore.cpp:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/platformdrives.cpp:
+/usr/local/pspdev/psp/include/sys/lock.h:
 
-/work/hitr-psp/libs/radcore/src/radmemory/externalmemoryobject.cpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/uses_allocator.h:
 
-/work/hitr-psp/libs/radcore/src/radkey/radkey.cpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/algorithm:
+
+/usr/local/pspdev/psp/sdk/include/pspmoduleinfo.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/concepts:
+
+/work/hitr-psp/libs/radcore/src/radfile/common/drive.cpp:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h:
+
+/work/hitr-psp/libs/radcore/src/radprotocols/debugconsoleprotocol.hpp:
+
+/work/hitr-psp/libs/radcore/src/raddebugconsole/consoleclient.hpp:
+
+/usr/local/pspdev/lib/gcc/psp/15.2.0/include/syslimits.h:
+
+/work/hitr-psp/libs/radcore/inc/radcontroller.hpp:
+
+/usr/local/pspdev/psp/include/sys/_stdint.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bit:
+
+/work/hitr-psp/code/memory/classsizetracker.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/cstdint:
+
+/work/hitr-psp/libs/radcore/inc/raddebugconsole.hpp:
+
+/work/hitr-psp/libs/radcore/inc/radstacktrace.hpp:
 
 /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h:
 
 /usr/local/pspdev/psp/include/sys/types.h:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/radfile.cpp:
+/usr/local/pspdev/psp/sdk/include/pspkerneltypes.h:
 
-/work/hitr-psp/libs/radcore/src/radmemory/externalmemoryheap.cpp:
+/usr/local/pspdev/psp/include/sys/config.h:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/remotedrive.cpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/cstdarg:
 
-/usr/local/pspdev/psp/include/limits.h:
+/work/hitr-psp/libs/radcore/src/radthread/system.cpp:
 
-/work/hitr-psp/libs/radcore/src/radmemory/align.cpp:
+/usr/local/pspdev/psp/include/sys/cdefs.h:
 
-/usr/local/pspdev/psp/include/sys/string.h:
+/usr/local/pspdev/psp/include/c++/15.2.0/cstring:
+
+/usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdarg.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/ext/alloc_traits.h:
 
 /work/hitr-psp/libs/radcore/src/raddispatch/dispatcher.cpp:
 
+/usr/local/pspdev/psp/include/c++/15.2.0/map:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/exception_defines.h:
+
+/usr/local/pspdev/psp/include/sys/string.h:
+
 /work/hitr-psp/libs/radcore/src/radmemory/binallocator.cpp:
 
-/work/hitr-psp/libs/radcore/src/radmemory/dlheap.cpp:
+/usr/local/pspdev/psp/include/machine/_default_types.h:
 
-/usr/local/pspdev/psp/include/bits/posix_opt.h:
+/work/hitr-psp/libs/radcore/inc/radstats.hpp:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_construct.h:
+/work/hitr-psp/libs/radcore/src/radprotocols/fileprotocol.hpp:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/requests.cpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/invoke.h:
 
-/usr/local/pspdev/psp/include/machine/types.h:
+/usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h:
 
-/work/hitr-psp/libs/radcore/src/radtime/time.cpp:
+/usr/local/pspdev/psp/sdk/include/psptypes.h:
 
-/work/hitr-psp/libs/radcore/src/raddebugcommunication/targetconnection.hpp:
+/work/hitr-psp/libs/radcore/src/radfile/common/cementLibrary.hpp:
 
-/work/hitr-psp/libs/radcore/src/radmemory/externalmemoryobject.hpp:
+/work/hitr-psp/libs/radcore/src/raddebugcommunication/targetx.cpp:
 
-/usr/local/pspdev/psp/include/sys/_sigset.h:
+/work/hitr-psp/libs/radcore/src/raddebugcommunication/socket.hpp:
 
-/usr/local/pspdev/psp/include/c++/15.2.0/cstdio:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/basic_string.h:
 
-/usr/local/pspdev/psp/include/ctype.h:
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stringfwd.h:
+
+/usr/local/pspdev/lib/gcc/psp/15.2.0/include/limits.h:
+
+/usr/local/pspdev/psp/sdk/include/pspintrman.h:
+
+/work/hitr-psp/libs/radcore/src/raddebug/debug.cpp:
+
+/work/hitr-psp/libs/radcore/inc/radmemory.hpp:
+
+/usr/local/pspdev/psp/include/sys/reent.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/cxxabi_forced.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/range_access.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h:
+
+/work/hitr-psp/libs/radcore/inc/raddebug.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/alloc_traits.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/requires_hosted.h:
+
+/work/hitr-psp/libs/radcore/src/radprotocols/memorymonitorprotocol.hpp:
+
+/usr/local/pspdev/psp/include/sys/stdio.h:
+
+/usr/local/pspdev/psp/sdk/include/pspsysreg.h:
+
+/usr/local/pspdev/psp/include/stdint.h:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr_kernel.h:
+
+/work/hitr-psp/libs/radcore/src/radmemory/twowayallocator.cpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_iterator_base_types.h:
+
+/work/hitr-psp/libs/radcore/inc/radoptions.hpp:
+
+/usr/local/pspdev/psp/include/stdlib.h:
+
+/usr/local/pspdev/psp/include/newlib.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/cpp_type_traits.h:
+
+/usr/local/pspdev/psp/include/machine/ieeefp.h:
+
+/work/hitr-psp/code/main/globaltypes.h:
+
+/usr/local/pspdev/psp/sdk/include/pspdebug.h:
+
+/work/hitr-psp/libs/radcore/inc/radobject.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/iosfwd:
+
+/usr/local/pspdev/psp/include/sys/_types.h:
+
+/work/hitr-psp/libs/radcore/src/raddebugcommunication/targetx.hpp:
+
+/work/hitr-psp/libs/radcore/src/radmemory/staticheap.cpp:
+
+/work/hitr-psp/libs/radcore/src/radremotecommand/remotecommandserver.cpp:
+
+/work/hitr-psp/libs/radcore/inc/radplatform.hpp:
+
+/usr/local/pspdev/psp/include/assert.h:
+
+/work/hitr-psp/libs/radcore/src/radremotecommand/remotecommand.hpp:
+
+/usr/local/pspdev/psp/include/signal.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/ratio:
+
+/work/hitr-psp/libs/radcore/inc/radstring.hpp:
+
+/work/hitr-psp/libs/radcore/inc/radthread.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/string:
+
+/work/hitr-psp/libs/radcore/inc/radobjectlist.hpp:
 
 /usr/local/pspdev/psp/include/sys/_timespec.h:
 
-/work/hitr-psp/libs/radcore/src/radremotecommand/remotecommandtarget.cpp:
+/work/hitr-psp/libs/radcore/src/pch/pch.hpp:
+
+/work/hitr-psp/libs/radcore/src/radobjectlist/objectlist.cpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_iterator_base_funcs.h:
+
+/work/hitr-psp/libs/radcore/inc/radtime.hpp:
+
+/work/hitr-psp/libs/radcore/src/radfile/common/filesystem.cpp:
+
+/usr/local/pspdev/psp/include/machine/_types.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/std_abs.h:
+
+/work/hitr-psp/libs/radcore/src/radthread/semaphore.hpp:
+
+/usr/local/pspdev/psp/sdk/include/pspintrman_kernel.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/cstdlib:
+
+/work/hitr-psp/libs/radcore/src/radfile/common/cementer.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/stdlib.h:
+
+/work/hitr-psp/libs/radcore/src/radremotecommand/functionlist.cpp:
+
+/work/hitr-psp/libs/radcore/src/raddebugcommunication/targetdecichannel.hpp:
+
+/work/hitr-psp/libs/radcore/src/radobjectbtree/objectbtree.hpp:
+
+/work/hitr-psp/libs/radcore/inc/raddebugcommunication.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_construct.h:
+
+/usr/local/pspdev/psp/include/machine/types.h:
 
 /work/hitr-psp/libs/radcore/inc/raddispatch.hpp:
 
 /usr/local/pspdev/psp/include/sys/errno.h:
 
-/work/hitr-psp/libs/radcore/src/radmemory/externalmemoryheap.hpp:
+/usr/local/pspdev/psp/include/c++/15.2.0/backward/binders.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/type_traits:
+
+/work/hitr-psp/libs/radcore/src/psp_controller_stubs.cpp:
+
+/work/hitr-psp/libs/radcore/src/radmemory/memoryspacepsp.cpp:
+
+/work/hitr-psp/libs/radcore/src/raddebugcommunication/protocol.hpp:
+
+/work/hitr-psp/libs/radcore/src/radmemory/memoryobject.cpp:
+
+/work/hitr-psp/libs/radcore/src/radplatform/platform.cpp:
+
+/usr/local/pspdev/psp/include/ctype.h:
+
+/usr/local/pspdev/psp/include/string.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/allocator.h:
+
+/work/hitr-psp/libs/radcore/src/raddebugcommunication/decitypes.h:
+
+/work/hitr-psp/libs/radcore/src/raddebugcommunication/targetconnection.hpp:
+
+/usr/local/pspdev/psp/include/machine/time.h:
+
+/usr/local/pspdev/psp/sdk/include/pspmodulemgr_kernel.h:
+
+/work/hitr-psp/libs/radcore/src/radmemory/externalmemoryobject.hpp:
+
+/work/hitr-psp/libs/radcore/src/raddebugcommunication/targetsocketchannel.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/ostream_insert.h:
+
+/usr/local/pspdev/psp/include/wchar.h:
+
+/work/hitr-psp/libs/radcore/src/radfile/common/file.cpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/predefined_ops.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/ptr_traits.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/refwrap.h:
+
+/work/hitr-psp/libs/radcore/src/radfile/common/platformdrives.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_algobase.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_function.h:
+
+/work/hitr-psp/libs/radcore/src/radprofiler/profilesample.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_heap.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_iterator.h:
+
+/work/hitr-psp/libs/radcore/src/radstats/statmanager.cpp:
+
+/usr/local/pspdev/psp/include/sys/_timeval.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/ctime:
+
+/work/hitr-psp/libs/radcore/inc/radobjectbtree.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_tempbuf.h:
+
+/work/hitr-psp/libs/radcore/src/radmemory/memory.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/uniform_int_dist.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/version.h:
+
+/work/hitr-psp/libs/radcore/src/radtextdisplay/textdisplay.cpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/cctype:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/cwchar:
+
+/usr/local/pspdev/psp/include/sys/features.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_algo.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/exception.h:
+
+/usr/local/pspdev/psp/include/errno.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/debug/assertions.h:
+
+/work/hitr-psp/libs/radcore/src/radfile/common/requests.cpp:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/tuple:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/postypes.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/debug/debug.h:
+
+/usr/local/pspdev/psp/include/machine/_time.h:
+
+/work/hitr-psp/libs/radcore/src/radthread/system.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/ext/numeric_traits.h:
+
+/work/hitr-psp/libs/radcore/src/radtime/stopwatch.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/ext/string_conversions.h:
+
+/work/hitr-psp/libs/radcore/src/radobjectbtree/objectavltree.cpp:
+
+/work/hitr-psp/libs/radcore/inc/radtextdisplay.hpp:
+
+/work/hitr-psp/libs/radcore/src/radfile/common/filecache.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/ext/type_traits.h:
+
+/work/hitr-psp/libs/radcore/inc/radfile.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/initializer_list:
+
+/usr/local/pspdev/psp/include/sys/sched.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/cstdio:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/new:
+
+/work/hitr-psp/libs/radcore/src/radfile/psp/pspdrive.hpp:
+
+/usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++allocator.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++locale.h:
+
+/usr/local/pspdev/psp/include/locale.h:
+
+/usr/local/pspdev/psp/include/sys/_sigset.h:
+
+/usr/local/pspdev/psp/include/sys/signal.h:
+
+/work/hitr-psp/libs/radcore/inc/radmemorymonitor.hpp:
+
+/usr/local/pspdev/psp/include/sys/time.h:
+
+/usr/local/pspdev/psp/sdk/include/pspkdebug.h:
+
+/usr/local/pspdev/psp/include/sys/timespec.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/cstddef:
+
+/usr/local/pspdev/psp/include/time.h:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h:
+
+/work/hitr-psp/libs/radcore/src/radmemory/memorypool.cpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/clocale:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h:
+
+/usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h:
+
+/usr/local/pspdev/psp/sdk/include/pspkernel.h:
+
+/usr/local/pspdev/psp/sdk/include/pspsysmem.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/functexcept.h:
+
+/usr/local/pspdev/psp/sdk/include/pspkerror.h:
+
+/usr/local/pspdev/psp/sdk/include/psploadcore.h:
+
+/work/hitr-psp/libs/radcore/src/radfile/common/file.hpp:
+
+/usr/local/pspdev/psp/include/machine/stdlib.h:
+
+/usr/local/pspdev/psp/sdk/include/psploadexec.h:
+
+/usr/local/pspdev/psp/sdk/include/pspmodulemgr.h:
+
+/usr/local/pspdev/psp/sdk/include/pspstdio_kernel.h:
+
+/usr/local/pspdev/psp/sdk/include/pspuser.h:
+
+/usr/local/pspdev/psp/sdk/include/psputils.h:
 
 /work/hitr-psp/libs/radcore/src/radthread/mutex.hpp:
 
-/work/hitr-psp/libs/radcore/src/radfile/common/cementer.hpp:
+/work/hitr-psp/libs/radcore/src/radmemorymonitor/memmonitorclient.hpp:
 
-/work/hitr-psp/libs/radcore/src/radmemory/memorymanager.cpp:
+/work/hitr-psp/libs/radcore/src/radkey/radkey.cpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/limits:
+
+/work/hitr-psp/libs/radcore/src/radmemory/externalmemoryobject.cpp:
+
+/work/hitr-psp/libs/radcore/src/radmemory/align.cpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_multimap.h:
+
+/work/hitr-psp/libs/radcore/src/radmemory/binallocator.hpp:
+
+/work/hitr-psp/libs/radcore/src/radmemory/dlheap.cpp:
+
+/work/hitr-psp/libs/radcore/src/radmemory/platalloc.hpp:
+
+/usr/local/pspdev/psp/include/sys/_intsup.h:
+
+/work/hitr-psp/libs/radcore/src/radmemory/externalmemoryheap.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/stl_pair.h:
+
+/work/hitr-psp/code/main/commandlineoptions.h:
+
+/work/hitr-psp/libs/radcore/src/radmemory/staticheap.h:
+
+/work/hitr-psp/libs/radcore/src/radmemory/platalloc.cpp:
+
+/work/hitr-psp/libs/radcore/src/radmemory/trackingheap.cpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/bits/erase_if.h:
+
+/work/hitr-psp/libs/radcore/src/radfile/common/saferefobject.hpp:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/ext/aligned_buffer.h:
+
+/work/hitr-psp/libs/radcore/src/radstats/statmanager.hpp:
+
+/work/hitr-psp/libs/radcore/src/radmemory/twowayallocator.hpp:
+
+/work/hitr-psp/libs/radcore/src/radfile/common/drive.hpp:
+
+/work/hitr-psp/libs/radcore/src/radobject/object.cpp:
+
+/usr/local/pspdev/psp/include/_ansi.h:
+
+/usr/local/pspdev/psp/include/c++/15.2.0/typeinfo:
+
+/usr/local/pspdev/psp/include/stdio.h:
+
+/work/hitr-psp/libs/radcore/src/radobjectbtree/objectbtree.cpp:
+
+/work/hitr-psp/libs/radcore/src/radfile/common/drivethread.hpp:
+
+/work/hitr-psp/libs/radcore/src/radobjectlist/dynamicarray.cpp:
+
+/work/hitr-psp/libs/radcore/src/radobjectlist/weakcallbackwrapper.cpp:
+
+/work/hitr-psp/libs/radcore/src/radobjectlist/weakinterfacewrapper.cpp:

@@ -9,6 +9,10 @@
 #include "platformdrives.hpp"
 #include "remotedrive.hpp"
 
+#if defined(RAD_PSP)
+#include "../psp/pspdrive.hpp"
+#endif
+
 #if defined(RAD_VITA)
 #include "../vita/vitadrive.hpp"
 #elif defined(RAD_WIN32) || defined(RAD_SDL)
@@ -68,6 +72,8 @@ void PlatformDrivesGetDefaultDrive( char* driveSpec )
     strncpy( driveSpec, bigDir, 2 );
     driveSpec[ 2 ] = '\0';
     _strupr( driveSpec );
+#elif defined RAD_PSP
+    strcpy(driveSpec, "MS0:");
 #elif defined RAD_VITA
     strcpy(driveSpec, "UX0:");
 #else
@@ -183,6 +189,11 @@ bool PlatformDrivesValidateDriveName( const char* driveSpec )
     }
 #endif // RAD_GAMECUBE
 
+#ifdef RAD_PSP
+    return strcmp(driveSpec, "MS0:") == 0
+        || strcmp(driveSpec, "ms0:") == 0
+        || strcmp(driveSpec, "UMD0:") == 0;
+#endif
 #ifdef RAD_VITA
     return strcmp(driveSpec, "UX0:") == 0 || strcmp( driveSpec, "APP0:" ) == 0;
 #elif defined __SWITCH__
@@ -207,7 +218,9 @@ void PlatformDrivesFactory( radDrive** ppDrive, const char* driveSpec, radMemory
         return;
     }
 
-#if defined(RAD_VITA)
+#if defined(RAD_PSP)
+    radPspDriveFactory( ppDrive, driveSpec, alloc );
+#elif defined(RAD_VITA)
     radVitaDriveFactory( ppDrive, driveSpec, alloc );
 #elif defined(RAD_WIN32) || defined(RAD_SDL)
     radSdlDriveFactory( ppDrive, driveSpec, alloc );

@@ -2784,6 +2784,30 @@ pddi/gu/gudisplay.cpp.s:
 	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/pure3d/CMakeFiles/pddi.dir/build.make libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/gudisplay.cpp.s
 .PHONY : pddi/gu/gudisplay.cpp.s
 
+pddi/gu/guprim.obj: pddi/gu/guprim.cpp.obj
+.PHONY : pddi/gu/guprim.obj
+
+# target to build an object file
+pddi/gu/guprim.cpp.obj:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/pure3d/CMakeFiles/pddi.dir/build.make libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj
+.PHONY : pddi/gu/guprim.cpp.obj
+
+pddi/gu/guprim.i: pddi/gu/guprim.cpp.i
+.PHONY : pddi/gu/guprim.i
+
+# target to preprocess a source file
+pddi/gu/guprim.cpp.i:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/pure3d/CMakeFiles/pddi.dir/build.make libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.i
+.PHONY : pddi/gu/guprim.cpp.i
+
+pddi/gu/guprim.s: pddi/gu/guprim.cpp.s
+.PHONY : pddi/gu/guprim.s
+
+# target to generate assembly for a file
+pddi/gu/guprim.cpp.s:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/pure3d/CMakeFiles/pddi.dir/build.make libs/pure3d/CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.s
+.PHONY : pddi/gu/guprim.cpp.s
+
 pddi/pddipsp.obj: pddi/pddipsp.cpp.obj
 .PHONY : pddi/pddipsp.obj
 
@@ -3148,6 +3172,9 @@ help:
 	@echo "... pddi/gu/gudisplay.obj"
 	@echo "... pddi/gu/gudisplay.i"
 	@echo "... pddi/gu/gudisplay.s"
+	@echo "... pddi/gu/guprim.obj"
+	@echo "... pddi/gu/guprim.i"
+	@echo "... pddi/gu/guprim.s"
 	@echo "... pddi/pddipsp.obj"
 	@echo "... pddi/pddipsp.i"
 	@echo "... pddi/pddipsp.s"

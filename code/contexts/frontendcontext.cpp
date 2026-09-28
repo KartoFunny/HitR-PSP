@@ -208,6 +208,28 @@ void FrontEndContext::OnStop( ContextEnum nextContext )
 //=============================================================================
 void FrontEndContext::OnUpdate( unsigned int elapsedTime )
 {
+#ifdef RAD_PSP
+    {
+        static int s_count = 0;
+        if (++s_count <= 5) {
+            SceUID fd = sceIoOpen("ms0:/hitr_fe.log",
+                                  PSP_O_WRONLY | PSP_O_CREAT | PSP_O_APPEND, 0777);
+            if (fd >= 0) {
+                char b[80]; int i = 0;
+                const char* p = "[FE] OnUpdate ";
+                while (p[i]) { b[i] = p[i]; i++; }
+                int v = s_count;
+                char num[6]; int n = 0;
+                while (v > 0) { num[n++] = '0' + (v % 10); v /= 10; }
+                for (int j = n-1; j >= 0; j--) b[i++] = num[j];
+                b[i++] = '\n';
+                sceIoWrite(fd, b, i);
+                sceIoClose(fd);
+            }
+        }
+    }
+#endif
+
     // update game data manager
     //
     GetGameDataManager()->Update( elapsedTime );

@@ -845,76 +845,6 @@ const unsigned PROFILE_CHANNEL_LOAD = 3;
 
 void Game::Run() 
 {
-#ifdef RAD_PSP
-    GLOG_M("[G] Game::Run — PSP GU test triangle loop");
-
-    static unsigned int __attribute__((aligned(16))) gu_list[65536];
-
-    // КРИТИЧНО: в PSP GU порядок атрибутов фиксирован:
-    //   TEXTURE → COLOR → NORMAL → POSITION
-    // Поэтому сначала color, потом позиция.
-    struct Vertex {
-        unsigned int colour;
-        short x, y, z;
-    };
-
-    while (1) {
-        sceGuStart(GU_DIRECT, gu_list);
-
-        // Красный фон
-        sceGuClearColor(0xFF0000FF);
-        sceGuClearDepth(0);
-        sceGuClear(GU_COLOR_BUFFER_BIT | GU_DEPTH_BUFFER_BIT);
-
-        // Всё лишнее выключаем
-        sceGuDisable(GU_DEPTH_TEST);
-        sceGuDisable(GU_TEXTURE_2D);
-        sceGuDisable(GU_BLEND);
-        sceGuDisable(GU_CULL_FACE);
-        sceGuDisable(GU_STENCIL_TEST);
-        sceGuDisable(GU_ALPHA_TEST);
-        sceGuDisable(GU_FOG);
-        sceGuDisable(GU_LIGHTING);
-        sceGuDisable(GU_CLIP_PLANES);
-
-        // --- Жёлтый треугольник (по центру) ---
-        {
-            Vertex* v = (Vertex*)sceGuGetMemory(3 * sizeof(Vertex));
-            unsigned int yellow = 0xFF00FFFF;  // ABGR: A=FF, B=00, G=FF, R=FF → жёлтый
-
-            v[0].colour = yellow; v[0].x = 240; v[0].y =  70; v[0].z = 0;
-            v[1].colour = yellow; v[1].x = 140; v[1].y = 220; v[1].z = 0;
-            v[2].colour = yellow; v[2].x = 340; v[2].y = 220; v[2].z = 0;
-
-            sceGuDrawArray(GU_TRIANGLES,
-                           GU_COLOR_8888 | GU_VERTEX_16BIT | GU_TRANSFORM_2D,
-                           3, 0, v);
-        }
-
-        // --- Синий квадрат (слева снизу) ---
-        {
-            Vertex* v = (Vertex*)sceGuGetMemory(6 * sizeof(Vertex));
-            unsigned int blue = 0xFFFF0000;  // ABGR: A=FF, B=FF, G=00, R=00 → синий
-
-            v[0].colour = blue; v[0].x =  50; v[0].y =  50; v[0].z = 0;
-            v[1].colour = blue; v[1].x = 150; v[1].y =  50; v[1].z = 0;
-            v[2].colour = blue; v[2].x =  50; v[2].y = 150; v[2].z = 0;
-
-            v[3].colour = blue; v[3].x = 150; v[3].y =  50; v[3].z = 0;
-            v[4].colour = blue; v[4].x = 150; v[4].y = 150; v[4].z = 0;
-            v[5].colour = blue; v[5].x =  50; v[5].y = 150; v[5].z = 0;
-
-            sceGuDrawArray(GU_TRIANGLES,
-                           GU_COLOR_8888 | GU_VERTEX_16BIT | GU_TRANSFORM_2D,
-                           6, 0, v);
-        }
-
-        sceGuFinish();
-        sceGuSync(0, 0);
-        sceDisplayWaitVblankStart();
-        sceGuSwapBuffers();
-    }
-#endif
 
     extern bool g_AllowDebugOutput;
     
@@ -1052,7 +982,9 @@ void Game::Run()
         //
         // Service the sound renderer.
         //
+#ifndef RAD_PSP
         SoundManager::GetInstance()->Update();
+#endif
 
         if ( mpPlatform->PausedForErrors() )
         {
@@ -1061,14 +993,18 @@ void Game::Run()
             // We use 0 and NUM_CONTEXTS, since these values are unlikely to
             // happen in the real game.
             //
+#ifndef RAD_PSP
             SoundManager::GetInstance()->UpdateOncePerFrame( 0, NUM_CONTEXTS, false, true );
+#endif
         }
 
         //
         // Spin Pure3D async loading.
         //
         DEMOPROFILE( g_DemoProfiler.Start(PROFILE_CHANNEL_LOAD); )
+#ifndef RAD_PSP
         p3d::loadManager->SwitchTask();
+#endif
         DEMOPROFILE( g_DemoProfiler.Stop(PROFILE_CHANNEL_LOAD); )
 
         ++mFrameCount;

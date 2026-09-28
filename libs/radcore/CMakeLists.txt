@@ -62,6 +62,7 @@ if(PSP)
 	list(APPEND RADCORE_SOURCES
 		"src/radmemory/memoryspacepsp.cpp"
 		"src/psp_controller_stubs.cpp"
+		"src/radfile/psp/pspdrive.cpp"
 	)
 elseif(VITA)
 	list(APPEND RADCORE_SOURCES

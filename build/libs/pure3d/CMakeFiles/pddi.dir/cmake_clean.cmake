@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/pddi.dir/pddi/gu/gudev.cpp.obj.d"
   "CMakeFiles/pddi.dir/pddi/gu/gudisplay.cpp.obj"
   "CMakeFiles/pddi.dir/pddi/gu/gudisplay.cpp.obj.d"
+  "CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj"
+  "CMakeFiles/pddi.dir/pddi/gu/guprim.cpp.obj.d"
   "CMakeFiles/pddi.dir/pddi/pddipsp.cpp.obj"
   "CMakeFiles/pddi.dir/pddi/pddipsp.cpp.obj.d"
   "libpddi.a"

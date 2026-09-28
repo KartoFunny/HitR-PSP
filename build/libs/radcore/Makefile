@@ -514,6 +514,30 @@ src/radfile/common/requests.cpp.s:
 	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/radcore/CMakeFiles/radcore.dir/build.make libs/radcore/CMakeFiles/radcore.dir/src/radfile/common/requests.cpp.s
 .PHONY : src/radfile/common/requests.cpp.s
 
+src/radfile/psp/pspdrive.obj: src/radfile/psp/pspdrive.cpp.obj
+.PHONY : src/radfile/psp/pspdrive.obj
+
+# target to build an object file
+src/radfile/psp/pspdrive.cpp.obj:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/radcore/CMakeFiles/radcore.dir/build.make libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj
+.PHONY : src/radfile/psp/pspdrive.cpp.obj
+
+src/radfile/psp/pspdrive.i: src/radfile/psp/pspdrive.cpp.i
+.PHONY : src/radfile/psp/pspdrive.i
+
+# target to preprocess a source file
+src/radfile/psp/pspdrive.cpp.i:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/radcore/CMakeFiles/radcore.dir/build.make libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.i
+.PHONY : src/radfile/psp/pspdrive.cpp.i
+
+src/radfile/psp/pspdrive.s: src/radfile/psp/pspdrive.cpp.s
+.PHONY : src/radfile/psp/pspdrive.s
+
+# target to generate assembly for a file
+src/radfile/psp/pspdrive.cpp.s:
+	cd /work/hitr-psp/build && $(MAKE) $(MAKESILENT) -f libs/radcore/CMakeFiles/radcore.dir/build.make libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.s
+.PHONY : src/radfile/psp/pspdrive.cpp.s
+
 src/radkey/radkey.obj: src/radkey/radkey.cpp.obj
 .PHONY : src/radkey/radkey.obj
 
@@ -1531,6 +1555,9 @@ help:
 	@echo "... src/radfile/common/requests.obj"
 	@echo "... src/radfile/common/requests.i"
 	@echo "... src/radfile/common/requests.s"
+	@echo "... src/radfile/psp/pspdrive.obj"
+	@echo "... src/radfile/psp/pspdrive.i"
+	@echo "... src/radfile/psp/pspdrive.s"
 	@echo "... src/radkey/radkey.obj"
 	@echo "... src/radkey/radkey.i"
 	@echo "... src/radkey/radkey.s"

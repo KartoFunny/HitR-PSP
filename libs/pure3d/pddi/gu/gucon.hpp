@@ -33,6 +33,10 @@ public:
     // Из pddiRenderContext
     virtual int   GetMaxTextureDimension();
 
+    // Immediate mode rendering
+    virtual pddiPrimStream* BeginPrims(pddiShader* material, pddiPrimType primType, unsigned vertexType, int vertexCount, unsigned pass = 0);
+    virtual void EndPrims(pddiPrimStream* stream);
+
     // Ref counting
     virtual void AddRef();
     virtual void Release();

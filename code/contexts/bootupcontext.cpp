@@ -306,6 +306,8 @@ void BootupContext::LoadConfig()
 //==============================================================================
 void BootupContext::OnStart( ContextEnum previousContext )
 {
+    BLOG_M("[BC] OnStart A: enter");
+
     SetMemoryIdentification( "BootupContext" );
     HeapMgr()->PrepareHeapsFeCleanup();
     HeapMgr()->PrepareHeapsFeSetup();
@@ -315,53 +317,86 @@ void BootupContext::OnStart( ContextEnum previousContext )
 #endif
 
     MEMTRACK_PUSH_FLAG( "Bootup" );
+
+    BLOG_M("[BC] OnStart B: before GameDataManager");
     GetGameDataManager()->Init();
+    BLOG_M("[BC] OnStart C: after GameDataManager");
 
 #ifdef RAD_PS2
-    // must load memory card info first, before anything else, since the
-    // memory card boot-up check is done right at the beginning
-    //
     if( !CommandLineOptions::Get( CLO_SKIP_MEMCHECK ) )
     {
         GetMemoryCardManager()->LoadMemcardInfo();
     }
 #endif
 
+    BLOG_M("[BC] OnStart D: before GuiSystem");
+#ifndef RAD_PSP
     GetGuiSystem()->Init();
     GetGuiSystem()->RegisterUserInputHandlers();
-
-    GetCardGallery()->Init();
-    GetCheatInputSystem()->Init();
-    GetTutorialManager()->Initialize();
-    GetATCManager()->Init();
-
-    GetCharacterSheetManager()->InitCharacterSheet();
-
-    GetPresentationManager()->InitializePlayerDrawable();
-
-#ifdef RAD_GAMECUBE
-    //Initialize the GCManager's timers for testing reset and such.
-    GCManager::GetInstance()->Init();
 #endif
+    BLOG_M("[BC] OnStart E: after GuiSystem");
 
+    BLOG_M("[BC] OnStart F: before CardGallery");
+#ifndef RAD_PSP
+    GetCardGallery()->Init();
+#endif
+    BLOG_M("[BC] OnStart G: after CardGallery");
+
+    BLOG_M("[BC] OnStart H: before CheatInput");
+#ifndef RAD_PSP
+    GetCheatInputSystem()->Init();
+#endif
+    BLOG_M("[BC] OnStart I: after CheatInput");
+
+    BLOG_M("[BC] OnStart J: before Tutorial");
+#ifndef RAD_PSP
+    GetTutorialManager()->Initialize();
+#endif
+    BLOG_M("[BC] OnStart K: after Tutorial");
+
+    BLOG_M("[BC] OnStart L: before ATC");
+#ifndef RAD_PSP
+    GetATCManager()->Init();
+#endif
+    BLOG_M("[BC] OnStart M: after ATC");
+
+    BLOG_M("[BC] OnStart N: before CharacterSheet");
+#ifndef RAD_PSP
+    GetCharacterSheetManager()->InitCharacterSheet();
+#endif
+    BLOG_M("[BC] OnStart O: after CharacterSheet");
+
+    BLOG_M("[BC] OnStart P: before Presentation");
+#ifndef RAD_PSP
+    GetPresentationManager()->InitializePlayerDrawable();
+#endif
+    BLOG_M("[BC] OnStart Q: after Presentation");
+
+    BLOG_M("[BC] OnStart R: before WorldPhysics");
+#ifndef RAD_PSP
     GetWorldPhysicsManager()->Init();
+#endif
+    BLOG_M("[BC] OnStart S: after WorldPhysics");
 
+    BLOG_M("[BC] OnStart T: before Interior");
+#ifndef RAD_PSP
     GetInteriorManager()->OnBootupStart();
+#endif
+    BLOG_M("[BC] OnStart U: after Interior");
 
-    // TC: for PS2, we shouldn't start loading sound stuff until we get to the
-    //     license screen to avoid any synchronous script parsing that could
-    //     lock-up the CPU briefly on a GUI prompt screen
-    //
-//    GetSoundManager()->OnBootupStart();
-
+    BLOG_M("[BC] OnStart V: before CharacterManager::PreLoad");
+#ifndef RAD_PSP
     GetCharacterManager()->PreLoad();
+#endif
+    BLOG_M("[BC] OnStart W: after CharacterManager");
 
-    // load rewards script
-    //
+    BLOG_M("[BC] OnStart X: before RewardsManager::LoadScript");
+#ifndef RAD_PSP
     GetRewardsManager()->LoadScript();
+#endif
+    BLOG_M("[BC] OnStart Y: after RewardsManager");
 
-    // preload some data that is common across all levels 
-    // MissionScriptLoader::LoadP3DFile hacked to supress their loads in mission scripts
+    BLOG_M("[BC] OnStart Z: before LoadingManager requests");
     GetLoadingManager()->AddRequest( FILEHANDLER_PURE3D, "art\\cars\\common.p3d", GMA_DEFAULT, "Global" );
     GetLoadingManager()->AddRequest( FILEHANDLER_PURE3D, "art\\cars\\huskA.p3d", GMA_DEFAULT, "Global");
     GetLoadingManager()->AddRequest( FILEHANDLER_PURE3D, "art\\phonecamera.p3d", GMA_DEFAULT, "Global");
@@ -369,13 +404,14 @@ void BootupContext::OnStart( ContextEnum previousContext )
     GetLoadingManager()->AddRequest( FILEHANDLER_PURE3D, "art\\wrench.p3d", GMA_DEFAULT, "Global");
     GetLoadingManager()->AddRequest( FILEHANDLER_PURE3D, "art\\missions\\generic\\missgen.p3d", GMA_DEFAULT, "Global");
 
-    //
-    // Address any loading requests that the managers have queued up
-    //
     GetLoadingManager()->AddCallback( this );
 
-#if defined( RAD_PC ) && defined( SHOW_MOVIES )
-    GetInputManager()->GetFEMouse()->SetInGameMode( true );
+    BLOG_M("[BC] OnStart END");
+
+#ifdef RAD_PSP
+    // PSP: пропускаем загрузку ресурсов — сразу в главное меню (FrontEnd).
+    // Ресурсы (P3D/PNG) у нас не загружаются: нет PSP-драйва для radfile.
+    GetGameFlow()->SetContext( CONTEXT_FRONTEND );
 #endif
 }
 
@@ -427,6 +463,28 @@ void BootupContext::OnStop( ContextEnum nextContext )
 //==============================================================================
 void BootupContext::OnUpdate( unsigned int elapsedTime )
 {
+#ifdef RAD_PSP
+    {
+        static int s_count = 0;
+        if (++s_count <= 5) {
+            SceUID fd = sceIoOpen("ms0:/hitr_update.log",
+                                  PSP_O_WRONLY | PSP_O_CREAT | PSP_O_APPEND, 0777);
+            if (fd >= 0) {
+                char b[80]; int i = 0;
+                const char* p = "[UPD] BootupContext::OnUpdate ";
+                while (p[i]) { b[i] = p[i]; i++; }
+                int v = s_count;
+                char num[6]; int n = 0;
+                while (v > 0) { num[n++] = '0' + (v % 10); v /= 10; }
+                for (int j = n-1; j >= 0; j--) b[i++] = num[j];
+                b[i++] = '\n';
+                sceIoWrite(fd, b, i);
+                sceIoClose(fd);
+            }
+        }
+    }
+#endif
+
     if( m_elapsedTime != -1 )
     {
         if( m_elapsedTime > MINIMUM_LICENSE_SCREEN_DISPLAY_TIME &&

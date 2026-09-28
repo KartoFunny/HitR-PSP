@@ -856,6 +856,20 @@ libs/radcore/CMakeFiles/radcore.dir/src/psp_controller_stubs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/radcore.dir/src/psp_controller_stubs.cpp.s"
 	cd /work/hitr-psp/build/libs/radcore && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /work/hitr-psp/libs/radcore/src/psp_controller_stubs.cpp -o CMakeFiles/radcore.dir/src/psp_controller_stubs.cpp.s
 
+libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj: libs/radcore/CMakeFiles/radcore.dir/flags.make
+libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj: /work/hitr-psp/libs/radcore/src/radfile/psp/pspdrive.cpp
+libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj: libs/radcore/CMakeFiles/radcore.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj"
+	cd /work/hitr-psp/build/libs/radcore && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj -MF CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj.d -o CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj -c /work/hitr-psp/libs/radcore/src/radfile/psp/pspdrive.cpp
+
+libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.i"
+	cd /work/hitr-psp/build/libs/radcore && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /work/hitr-psp/libs/radcore/src/radfile/psp/pspdrive.cpp > CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.i
+
+libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.s"
+	cd /work/hitr-psp/build/libs/radcore && /usr/local/pspdev/bin/psp-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /work/hitr-psp/libs/radcore/src/radfile/psp/pspdrive.cpp -o CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.s
+
 # Object files for target radcore
 radcore_OBJECTS = \
 "CMakeFiles/radcore.dir/src/raddebugcommunication/targetx.cpp.obj" \
@@ -913,7 +927,8 @@ radcore_OBJECTS = \
 "CMakeFiles/radcore.dir/src/radtime/stopwatch.cpp.obj" \
 "CMakeFiles/radcore.dir/src/radtime/time.cpp.obj" \
 "CMakeFiles/radcore.dir/src/radmemory/memoryspacepsp.cpp.obj" \
-"CMakeFiles/radcore.dir/src/psp_controller_stubs.cpp.obj"
+"CMakeFiles/radcore.dir/src/psp_controller_stubs.cpp.obj" \
+"CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj"
 
 # External object files for target radcore
 radcore_EXTERNAL_OBJECTS =
@@ -974,9 +989,10 @@ libs/radcore/libradcore.a: libs/radcore/CMakeFiles/radcore.dir/src/radtime/stopw
 libs/radcore/libradcore.a: libs/radcore/CMakeFiles/radcore.dir/src/radtime/time.cpp.obj
 libs/radcore/libradcore.a: libs/radcore/CMakeFiles/radcore.dir/src/radmemory/memoryspacepsp.cpp.obj
 libs/radcore/libradcore.a: libs/radcore/CMakeFiles/radcore.dir/src/psp_controller_stubs.cpp.obj
+libs/radcore/libradcore.a: libs/radcore/CMakeFiles/radcore.dir/src/radfile/psp/pspdrive.cpp.obj
 libs/radcore/libradcore.a: libs/radcore/CMakeFiles/radcore.dir/build.make
 libs/radcore/libradcore.a: libs/radcore/CMakeFiles/radcore.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Linking CXX static library libradcore.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/work/hitr-psp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Linking CXX static library libradcore.a"
 	cd /work/hitr-psp/build/libs/radcore && $(CMAKE_COMMAND) -P CMakeFiles/radcore.dir/cmake_clean_target.cmake
 	cd /work/hitr-psp/build/libs/radcore && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/radcore.dir/link.txt --verbose=$(VERBOSE)
 

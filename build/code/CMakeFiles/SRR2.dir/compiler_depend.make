@@ -69010,6 +69010,13 @@ code/CMakeFiles/SRR2.dir/render/RenderFlow/renderflow.cpp.obj: /work/hitr-psp/co
   /usr/local/pspdev/psp/include/sys/stdio.h \
   /usr/local/pspdev/psp/include/sys/string.h \
   /usr/local/pspdev/psp/include/sys/syslimits.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+  /usr/local/pspdev/psp/sdk/include/psptypes.h \
   /work/hitr-psp/code/constants/breakablesenum.h \
   /work/hitr-psp/code/constants/particleenum.h \
   /work/hitr-psp/code/debug/profiler.h \
@@ -69611,6 +69618,15 @@ code/CMakeFiles/SRR2.dir/render/RenderManager/RenderManager.cpp.obj: /work/hitr-
   /usr/local/pspdev/psp/include/sys/stdio.h \
   /usr/local/pspdev/psp/include/sys/string.h \
   /usr/local/pspdev/psp/include/sys/syslimits.h \
+  /usr/local/pspdev/psp/sdk/include/pspge.h \
+  /usr/local/pspdev/psp/sdk/include/pspgu.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_devctl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_dirent.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_fcntl.h \
+  /usr/local/pspdev/psp/sdk/include/pspiofilemgr_stat.h \
+  /usr/local/pspdev/psp/sdk/include/pspkerneltypes.h \
+  /usr/local/pspdev/psp/sdk/include/psptypes.h \
   /work/hitr-psp/code/ai/sequencer/task.h \
   /work/hitr-psp/code/ai/state.h \
   /work/hitr-psp/code/ai/statemanager.h \

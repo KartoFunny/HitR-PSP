@@ -14,6 +14,10 @@
 // System Includes
 //========================================
 #include <p3d/billboardobject.hpp>
+
+#ifdef RAD_PSP
+#include <pspiofilemgr.h>
+#endif
 #include <p3d/utility.hpp>
 #include <pddi/pddiext.hpp>
 #include <raddebug.hpp>
@@ -239,6 +243,7 @@ BEGIN_PROFILE("RenderFlow");
     }
 #endif
 END_PROFILE("RenderFlow");
+
 
 }
 

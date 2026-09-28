@@ -14,6 +14,11 @@
 // System Includes
 //========================================
 #include <raddebug.hpp>
+
+#ifdef RAD_PSP
+#include <pspiofilemgr.h>
+#include <pspkernel.h>
+#endif
 #include <radtime.hpp>
 
 //========================================
@@ -291,10 +296,13 @@ void GameFlow::OnTimerDone( unsigned int elapsedtime, void* pUserData )
     //
     // Run the once-per-frame sound update
     //
+#ifndef RAD_PSP
     SoundManager::GetInstance()->UpdateOncePerFrame( elapsedtime, mCurrentContext );
+#endif
 
     // Update the current context.
     mpContexts[mCurrentContext]->Update( elapsedtime );
+
 }
 
 

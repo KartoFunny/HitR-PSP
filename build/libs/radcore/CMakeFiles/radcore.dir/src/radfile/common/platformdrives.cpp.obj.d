@@ -51,4 +51,12 @@ libs/radcore/CMakeFiles/radcore.dir/src/radfile/common/platformdrives.cpp.obj: \
  /usr/local/pspdev/psp/include/stdlib.h \
  /usr/local/pspdev/psp/include/machine/stdlib.h \
  /usr/local/pspdev/psp/include/c++/15.2.0/bits/std_abs.h \
- /work/hitr-psp/libs/radcore/inc/../../../code/main/tuidunaligned.h
+ /work/hitr-psp/libs/radcore/inc/../../../code/main/tuidunaligned.h \
+ /work/hitr-psp/libs/radcore/src/radfile/common/../psp/pspdrive.hpp \
+ /work/hitr-psp/libs/radcore/src/radfile/common/../psp/../common/drive.hpp \
+ /work/hitr-psp/libs/radcore/src/radfile/common/../psp/../common/drivethread.hpp \
+ /work/hitr-psp/libs/radcore/src/radfile/common/../psp/../common/file.hpp \
+ /work/hitr-psp/libs/radcore/src/radfile/common/../psp/../common/saferefobject.hpp \
+ /work/hitr-psp/libs/radcore/src/radfile/common/../psp/../common/platformdrives.hpp \
+ /work/hitr-psp/libs/radcore/src/radfile/common/../psp/../common/filecache.hpp \
+ /work/hitr-psp/libs/radcore/src/radfile/common/../psp/../common/drive.hpp
