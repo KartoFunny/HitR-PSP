@@ -1,0 +1,2 @@
+/usr/local/pspdev/bin/psp-ar qc libradmovie.a CMakeFiles/radmovie.dir/src/pch/pch.cpp.obj CMakeFiles/radmovie.dir/src/psp_movie_stubs.cpp.obj
+/usr/local/pspdev/bin/psp-ranlib libradmovie.a

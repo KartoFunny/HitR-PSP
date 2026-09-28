@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/work/hitr-psp/psptest_srr2/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

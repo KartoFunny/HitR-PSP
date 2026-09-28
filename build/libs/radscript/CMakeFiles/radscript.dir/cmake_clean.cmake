@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/radscript.dir/src/factory/radfactory.cpp.obj"
+  "CMakeFiles/radscript.dir/src/factory/radfactory.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/namespace/namespace.cpp.obj"
+  "CMakeFiles/radscript.dir/src/namespace/namespace.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/pch/pch.cpp.obj"
+  "CMakeFiles/radscript.dir/src/pch/pch.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/script/remotescript.cpp.obj"
+  "CMakeFiles/radscript.dir/src/script/remotescript.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/script/script.cpp.obj"
+  "CMakeFiles/radscript.dir/src/script/script.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoEnum.cpp.obj"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoEnum.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoInstance.cpp.obj"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoInstance.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoIntLiteral.cpp.obj"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoIntLiteral.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoInterface.cpp.obj"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoInterface.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoLoader.cpp.obj"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoLoader.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoMethod.cpp.obj"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoMethod.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoParam.cpp.obj"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoParam.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoSystem.cpp.obj"
+  "CMakeFiles/radscript.dir/src/typeinfo/TypeInfoSystem.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/typeinfo/win32/win32typeinfovfcall.cpp.obj"
+  "CMakeFiles/radscript.dir/src/typeinfo/win32/win32typeinfovfcall.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/typeinfoutil/typeinfodistributor.cpp.obj"
+  "CMakeFiles/radscript.dir/src/typeinfoutil/typeinfodistributor.cpp.obj.d"
+  "CMakeFiles/radscript.dir/src/typeinfoutil/typeinfoutil.cpp.obj"
+  "CMakeFiles/radscript.dir/src/typeinfoutil/typeinfoutil.cpp.obj.d"
+  "libradscript.a"
+  "libradscript.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/radscript.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

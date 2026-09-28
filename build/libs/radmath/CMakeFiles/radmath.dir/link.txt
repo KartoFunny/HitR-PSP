@@ -1,0 +1,2 @@
+/usr/local/pspdev/bin/psp-ar qc libradmath.a CMakeFiles/radmath.dir/radmath/matrix.cpp.obj CMakeFiles/radmath.dir/radmath/numerical.cpp.obj CMakeFiles/radmath.dir/radmath/plane.cpp.obj CMakeFiles/radmath.dir/radmath/quaternion.cpp.obj CMakeFiles/radmath.dir/radmath/radmath.cpp.obj CMakeFiles/radmath.dir/radmath/random.cpp.obj CMakeFiles/radmath.dir/radmath/spline.cpp.obj CMakeFiles/radmath.dir/radmath/triangle.cpp.obj CMakeFiles/radmath.dir/radmath/trig.cpp.obj CMakeFiles/radmath.dir/radmath/vector.cpp.obj
+/usr/local/pspdev/bin/psp-ranlib libradmath.a

@@ -1,0 +1,151 @@
+//=============================================================================
+// pddipsp.cpp — минимальный PDDI backend для PSP
+//=============================================================================
+
+#include <pddi/pddi.hpp>
+#include <pddi/pddipsp.hpp>
+#include <pddi/base/basecontext.hpp>
+
+#include <pspgu.h>
+#include <pspdisplay.h>
+#include <cstring>
+
+//=============================================================================
+// pddiPspDisplay
+//=============================================================================
+class pddiPspDisplay : public pddiDisplay
+{
+public:
+    pddiPspDisplay() : m_width(480), m_height(272), m_depth(32), m_mode(PDDI_DISPLAY_FULLSCREEN), m_refs(1) {}
+
+    bool InitDisplay(int x, int y, int bpp)
+    {
+        m_width = x; m_height = y; m_depth = bpp;
+        return true;
+    }
+    bool InitDisplay(const pddiDisplayInit* initData)
+    {
+        if (initData) {
+            m_width = initData->xsize;
+            m_height = initData->ysize;
+            m_depth = initData->bpp;
+        }
+        return true;
+    }
+
+    int GetHeight() { return m_height; }
+    int GetWidth()  { return m_width; }
+    int GetDepth()  { return m_depth; }
+    pddiDisplayMode GetDisplayMode() { return m_mode; }
+    int GetNumColourBuffer() { return 2; }
+    unsigned GetBufferMask() { return PDDI_BUFFER_COLOUR | PDDI_BUFFER_DEPTH; }
+    unsigned GetFreeTextureMem() { return 2 * 1024 * 1024; }
+    void SwapBuffers() { sceGuSwapBuffers(); }
+    unsigned Screenshot(pddiColour*, int) { return 0; }
+
+    void AddRef()  { m_refs++; }
+    void Release() { if (--m_refs <= 0) delete this; }
+
+private:
+    int m_width, m_height, m_depth;
+    pddiDisplayMode m_mode;
+    int m_refs;
+};
+
+//=============================================================================
+// pguContext
+//=============================================================================
+class pguContext : public pddiBaseContext
+{
+public:
+    pguContext(pddiDisplay* display, pddiDevice* device)
+        : pddiBaseContext(display, device), m_refs(1) {}
+
+    // Абстрактные методы pddiBaseContext
+    virtual void  BeginTiming() { }
+    virtual float EndTiming()   { return 0.0f; }
+    virtual void  LoadHardwareMatrix(pddiMatrixType) { }
+    virtual void  SetupHardwareProjection() { }
+    virtual void  SetupHardwareLight(int)   { }
+
+    // Абстрактные методы pddiRenderContext
+    virtual int   GetMaxTextureDimension() { return 512; }
+
+    // Ref counting (наследуется от pddiObject/IRefCount)
+    virtual void AddRef()  { m_refs++; }
+    virtual void Release() { if (--m_refs <= 0) delete this; }
+
+private:
+    int m_refs;
+};
+
+//=============================================================================
+// pddiPspDevice
+//=============================================================================
+class pddiPspDevice : public pddiDevice
+{
+public:
+    pddiPspDevice()
+        : m_display(nullptr), m_context(nullptr), m_refs(1), m_msgCb(nullptr) {}
+
+    virtual ~pddiPspDevice() {}
+
+    void GetLibraryInfo(pddiLibInfo* info)
+    {
+        if (!info) return;
+        info->versionMajor = PDDI_VERSION_MAJOR;
+        info->versionMinor = PDDI_VERSION_MINOR;
+        info->versionBuild = 0;
+        info->libID = PDDI_LIBID_STUB;
+        strncpy(info->description, "PSP GU (stub)", sizeof(info->description) - 1);
+        info->description[sizeof(info->description) - 1] = 0;
+    }
+
+    void SetCurrentContext(pddiRenderContext* ctx) { m_context = ctx; }
+    pddiRenderContext* GetCurrentContext() { return m_context; }
+
+    pddiDisplay* NewDisplay(int /*id*/)
+    {
+        if (!m_display) m_display = new pddiPspDisplay();
+        return m_display;
+    }
+
+    pddiRenderContext* NewRenderContext(pddiDisplay* display)
+    {
+        if (!m_context) m_context = new pguContext(display, this);
+        return m_context;
+    }
+
+    pddiTexture* NewTexture(pddiTextureDesc*) { return nullptr; }
+    pddiPrimBuffer* NewPrimBuffer(pddiPrimBufferDesc*) { return nullptr; }
+    pddiShader* NewShader(const char*, const char* = nullptr) { return nullptr; }
+    void AddCustomShader(const char*, const char*) { }
+
+    void SetMessageCallback(MessageCallback* c) { m_msgCb = c; }
+
+    void AddRef()  { m_refs++; }
+    void Release()
+    {
+        if (--m_refs > 0) return;
+        if (m_context) { m_context->Release(); m_context = nullptr; }
+        if (m_display) { m_display->Release(); m_display = nullptr; }
+    }
+
+private:
+    pddiDisplay* m_display;
+    pddiRenderContext* m_context;
+    int m_refs;
+    MessageCallback* m_msgCb;
+};
+
+//=============================================================================
+// pddiCreate — точка входа
+//=============================================================================
+extern "C" int pddiCreate(int versionMajor, int versionMinor, pddiDevice** dev)
+{
+    if (versionMajor != PDDI_VERSION_MAJOR || versionMinor != PDDI_VERSION_MINOR)
+        return PDDI_VERSION_ERROR;
+    if (!dev) return PDDI_ERR;
+    *dev = new pddiPspDevice();
+    return PDDI_OK;
+}

@@ -1,0 +1,10 @@
+libs/sim/CMakeFiles/sim.dir/simcollision/collisionanalyserdataUID.cpp.obj: \
+ /work/hitr-psp/libs/sim/simcollision/collisionanalyserdataUID.cpp \
+ /work/hitr-psp/libs/sim/./simcollision/collisionanalyserdataUID.hpp \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
+ /usr/local/pspdev/psp/include/stdint.h \
+ /usr/local/pspdev/psp/include/machine/_default_types.h \
+ /usr/local/pspdev/psp/include/sys/features.h \
+ /usr/local/pspdev/psp/include/_newlib_version.h \
+ /usr/local/pspdev/psp/include/sys/_intsup.h \
+ /usr/local/pspdev/psp/include/sys/_stdint.h

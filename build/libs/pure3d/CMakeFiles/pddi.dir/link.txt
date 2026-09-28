@@ -1,0 +1,2 @@
+/usr/local/pspdev/bin/psp-ar qc libpddi.a CMakeFiles/pddi.dir/pddi/base/basecontext.cpp.obj CMakeFiles/pddi.dir/pddi/base/baseshader.cpp.obj CMakeFiles/pddi.dir/pddi/base/font.cpp.obj CMakeFiles/pddi.dir/pddi/base/pddiobj.cpp.obj CMakeFiles/pddi.dir/pddi/pddipsp.cpp.obj CMakeFiles/pddi.dir/pddi/gu/gudev.cpp.obj CMakeFiles/pddi.dir/pddi/gu/gudisplay.cpp.obj CMakeFiles/pddi.dir/pddi/gu/gucon.cpp.obj
+/usr/local/pspdev/bin/psp-ranlib libpddi.a

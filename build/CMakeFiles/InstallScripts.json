@@ -1,0 +1,22 @@
+{
+	"InstallScripts" : 
+	[
+		"/work/hitr-psp/build/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/choreo/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/poser/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/libpng/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/pure3d/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/radcontent/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/radcore/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/radmath/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/radmovie/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/radmusic/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/radscript/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/radsound/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/scrooby/cmake_install.cmake",
+		"/work/hitr-psp/build/libs/sim/cmake_install.cmake",
+		"/work/hitr-psp/build/code/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

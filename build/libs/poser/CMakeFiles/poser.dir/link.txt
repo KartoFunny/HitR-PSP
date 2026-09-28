@@ -1,0 +1,2 @@
+/usr/local/pspdev/bin/psp-ar qc libposer.a CMakeFiles/poser.dir/src/joint.cpp.obj CMakeFiles/poser.dir/src/pose.cpp.obj CMakeFiles/poser.dir/src/posedriver.cpp.obj CMakeFiles/poser.dir/src/poseengine.cpp.obj CMakeFiles/poser.dir/src/transform.cpp.obj
+/usr/local/pspdev/bin/psp-ranlib libposer.a

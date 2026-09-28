@@ -1,0 +1,2 @@
+/usr/local/pspdev/bin/psp-ar qc libradcontent.a CMakeFiles/radcontent.dir/src/radload/request.cpp.obj CMakeFiles/radcontent.dir/src/radload/queue.cpp.obj CMakeFiles/radcontent.dir/src/radload/hashtable.cpp.obj CMakeFiles/radcontent.dir/src/radload/inventory.cpp.obj CMakeFiles/radcontent.dir/src/radload/stream.cpp.obj CMakeFiles/radcontent.dir/src/radload/manager.cpp.obj CMakeFiles/radcontent.dir/src/radload/object.cpp.obj
+/usr/local/pspdev/bin/psp-ranlib libradcontent.a

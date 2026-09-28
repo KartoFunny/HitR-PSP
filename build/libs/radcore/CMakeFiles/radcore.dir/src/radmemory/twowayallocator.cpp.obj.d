@@ -1,0 +1,35 @@
+libs/radcore/CMakeFiles/radcore.dir/src/radmemory/twowayallocator.cpp.obj: \
+ /work/hitr-psp/libs/radcore/src/radmemory/twowayallocator.cpp \
+ /work/hitr-psp/libs/radcore/src/pch/pch.hpp \
+ /work/hitr-psp/libs/radcore/inc/radmemorymonitor.hpp \
+ /work/hitr-psp/libs/radcore/inc/radoptions.hpp \
+ /work/hitr-psp/libs/radcore/inc/radobject.hpp \
+ /usr/local/pspdev/psp/include/c++/15.2.0/cstdint \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdint.h \
+ /usr/local/pspdev/psp/include/stdint.h \
+ /usr/local/pspdev/psp/include/machine/_default_types.h \
+ /usr/local/pspdev/psp/include/sys/features.h \
+ /usr/local/pspdev/psp/include/_newlib_version.h \
+ /usr/local/pspdev/psp/include/sys/_intsup.h \
+ /usr/local/pspdev/psp/include/sys/_stdint.h \
+ /work/hitr-psp/code/memory/classsizetracker.h \
+ /usr/local/pspdev/psp/include/stdio.h \
+ /usr/local/pspdev/psp/include/_ansi.h \
+ /usr/local/pspdev/psp/include/newlib.h \
+ /usr/local/pspdev/psp/include/sys/config.h \
+ /usr/local/pspdev/psp/include/machine/ieeefp.h \
+ /usr/local/pspdev/psp/include/sys/cdefs.h \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stdarg.h \
+ /usr/local/pspdev/psp/include/sys/reent.h \
+ /usr/local/pspdev/psp/include/_ansi.h \
+ /usr/local/pspdev/psp/include/sys/_types.h \
+ /usr/local/pspdev/psp/include/machine/_types.h \
+ /usr/local/pspdev/psp/include/sys/lock.h \
+ /usr/local/pspdev/psp/include/sys/stdio.h \
+ /work/hitr-psp/libs/radcore/inc/raddebug.hpp \
+ /work/hitr-psp/libs/radcore/inc/radmemory.hpp \
+ /work/hitr-psp/libs/radcore/src/radmemory/twowayallocator.hpp

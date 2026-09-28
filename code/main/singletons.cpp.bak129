@@ -1,0 +1,413 @@
+//=============================================================================
+// Copyright (C) 2002 Radical Entertainment Ltd.  All rights reserved.
+//
+// File:        singletons.cpp
+//
+// Description: Create and destroy all our singletons here.
+//
+// History:     + Created -- Darwin Chau
+//
+//=============================================================================
+
+//========================================
+// System Includes
+//========================================
+#include <raddebug.hpp>
+
+//========================================
+// Project Includes
+//========================================
+#include <main/singletons.h>
+
+#ifdef RAD_PSP
+#include <pspiofilemgr.h>
+#include <cstdarg>
+static SceUID g_sing_log = -1;
+static void SLog(const char* fmt, ...) {
+    if (g_sing_log < 0) {
+        g_sing_log = sceIoOpen("ms0:/hitr_singletons.log",
+                                PSP_O_WRONLY | PSP_O_CREAT | PSP_O_TRUNC, 0777);
+        if (g_sing_log < 0) return;
+    }
+    char buf[256];
+    va_list a;
+    va_start(a, fmt);
+    vsnprintf(buf, sizeof(buf), fmt, a);
+    va_end(a);
+    int len = 0; while (buf[len]) len++;
+    sceIoWrite(g_sing_log, buf, len);
+}
+#define SLOG(x) SLog(x "\n")
+#else
+#define SLOG(x) ((void)0)
+#endif
+
+#include <ai/actionbuttonmanager.h>
+#include <atc/atcmanager.h>
+#include <camera/supercammanager.h>
+#include <cards/cardgallery.h>
+#include <cheats/cheatinputsystem.h>
+#include <data/gamedatamanager.h>
+#include <console/console.h>
+#include <debug/debuginfo.h>
+#include <debug/profiler.h>
+#include <events/eventmanager.h>
+#include <input/inputmanager.h>
+#include <interiors/interiormanager.h>
+#include <loading/loadingmanager.h>
+#include <main/commandlineoptions.h>
+#include <meta/triggervolumetracker.h>
+#include <mission/missionmanager.h>
+#include <mission/charactersheet/charactersheetmanager.h>
+#include <mission/rewards/rewardsmanager.h>
+#include <memory/srrmemory.h>
+#include <mission/missionscriptloader.h>
+#include <worldsim/skidmarks/skidmarkmanager.h>
+#include <presentation/mouthflapper.h>
+#include <presentation/presentation.h>
+#include <presentation/tutorialmanager.h>
+#include <presentation/gui/guisystem.h>
+#include <render/RenderFlow/renderflow.h>
+#include <sound/soundmanager.h>
+#include <worldsim/avatarmanager.h>
+#include <worldsim/character/charactermanager.h>
+#include <worldsim/worldphysicsmanager.h>
+#include <worldsim/vehiclecentral.h>
+#include <worldsim/coins/coinmanager.h>
+#include <worldsim/coins/sparkle.h>
+#include <worldsim/hitnrunmanager.h>
+#include <ai/actor/actormanager.h>
+#include <data/PersistentWorldManager.h>
+#include <worldsim/character/footprint/footprintmanager.h>
+#include <memory/propstats.h>
+#include <simcommon/simenvironment.hpp>
+
+#ifdef RAD_PC
+#include <data/config/gameconfigmanager.h>
+#include <input/MouseCursor.h>
+#endif
+
+//=============================================================================
+// Function:    void AddVariablesToWatcher
+//=============================================================================
+//
+// Description: Adds lots of global variables to the watcher
+// 
+// Parameters:  None
+//
+// Returns:     None
+//
+//=============================================================================
+#ifdef DEBUGWATCH
+void AddVariablesToWatcher()
+{
+    MouthFlapper::AddVariablesToWatcher();
+}
+#endif
+
+//=============================================================================
+// Function:    CreateSingletons
+//=============================================================================
+//
+// Description: Construct all the singletons 
+// 
+// Parameters:  None
+//
+// Returns:     None
+//
+//=============================================================================
+
+void CreateSingletons()
+{
+    SLOG(">> CreateSingletons begin");
+
+    CREATE_DEBUGINFO();
+    SLOG("   DebugInfo OK");
+
+    MEMTRACK_PUSH_GROUP( "Singletons" );
+
+    SLOG("-> GameDataManager");
+    GameDataManager* pGameDataManager = GameDataManager::CreateInstance();
+    rAssert( pGameDataManager != NULL );
+    SLOG("   GameDataManager OK");
+
+    SLOG("-> EventManager");
+    EventManager* pEventManager = EventManager::CreateInstance();
+    rAssert( pEventManager != NULL );
+    SLOG("   EventManager OK");
+
+    SLOG("-> LoadingManager");
+    LoadingManager* pLoadingManager = LoadingManager::CreateInstance();
+    rAssert( pLoadingManager != NULL );
+    SLOG("   LoadingManager OK");
+
+    SLOG("-> InputManager");
+    InputManager* pInputManager = InputManager::CreateInstance();
+    rAssert( pInputManager != NULL );
+    SLOG("   InputManager OK");
+
+    SLOG("-> SkidmarkManager");
+    SkidmarkManager* pSkidmarkManager = SkidmarkManager::CreateInstance();
+    rAssert( pSkidmarkManager != NULL );
+    SLOG("   SkidmarkManager OK");
+
+    SLOG("-> ATCManager");
+    ATCManager * pATCManager =ATCManager::CreateInstance();
+    rAssert(pATCManager != NULL);
+    SLOG("   ATCManager OK");
+
+    SLOG("-> CardGallery");
+#ifdef RAD_PSP
+    // PSP: CardGallery временно отключён — загрузка карточек вешает newlib malloc.
+    CardGallery* pCardCallery = NULL;
+    rAssert(pCardCallery == NULL);
+#else
+    CardGallery* pCardCallery = CardGallery::CreateInstance();
+    rAssert( pCardCallery != NULL );
+#endif
+    SLOG("   CardGallery OK");
+
+    SLOG("-> CharacterSheetManager");
+    CharacterSheetManager* pCharacterSheetManager = CharacterSheetManager::CreateInstance();
+    rAssert(pCharacterSheetManager != NULL);
+    SLOG("   CharacterSheetManager OK");
+
+    SLOG("-> RewardsManager");
+    RewardsManager* pRewardsManager = RewardsManager::CreateInstance();
+    rAssert(pRewardsManager);
+    SLOG("   RewardsManager OK");
+
+    SLOG("-> Console");
+    MEMTRACK_PUSH_GROUP( "Console" );
+    Console* pConsole = Console::CreateInstance();
+    rAssert( pConsole != NULL );
+    MEMTRACK_POP_GROUP( "Console" );
+    SLOG("   Console OK");
+
+    SLOG("-> VehicleCentral");
+    VehicleCentral* pVC = VehicleCentral::CreateInstance();
+    rAssert(pVC != 0);
+    SLOG("   VehicleCentral OK");
+
+    SLOG("-> sim::SimUnits::Initialize");
+    sim::SimUnits::Initialize();
+    SLOG("   SimUnits OK");
+
+    SLOG("-> WorldPhysicsManager");
+    WorldPhysicsManager* pWPM = WorldPhysicsManager::CreateInstance();
+    rAssert(pWPM != 0);
+    SLOG("   WorldPhysicsManager OK");
+
+    SLOG("-> CREATE_PROFILER");
+    CREATE_PROFILER();
+    SLOG("   Profiler OK");
+
+    SLOG("-> PresentationManager");
+    PresentationManager* pPM = PresentationManager::CreateInstance();
+    rAssert( pPM != NULL );
+    SLOG("   PresentationManager OK");
+
+    SLOG("-> CGuiSystem");
+    CGuiSystem* pGuiSystem = CGuiSystem::CreateInstance();
+    rAssert( pGuiSystem != NULL );
+    SLOG("   CGuiSystem OK");
+
+    SLOG("-> SoundManager");
+    SoundManager* pSoundManager =
+        SoundManager::CreateInstance( CommandLineOptions::Get( CLO_MUTE ),
+                                      CommandLineOptions::Get( CLO_NO_MUSIC ),
+                                      CommandLineOptions::Get( CLO_NO_EFFECTS ),
+                                      CommandLineOptions::Get( CLO_NO_DIALOG ) );
+    rAssert( pSoundManager != NULL );
+    SLOG("   SoundManager OK");
+
+    SLOG("-> MissionManager");
+    MissionManager* pMM = MissionManager::CreateInstance();
+    rAssert( pMM != NULL );
+    SLOG("   MissionManager OK");
+
+    SLOG("-> MissionScriptLoader");
+    MissionScriptLoader* pMSL = MissionScriptLoader::CreateInstance();
+    rAssert( pMSL != NULL );
+    SLOG("   MissionScriptLoader OK");
+
+    SLOG("-> CharacterManager");
+    CharacterManager* pCM = CharacterManager::CreateInstance();
+    rAssert( pCM != NULL );
+    SLOG("   CharacterManager OK");
+
+    SLOG("-> AvatarManager");
+    AvatarManager* pAM = AvatarManager::CreateInstance();
+    rAssert( pAM != (AvatarManager*)0 );
+    SLOG("   AvatarManager OK");
+
+    SLOG("-> ActionButtonManager");
+    ActionButtonManager* pABM = ActionButtonManager::CreateInstance();
+    rAssert( pABM != (ActionButtonManager*)0 );
+    SLOG("   ActionButtonManager OK");
+
+    SLOG("-> SuperCamManager");
+    SuperCamManager* pSCM = SuperCamManager::CreateInstance();
+    rAssert( pSCM != NULL );
+    SLOG("   SuperCamManager OK");
+
+    SLOG("-> TriggerVolumeTracker");
+    TriggerVolumeTracker::CreateInstance();
+    SLOG("   TriggerVolumeTracker OK");
+
+    SLOG("-> InteriorManager");
+    InteriorManager* pInteriorManager = InteriorManager::CreateInstance();
+    rAssert( pInteriorManager != NULL );
+    SLOG("   InteriorManager OK");
+
+    SLOG("-> CheatInputSystem");
+    CheatInputSystem* pCheatInputSystem = CheatInputSystem::CreateInstance();
+    rAssert( pCheatInputSystem != NULL );
+    SLOG("   CheatInputSystem OK");
+
+    SLOG("-> TutorialManager");
+    TutorialManager* pTutorialManager = TutorialManager::CreateInstance();
+    rAssert( pTutorialManager != NULL );
+    SLOG("   TutorialManager OK");
+
+    SLOG("-> ActorManager");
+    ActorManager* pActorManager = ActorManager::CreateInstance();
+    rAssert( pActorManager != NULL );
+    SLOG("   ActorManager OK");
+
+    SLOG("-> PersistentWorldManager");
+    PersistentWorldManager* pPWManager = PersistentWorldManager::CreateInstance();
+    rAssert( pPWManager );
+    SLOG("   PersistentWorldManager OK");
+
+    SLOG("-> FootprintManager");
+    FootprintManager* pFootprintManager = FootprintManager::CreateInstance();
+    rAssert( pFootprintManager != NULL );
+    SLOG("   FootprintManager OK");
+
+    SLOG("-> CoinManager");
+    CoinManager* pCoinManager = CoinManager::CreateInstance();
+    rAssert( pCoinManager );
+    SLOG("   CoinManager OK");
+
+    SLOG("-> Sparkle");
+    Sparkle* pSparkle = Sparkle::CreateInstance();
+    rAssert( pSparkle );
+    SLOG("   Sparkle OK");
+
+    SLOG("-> HitnRunManager");
+    HitnRunManager* pHitnRunManager = HitnRunManager::CreateInstance();
+    rAssert( pHitnRunManager );
+    SLOG("   HitnRunManager OK");
+
+    SLOG("-> RenderFlow");
+    RenderFlow* pRenderFlow = RenderFlow::CreateInstance();
+    rAssert( pRenderFlow );
+    SLOG("   RenderFlow OK");
+
+#ifndef RAD_RELEASE
+    if( CommandLineOptions::Get( CLO_PROP_STATS ) )
+    {
+        PropStats::EnableTracking();
+    }
+#endif
+
+    MEMTRACK_POP_GROUP("Singletons");
+
+    SLOG(">> CreateSingletons end");
+    AddVariablesToWatcher();
+}
+
+//=============================================================================
+// Function:    DestroySingletons
+//=============================================================================
+//
+// Description: Destroy all the singletons
+// 
+// Parameters:  None
+//
+// Returns:     None
+//
+//=============================================================================
+void DestroySingletons()
+{
+    InteriorManager::DestroyInstance();
+
+    ActionButtonManager::DestroyInstance();
+
+    SuperCamManager::DestroyInstance();
+
+    AvatarManager::DestroyInstance();
+
+    CharacterManager::DestroyInstance();
+    
+    MissionScriptLoader::DestroyInstance();    
+    
+    //HeadToHeadManager::DestroyInstance();    
+    
+    MissionManager::DestroyInstance();
+    
+#ifndef RAD_PSP
+    SoundManager::DestroyInstance();
+#endif
+    
+    CGuiSystem::DestroyInstance();
+
+    PresentationManager::DestroyInstance();
+
+    WorldPhysicsManager::DestroyInstance();
+
+    VehicleCentral::DestroyInstance();
+    
+    Console::DestroyInstance();
+       
+    ATCManager::DestroyInstance();
+
+    CharacterSheetManager::DestroyInstance();
+
+    RewardsManager::DestroyInstance();
+
+#ifndef RAD_PSP
+    CardGallery::DestroyInstance();
+#endif
+
+    TutorialManager::DestroyInstance();
+
+    CoinManager::DestroyInstance();
+
+    Sparkle::DestroyInstance();
+
+    CheatInputSystem::DestroyInstance();
+
+    HitnRunManager::DestroyInstance();
+
+    InputManager::DestroyInstance();
+    
+    LoadingManager::DestroyInstance();
+
+    SkidmarkManager::DestroyInstance();
+
+    FootprintManager::DestroyInstance();
+
+    ActorManager::DestroyInstance();
+
+    PersistentWorldManager::DestroyInstance();
+
+    TriggerVolumeTracker::DestroyInstance();
+
+    RenderFlow::DestroyInstance();
+
+    GameDataManager::DestroyInstance();
+
+    EventManager::DestroyInstance();
+
+#ifdef RAD_PC
+    GameConfigManager::DestroyInstance();
+#endif
+
+    DESTROY_PROFILER();
+
+    DESTROY_DEBUGINFO();
+
+    //DESTROY_MEMORYTRACKER();
+}

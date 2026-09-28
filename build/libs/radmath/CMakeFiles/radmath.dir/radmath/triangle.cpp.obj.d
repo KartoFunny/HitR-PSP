@@ -1,0 +1,36 @@
+libs/radmath/CMakeFiles/radmath.dir/radmath/triangle.cpp.obj: \
+ /work/hitr-psp/libs/radmath/radmath/triangle.cpp \
+ /work/hitr-psp/libs/radmath/./radmath/geometry.hpp \
+ /work/hitr-psp/libs/radmath/./radmath/buildconfig.hpp \
+ /work/hitr-psp/libs/radmath/./radmath/vector.hpp \
+ /work/hitr-psp/libs/radmath/./radmath/util.hpp \
+ /usr/local/pspdev/psp/include/c++/15.2.0/cmath \
+ /usr/local/pspdev/psp/include/c++/15.2.0/bits/requires_hosted.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/bits/cpp_type_traits.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/bits/version.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/ext/type_traits.h \
+ /usr/local/pspdev/psp/include/math.h \
+ /usr/local/pspdev/psp/include/sys/reent.h \
+ /usr/local/pspdev/psp/include/_ansi.h \
+ /usr/local/pspdev/psp/include/newlib.h \
+ /usr/local/pspdev/psp/include/_newlib_version.h \
+ /usr/local/pspdev/psp/include/sys/config.h \
+ /usr/local/pspdev/psp/include/machine/ieeefp.h \
+ /usr/local/pspdev/psp/include/sys/features.h \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h \
+ /usr/local/pspdev/psp/include/sys/cdefs.h \
+ /usr/local/pspdev/psp/include/machine/_default_types.h \
+ /usr/local/pspdev/psp/include/sys/_types.h \
+ /usr/local/pspdev/psp/include/machine/_types.h \
+ /usr/local/pspdev/psp/include/sys/lock.h \
+ /usr/local/pspdev/psp/include/_ansi.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/bits/std_abs.h \
+ /usr/local/pspdev/psp/include/stdlib.h \
+ /usr/local/pspdev/psp/include/machine/stdlib.h \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/float.h \
+ /work/hitr-psp/libs/radmath/./radmath/trig.hpp \
+ /usr/local/pspdev/psp/include/c++/15.2.0/math.h \
+ /usr/local/pspdev/psp/include/assert.h

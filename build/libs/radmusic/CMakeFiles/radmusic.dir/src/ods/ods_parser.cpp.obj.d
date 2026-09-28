@@ -1,0 +1,28 @@
+libs/radmusic/CMakeFiles/radmusic.dir/src/ods/ods_parser.cpp.obj: \
+ /work/hitr-psp/libs/radmusic/src/ods/ods_parser.cpp \
+ /work/hitr-psp/libs/radmusic/src/pch/pch.hpp \
+ /work/hitr-psp/libs/radmusic/inc/ods/parser.hpp \
+ /usr/local/pspdev/psp/include/c++/15.2.0/stdlib.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/cstdlib \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/c++config.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/os_defines.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/psp/bits/cpu_defines.h \
+ /usr/local/pspdev/psp/include/stdlib.h \
+ /usr/local/pspdev/psp/include/machine/ieeefp.h \
+ /usr/local/pspdev/psp/include/_ansi.h \
+ /usr/local/pspdev/psp/include/newlib.h \
+ /usr/local/pspdev/psp/include/_newlib_version.h \
+ /usr/local/pspdev/psp/include/sys/config.h \
+ /usr/local/pspdev/psp/include/sys/features.h \
+ /usr/local/pspdev/lib/gcc/psp/15.2.0/include/stddef.h \
+ /usr/local/pspdev/psp/include/sys/reent.h \
+ /usr/local/pspdev/psp/include/_ansi.h \
+ /usr/local/pspdev/psp/include/sys/cdefs.h \
+ /usr/local/pspdev/psp/include/machine/_default_types.h \
+ /usr/local/pspdev/psp/include/sys/_types.h \
+ /usr/local/pspdev/psp/include/machine/_types.h \
+ /usr/local/pspdev/psp/include/sys/lock.h \
+ /usr/local/pspdev/psp/include/machine/stdlib.h \
+ /usr/local/pspdev/psp/include/c++/15.2.0/bits/std_abs.h \
+ /usr/local/pspdev/psp/include/string.h \
+ /usr/local/pspdev/psp/include/sys/string.h
